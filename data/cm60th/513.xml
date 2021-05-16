@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ArData>
+  <xs:schema id="ArData" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="ArData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+
+          <xs:element name="basedata">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="ed0" type="xs:string" minOccurs="0" />
+                <xs:element name="ar0" type="xs:string" minOccurs="0" />
+                <xs:element name="pv" type="xs:string" minOccurs="0" />
+                <xs:element name="len" type="xs:string" minOccurs="0" />
+                <xs:element name="wzoom" type="xs:string" minOccurs="0" />
+                <xs:element name="xyz" type="xs:string" minOccurs="0" />
+                <xs:element name="parti" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+
+          <xs:element name="pcsdata">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="ed1" type="xs:string" minOccurs="0" />
+                <xs:element name="ar1" type="xs:string" minOccurs="0" />
+                <xs:element name="m" type="xs:string" minOccurs="0" />
+                <xs:element name="m1" type="xs:string" minOccurs="0" />
+                <xs:element name="m2" type="xs:string" minOccurs="0" />
+                <xs:element name="mo" type="xs:string" minOccurs="0" />
+                <xs:element name="t" type="xs:string" minOccurs="0" />
+                <xs:element name="xs" type="xs:string" minOccurs="0" />
+                <xs:element name="an" type="xs:string" minOccurs="0" />
+                <xs:element name="wh" type="xs:string" minOccurs="0" />
+                <xs:element name="wrapzoom" type="xs:string" minOccurs="0" />
+                <xs:element name="o" type="xs:string" minOccurs="0" />
+                <xs:element name="o1" type="xs:string" minOccurs="0" />
+                <xs:element name="o2" type="xs:string" minOccurs="0" />
+                <xs:element name="o3" type="xs:string" minOccurs="0" />
+                <xs:element name="oa" type="xs:string" minOccurs="0" />
+                <xs:element name="ob" type="xs:string" minOccurs="0" />
+                <xs:element name="oc" type="xs:string" minOccurs="0" />
+                <xs:element name="oz" type="xs:string" minOccurs="0" />
+                <xs:element name="oaz" type="xs:string" minOccurs="0" />
+                <xs:element name="obz" type="xs:string" minOccurs="0" />
+                <xs:element name="ocz" type="xs:string" minOccurs="0" />
+                <xs:element name="bg" type="xs:string" minOccurs="0" />
+                <xs:element name="l" type="xs:string" minOccurs="0" />
+                <xs:element name="par" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+
+  <basedata>
+    <ed0>1346358</ed0>
+    <ar0>2</ar0>
+    <pv></pv>
+    <len>1</len>
+    <wzoom></wzoom>
+    <xyz>0 0 25</xyz>
+    <parti>01</parti>
+  </basedata>
+
+  <pcsdata>
+    <ed1>1346358</ed1>
+    <ar1>92</ar1>
+    <m></m>
+    <m1></m1>
+    <m2>09</m2>
+    <mo>cm60th</mo>
+    <t>v</t>
+    <xs>1</xs>
+    <an>0</an>
+    <wh></wh>
+    <wrapzoom>60</wrapzoom>
+    <o></o>
+    <o1></o1>
+    <o2>01</o2>
+    <o3>05</o3>
+    <oa></oa>
+    <ob></ob>
+    <oc></oc>
+    <oz></oz>
+    <oaz></oaz>
+    <obz></obz>
+    <ocz></ocz>
+    <bg></bg>
+    <l>384</l>
+    <par>cm60th_01</par>
+  </pcsdata>
+
+</ArData>

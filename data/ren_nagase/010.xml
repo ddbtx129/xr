@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ArData>
+  <xs:schema id="ArData" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="ArData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+
+          <xs:element name="basedata">
+            <xs:complexType>
+              <xs:sequence>
+                <!--有効期限-->
+                <xs:element name="ed0" type="xs:string" minOccurs="0" />
+                <!--ARマーカータイプ-->
+                <xs:element name="ar0" type="xs:string" minOccurs="0" />
+                <!--プレビュー表示-->
+                <xs:element name="pv" type="xs:string" minOccurs="0" />
+                <!--マーカー数-->
+                <xs:element name="len" type="xs:string" minOccurs="0" />
+                <!--wrap幅・高さ-->
+                <xs:element name="wzoom" type="xs:string" minOccurs="0" />
+                <!--wrapポジション-->
+                <xs:element name="xyz" type="xs:string" minOccurs="0" />
+                <!--パーティクルシステム-->
+                <xs:element name="parti" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+
+          <xs:element name="pcsdata">
+            <xs:complexType>
+              <xs:sequence>
+                <!--有効期限-->
+                <xs:element name="ed1" type="xs:string" minOccurs="0" />
+                <!--ARマーカータイプ-->
+                <xs:element name="ar1" type="xs:string" minOccurs="0" />
+                <!--マーカーフォルダ-->
+                <xs:element name="m" type="xs:string" minOccurs="0" />
+                <!--マーカーフォルダ1-->
+                <xs:element name="m1" type="xs:string" minOccurs="0" />
+                <!--マーカーフォルダ名-->
+                <xs:element name="m2" type="xs:string" minOccurs="0" />
+                <!--マーカー・オブジェクト共通フォルダ名-->
+                <xs:element name="mo" type="xs:string" minOccurs="0" />
+                <!--オブジェクトタイプ-->
+                <xs:element name="t" type="xs:string" minOccurs="0" />
+                <!--影-->
+                <xs:element name="xs" type="xs:string" minOccurs="0" />
+                <!--表示角度-->
+                <xs:element name="an" type="xs:string" minOccurs="0" />
+                <!--幅・高さ-->
+                <xs:element name="wh" type="xs:string" minOccurs="0" />
+                <!--倍率-->
+                <xs:element name="wrapzoom" type="xs:string" minOccurs="0" />
+                <!--オブジェクトフォルダ名-->
+                <xs:element name="o" type="xs:string" minOccurs="0" />
+                <!--オブジェクトフォルダ名1-->
+                <xs:element name="o1" type="xs:string" minOccurs="0" />
+                <!--オブジェクト名-->
+                <xs:element name="o2" type="xs:string" minOccurs="0" />
+                <!--オブジェクト切替有りの場合最終オブジェクト名-->
+                <xs:element name="o3" type="xs:string" minOccurs="0" />
+                <!--追加オブジェクト-->
+                <xs:element name="oa" type="xs:string" minOccurs="0" />
+                <xs:element name="ob" type="xs:string" minOccurs="0" />
+                <xs:element name="oc" type="xs:string" minOccurs="0" />
+                <!--オブジェクト Z軸-->
+                <xs:element name="oz" type="xs:string" minOccurs="0" />
+                <xs:element name="oaz" type="xs:string" minOccurs="0" />
+                <xs:element name="obz" type="xs:string" minOccurs="0" />
+                <xs:element name="ocz" type="xs:string" minOccurs="0" />
+                <!--背景有無 背景ファイル名-->
+                <xs:element name="bg" type="xs:string" minOccurs="0" />
+                <!--ロゴ表示-->
+                <xs:element name="l" type="xs:string" minOccurs="0" />
+                <!--ロゴ表示-->
+                <xs:element name="par" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+
+  <basedata>
+    <ed0>13465BA</ed0>
+    <ar0>1</ar0>
+    <pv></pv>
+    <len>2</len>
+    <wzoom></wzoom>
+    <xyz></xyz>
+    <parti></parti>
+  </basedata>
+
+  <pcsdata>
+    <ed1>13465BA</ed1>
+    <ar1>1</ar1>
+    <m></m>
+    <m1></m1>
+    <m2>01</m2>
+    <mo>ren_nagase</mo>
+    <t>p</t>
+    <xs>1</xs>
+    <an></an>
+    <wh></wh>
+    <wrapzoom></wrapzoom>
+    <o></o>
+    <o1></o1>
+    <o2>121</o2>
+    <o3>130</o3>
+    <oa></oa>
+    <ob></ob>
+    <oc></oc>
+    <oz></oz>
+    <oaz></oaz>
+    <obz></obz>
+    <ocz></ocz>
+    <bg></bg>
+    <l>190</l>
+    <par></par>
+  </pcsdata>
+
+  <pcsdata>
+    <ed1>13465BA</ed1>
+    <ar1>1</ar1>
+    <m></m>
+    <m1></m1>
+    <m2>02</m2>
+    <mo>ren_nagase</mo>
+    <t>p</t>
+    <xs>1</xs>
+    <an></an>
+    <wh></wh>
+    <wrapzoom></wrapzoom>
+    <o></o>
+    <o1></o1>
+    <o2>131</o2>
+    <o3>140</o3>
+    <oa></oa>
+    <ob></ob>
+    <oc></oc>
+    <oz></oz>
+    <oaz></oaz>
+    <obz></obz>
+    <ocz></ocz>
+    <bg></bg>
+    <l>12C</l>
+    <par></par>
+  </pcsdata>
+
+  <pcsdata>
+    <ed1>13465BA</ed1>
+    <ar1>1</ar1>
+    <m></m>
+    <m1></m1>
+    <m2>03</m2>
+    <mo>ren_nagase</mo>
+    <t>p</t>
+    <xs>1</xs>
+    <an></an>
+    <wh></wh>
+    <wrapzoom></wrapzoom>
+    <o></o>
+    <o1></o1>
+    <o2>141</o2>
+    <o3>150</o3>
+    <oa></oa>
+    <ob></ob>
+    <oc></oc>
+    <oz></oz>
+    <oaz></oaz>
+    <obz></obz>
+    <ocz></ocz>
+    <bg></bg>
+    <l>C8</l>
+    <par></par>
+  </pcsdata>
+
+</ArData>
