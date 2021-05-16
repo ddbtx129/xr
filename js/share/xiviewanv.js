@@ -2925,7 +2925,7 @@ var viewmode = 'marker';
 
                     var riseTime = webAr.ar.args[oidx].Particlefireworks[i].riseTimeLen.split(',');
                     f.setAttribute('scatter', 'riseTimeLen', [Number(riseTime[0]), Number(riseTime[1])]);
-                    fw[k].posfactor
+
                     var bPos = webAr.ar.args[oidx].Particlefireworks[i].bPos.split(',');
                     f.setAttribute('scatter', 'bPos', [Number(bPos[0]), Number(bPos[1]), Number(bPos[2])]);
                     console.log(webAr.ar.args[oidx].Particlefireworks[i].posfactor);
