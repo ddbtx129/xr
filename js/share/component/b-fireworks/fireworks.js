@@ -258,11 +258,11 @@
 			},
 			fireball: {
 				type: "string",
-				default: path + '/iimages/fireball.png'
+				default: path + '/images/fireball.png'
 			},
 			fireballSheet: {
 				type: "string",
-				default: path + '/iimages/fireball-up.png'
+				default: path + '/images/fireball-up.png'
 			}
 		},
 
