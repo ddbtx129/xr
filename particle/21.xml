@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ArData>
+  <xs:schema id="ArData" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="ArData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+
+          <xs:element name="particle">
+            <xs:complexType>
+              <xs:sequence>
+                <!--ID名 (固定)-->
+                <xs:element name="idnm" type="xs:string" minOccurs="0" />
+                <!--ポジション-->
+                <xs:element name="pos" type="xs:string" minOccurs="0" />
+                <!--particle-system-->
+                <xs:element name="partisys" type="xs:string" minOccurs="0" />
+                <!--a-assets使用 0:なし 1:使用-->
+                <xs:element name="assets" type="xs:string" minOccurs="0" />
+                <!--a-assets ID-->
+                <xs:element name="assetsid" type="xs:string" minOccurs="0" />
+                <!--a-assetsソース-->
+                <xs:element name="assetssrc" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+
+  <particle>
+    <idnm>arParticle</idnm>
+    <pos>0 -2.25 -15</pos>
+    <partisys>texture: asset/balloon/01.png; preset: snow; opacity: 0.5; ParticleCount: 20; maxAge: 10; size: 8; accelerationValue: 0.1 0.1 0.1; accelerationSpread: 0.1 0.1 0.1; velocityValue: 0.1 2.5 0.1; velocitySpread: 1.5 0.5 1.5; rotationAngle: 0; blending: 1;direction: -1; maxParticleCount: 50; enabled: true</partisys>
+  </particle>
+
+  <particle>
+    <idnm>arParticle</idnm>
+    <pos>0 -2.25 -15</pos>
+    <partisys>texture: asset/balloon/02.png; preset: snow; opacity: 0.5; ParticleCount: 20; maxAge: 10; size: 8; accelerationValue: 0.1 0.1 0.1; accelerationSpread: 0.1 0.1 0.1; velocityValue: 0.1 2.5 0.1; velocitySpread: 1.5 0.5 1.5; rotationAngle: 0; blending: 1;direction: -1; maxParticleCount: 50; enabled: true</partisys>
+  </particle>
+
+  <particle>
+    <idnm>arParticle</idnm>
+    <pos>0 -2.25 -15</pos>
+    <partisys>texture: asset/balloon/03.png; preset: snow; opacity: 0.5; ParticleCount: 20; maxAge: 10; size: 8; accelerationValue: 0.1 0.1 0.1; accelerationSpread: 0.1 0.1 0.1; velocityValue: 0.1 2.5 0.1; velocitySpread: 1.5 0.5 1.5; rotationAngle: 0; blending: 1;direction: -1; maxParticleCount: 50; enabled: true</partisys>
+  </particle>
+
+  <particle>
+    <idnm>arParticle</idnm>
+    <pos>0 -2.25 -15</pos>
+    <partisys>texture: asset/balloon/04.png; preset: snow; opacity: 0.5; ParticleCount: 20; maxAge: 10; size: 8; accelerationValue: 0.1 0.1 0.1; accelerationSpread: 0.1 0.1 0.1; velocityValue: 0.1 2.5 0.1; velocitySpread: 1.5 0.5 1.5; rotationAngle: 0; blending: 1;direction: -1; maxParticleCount: 50; enabled: true</partisys>
+  </particle>
+
+  <particle>
+    <idnm>arParticle</idnm>
+    <pos>0 -2.25 -15</pos>
+    <partisys>texture: asset/balloon/05.png; preset: snow; opacity: 0.5; ParticleCount: 20; maxAge: 10; size: 8; accelerationValue: 0.1 0.1 0.1; accelerationSpread: 0.1 0.1 0.1; velocityValue: 0.1 2.5 0.1; velocitySpread: 1.5 0.5 1.5; rotationAngle: 0; blending: 1;direction: -1; maxParticleCount: 50; enabled: true</partisys>
+  </particle>
+
+  <particle>
+    <idnm>arParticle</idnm>
+    <pos>0 -2.25 -15</pos>
+    <partisys>texture: asset/balloon/06.png; preset: snow; opacity: 0.5; ParticleCount: 20; maxAge: 10; size: 8; accelerationValue: 0.1 0.1 0.1; accelerationSpread: 0.1 0.1 0.1; velocityValue: 0.1 2.5 0.1; velocitySpread: 1.5 0.5 1.5; rotationAngle: 0; blending: 1;direction: -1; maxParticleCount: 50; enabled: true</partisys>
+  </particle>
+  
+</ArData>

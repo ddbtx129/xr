@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ArData>
+  <xs:schema id="ArData" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="ArData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+
+          <xs:element name="particle">
+            <xs:complexType>
+              <xs:sequence>
+                <!--ID名 (固定)-->
+                <xs:element name="kind" type="xs:string" minOccurs="0" />
+                <!--属性名-->
+                <xs:element name="attribute" type="xs:string" minOccurs="0" />
+                <!--色-->
+                <xs:element name="color" type="xs:string" minOccurs="0" />
+                <!--画像-->
+                <xs:element name="texture" type="xs:string" minOccurs="0" />
+                <!--ベースポジション-->
+                <xs:element name="bPos" type="xs:string" minOccurs="0" />
+                <!--ポジション係数-->
+                <xs:element name="posfactor" type="xs:string" minOccurs="0" />
+                <!--最大打ち上げ高さ範囲(乱数)-->
+                <xs:element name="maxHeightLen" type="xs:string" minOccurs="0" />
+                <!--打ち上げ間隔時間範囲(乱数)-->
+                <xs:element name="riseTimeLen" type="xs:string" minOccurs="0" />
+                <!--バースト透明度-->
+                <xs:element name="bOpacity" type="xs:string" minOccurs="0" />
+                <!--テール透明度-->
+                <xs:element name="tOpacity" type="xs:string" minOccurs="0" />
+                <!--打ち上げ間隔-->
+                <xs:element name="frequency" type="xs:string" minOccurs="0" />
+                <!--半径-->
+                <xs:element name="radius" type="xs:string" minOccurs="0" />
+                <!--散乱範囲(乱数)-->
+                <xs:element name="pCount" type="xs:string" minOccurs="0" />
+                <!--爆発速度範囲(乱数)-->
+                <xs:element name="bVelocity" type="xs:string" minOccurs="0" />
+                <!--複数の花火-->
+                <xs:element name="multifirework" type="xs:string" minOccurs="0" />
+                <!--ループ-->
+                <xs:element name="loop" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+
+  <particle>
+    <kind>1</kind>
+    <attribute>scatter</attribute>
+    <color></color>
+    <texture></texture>
+    <bPos>0,-4,-8</bPos>
+    <posfactor>270,-4,90</posfactor>
+    <maxHeightLen>8,12</maxHeightLen>
+    <riseTimeLen>1,3</riseTimeLen>
+    <bOpacity>0.25</bOpacity>
+    <tOpacity>1</tOpacity>
+    <frequency>0.75</frequency>
+    <radius>8</radius>
+    <pCount>100,999</pCount>
+    <bVelocity>0.75</bVelocity>
+    <multifirework>0.15</multifirework>
+    <loop>true</loop>
+  </particle>
+  
+</ArData>

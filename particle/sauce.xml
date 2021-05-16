@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ArData>
+  <xs:schema id="ArData" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="ArData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+
+          <xs:element name="particle">
+            <xs:complexType>
+              <xs:sequence>
+                <!--ID名 (固定)-->
+                <xs:element name="idnm" type="xs:string" minOccurs="0" />
+                <!--ポジション-->
+                <xs:element name="pos" type="xs:string" minOccurs="0" />
+                <!--particle-system-->
+                <xs:element name="partisys" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+
+  <particle>
+    <idnm></idnm>
+    <pos></pos>
+    <partisys></partisys>
+  </particle>
+
+</ArData>

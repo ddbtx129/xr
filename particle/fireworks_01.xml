@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ArData>
+  <xs:schema id="ArData" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="ArData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+
+          <xs:element name="particle">
+            <xs:complexType>
+              <xs:sequence>
+                <!--ID名 (固定)-->
+                <xs:element name="kind" type="xs:string" minOccurs="0" />
+                <!--ベースポジション-->
+                <xs:element name="basepos" type="xs:string" minOccurs="0" />
+                <!--ポジション-->
+                <xs:element name="pos" type="xs:string" minOccurs="0" />
+                <!--particle-firework-->
+                <xs:element name="particlefirework" type="xs:string" minOccurs="0" />
+                <!--テール-->
+                <xs:element name="trail" type="xs:string" minOccurs="0" />
+                <!--散乱-->
+                <xs:element name="bloom" type="xs:string" minOccurs="0" />
+                <!--継続間隔時間-->
+                <xs:element name="fireworktimer" type="xs:string" minOccurs="0" />
+                <!--継続間隔時間-->
+                <xs:element name="timerrange" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+
+  <particle>
+    <kind>0</kind>
+    <basepos>0, -110, -250</basepos>
+    <pos>-38, -110, -250</pos>
+    <particlefirework>preset:fireworks;options:{rColor:"#ff4dd6",eColors:["#ff4d8e","#ff4d62","#ff8e4d","#ffc44d"],eCount:500,eHeight:80,eSize:6,rSize:3</particlefirework>
+    <trail>0</trail>
+    <bloom>0</bloom>
+    <fireworktimer>0</fireworktimer>
+    <timerrange>0</timerrange>
+  </particle>
+
+  <particle>
+    <kind>0</kind>
+    <basepos>0, -110, -250</basepos>
+    <pos>0, -110, -250</pos>
+    <particlefirework>preset:fireworks;options:{rColor:"#74d9ff",eColors:["#3fc9fc","#357afc","#e64bfa","#fa4bb7"],eCount:500,eHeight:80,eSize:6,rSize:3</particlefirework>
+    <trail>0</trail>
+    <bloom>0</bloom>
+    <fireworktimer>0</fireworktimer>
+    <timerrange>0</timerrange>
+  </particle>
+
+  <particle>
+    <kind>0</kind>
+    <basepos>0, -110, -250</basepos>
+    <pos>30, -110, -250</pos>
+    <particlefirework>preset:fireworks;options:{rColor:"#ff9548",eColors:["#fc3f3f","#fca035","#fa4b8e"],eCount:10,eHeight:80,eSize:6,rSize:3,tSize:3,bSize:4</particlefirework>
+    <trail>1</trail>
+    <bloom>1</bloom>
+    <fireworktimer>0</fireworktimer>
+    <timerrange>0</timerrange>
+  </particle>
+
+  <particle>
+    <kind>1</kind>
+    <basepos>0, -30, -180</basepos>
+    <pos>0, -30, -180</pos>
+    <particlefirework>preset:fireworks;options:{eColors:["#FF3333","#ffef33","#33ff99","#33b1ff","#4b33ff","#ff33f7"],eCount:8</particlefirework>
+    <trail>9</trail>
+    <bloom>9</bloom>
+    <fireworktimer>3000</fireworktimer>
+    <timerrange>3000</timerrange>
+  </particle>
+  
+</ArData>
