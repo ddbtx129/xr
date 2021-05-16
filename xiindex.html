@@ -73,13 +73,9 @@
             }
 
             var paramfull = document.location.search.substring(1);
-            var rootPath = (location.href).toString().replace(('xiindex.html' + '?' + paramfull), '');
-            console.log((location.href).toString());
-            console.log('xiindex.html' + '?' + paramfull);
-            console.log(paramfull);
-            console.log(rootPath);
+            var rootPath = (location.href).toString().replace("xiindex.html", "").replace("?" + paramfull, "");
 
-            //location.href = rootPath + htmlpage + '?' + paramfull;
+            location.href = rootPath + htmlpage + '?' + paramfull;
 
             function iosVersion() {
                 var v, versions;
