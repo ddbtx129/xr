@@ -2913,13 +2913,26 @@ var viewmode = 'marker';
 
                 if (!(f.hasAttribute('scatter'))) {
                     f.setAttribute('scatter', '');
-                    f.setAttribute('scatter', 'bOpacity', webAr.ar.args[oidx].Particlefireworks[i].bOpacity);
-                    f.setAttribute('scatter', 'tOpacity', webAr.ar.args[oidx].Particlefireworks[i].tOpacity);
-                    f.setAttribute('scatter', 'maxHeightLen', webAr.ar.args[oidx].Particlefireworks[i].maxHeightLen);
-                    f.setAttribute('scatter', 'riseTimeLen', webAr.ar.args[oidx].Particlefireworks[i].riseTimeLen);
-                    f.setAttribute('scatter', 'bPos', webAr.ar.args[oidx].Particlefireworks[i].bPos);
-                    f.setAttribute('scatter', 'posfacter', webAr.ar.args[oidx].Particlefireworks[i].posfacter);
-                    f.setAttribute('scatter', 'radius', webAr.ar.args[oidx].Particlefireworks[i].radius);
+
+                    f.setAttribute('scatter', 'bOpacity', Number(webAr.ar.args[oidx].Particlefireworks[i].bOpacity));
+                    console.log(Number(webAr.ar.args[oidx].Particlefireworks[i].bOpacity));
+
+                    f.setAttribute('scatter', 'tOpacity', Number(webAr.ar.args[oidx].Particlefireworks[i].tOpacity));
+                    console.log(Number(webAr.ar.args[oidx].Particlefireworks[i].tOpacity));
+
+                    var maxHeight = webAr.ar.args[oidx].Particlefireworks[i].maxHeightLen.split(',');
+                    f.setAttribute('scatter', 'maxHeightLen', [Number(maxHeight[0]), Number(maxHeight[1])]);
+
+                    var riseTime = webAr.ar.args[oidx].Particlefireworks[i].riseTimeLen.split(',');
+                    f.setAttribute('scatter', 'riseTimeLen', [Number(riseTime[0]), Number(riseTime[1])]);
+
+                    var bPos = webAr.ar.args[oidx].Particlefireworks[i].bPos.split(',');
+                    f.setAttribute('scatter', 'bPos', [Number(bPos[0]), Number(bPos[1]), Number(bPos[2])]);
+
+                    var posfacter = webAr.ar.args[oidx].Particlefireworks[i].posfacter.split(',');
+                    f.setAttribute('scatter', 'posfacter', [Number(posfacter[0]), Number(posfacter[1]), Number(posfacter[2])]);
+
+                    f.setAttribute('scatter', 'radius', Number(webAr.ar.args[oidx].Particlefireworks[i].radius));
                     f.setAttribute('scatter', 'loop', !!(webAr.ar.args[oidx].Particlefireworks[i].loop));
                 }
             }
