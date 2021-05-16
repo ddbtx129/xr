@@ -2925,12 +2925,12 @@ var viewmode = 'marker';
 
                     var riseTime = webAr.ar.args[oidx].Particlefireworks[i].riseTimeLen.split(',');
                     f.setAttribute('scatter', 'riseTimeLen', [Number(riseTime[0]), Number(riseTime[1])]);
-
+                    fw[k].posfactor
                     var bPos = webAr.ar.args[oidx].Particlefireworks[i].bPos.split(',');
                     f.setAttribute('scatter', 'bPos', [Number(bPos[0]), Number(bPos[1]), Number(bPos[2])]);
-                    console.log(webAr.ar.args[oidx].Particlefireworks[i].posfacter);
-                    var posfacter = webAr.ar.args[oidx].Particlefireworks[i].posfacter.split(',');
-                    f.setAttribute('scatter', 'posfacter', [Number(posfacter[0]), Number(posfacter[1]), Number(posfacter[2])]);
+                    console.log(webAr.ar.args[oidx].Particlefireworks[i].posfactor);
+                    var posfactor = webAr.ar.args[oidx].Particlefireworks[i].posfactor.split(',');
+                    f.setAttribute('scatter', 'posfactor', [Number(posfactor[0]), Number(posfactor[1]), Number(posfactor[2])]);
 
                     f.setAttribute('scatter', 'radius', Number(webAr.ar.args[oidx].Particlefireworks[i].radius));
                     f.setAttribute('scatter', 'loop', !!(webAr.ar.args[oidx].Particlefireworks[i].loop));
