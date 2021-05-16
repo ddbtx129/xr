@@ -1,0 +1,96 @@
+﻿<html>
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no,user-scalable=no,viewport-fit=cover">
+        <meta name="robots" content="noindex,nofollow,noarchive">
+        <meta name="twitter:card" content="summary" />
+        <meta property="og:title" content="WebAR" />
+        <meta property="og:description" content="標準ブラウザからARが見られます。" />
+        <meta property="og:image" content="asset/share.png" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+
+        <title>ＡＲ</title>
+
+        <link rel="stylesheet" href="css/ar-view.roulette.css">
+
+        <script type="text/javascript" src="js/ar-index.js"></script>
+        <script type="text/javascript" src="js/nft/aframe-master.min.js"></script>
+        <script type="text/javascript" src="js/nft/aframe-ar-nft.js"></script>
+        <script type="text/javascript" src="js/ar/aframe-shadow-plane.js"></script>
+        <script type="text/javascript" src="js/ar/aframe-text-geometry-component.min.js"></script>
+
+    </head>
+
+    <body>
+
+        <div class="arjs-loader" id="arloader" style="display: inline">
+            <div>Now Loading...<br>しばらくお待ちください...</div>
+        </div>
+
+        <div class="slide-show" id="slideshow" style="display: inline">
+            <div id="slidewrap">
+                <p class="p3" id="mloader3">データ読み込み中・・・</p>
+                <br />
+                <p class="p1" id="mloader1-1"></p>
+                <p class="p1" id="mloader1-2"></p>
+                <br />
+                <p class="p2" id="mloader2"></p>
+            </div>
+        </div>
+
+        <div id="modeSwitch" class="switch" style="display: inline">
+            <a id="swMarker" class="swItem"><img src="asset/marker-t.png" width="30"></a><br>
+            <a id="swPreview" class="swItem"><img src="asset/preview-t.png" width="30"></a>
+        </div>
+
+        <img class="ar-start" id="swStart" src="asset/start-g.png" style="display: inline" />
+        <img class="ar-R90" id="swR90" src="asset/r90-w.png" style="display: inline" />
+        <img class="ar-R00" id="swR00" src="asset/r00-w.png" style="display: inline" />
+
+        <div id="info1" class="info1" style="display: none">
+            <a id="swInfo" class="InfoItem">
+                <p id="p1">画面をタップすると、再生が開始されます。<br><br>音声が流れますのでご注意下さい。</p>
+            </a>
+        </div>
+
+        <img class="ar-videoplay" id="swPlay" src="asset/play-w-optiy.png" style="display: inline" />
+
+        <a id="info"></a>
+
+        <img class="ar-stop" id="swStop" src="asset/stop-r.png" style="display: inline" />
+        <img class="ar-up" id="swUp" src="asset/up-w.png" style="display: inline" />
+        <img class="ar-down" id="swDown" src="asset/down-w.png" style="display: inline" />
+
+        <div class="ar-MultiNo" style="display: inline">
+            <a class="ar-multi" id="swMulti" style="display: inline"><img id='imgMulti' src="asset/marker-w.png" /></a>
+            <span class="ar-MultiText" id="txtMultiNo"></span>
+        </div>
+
+        <a-scene id="arScene" vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;" embedded arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;">
+
+            <a-entity light="type: ambient; color: #BBB"></a-entity>
+            <a-entity light="type: directional; color: #FFF; intensity: 0.35" position="-2 10 5"></a-entity>
+            <a-entity light="type: directional; color: #FFF; intensity: 0.17" position="0 -4 1"></a-entity>
+            <!--<a-camera position="0 1 4" cursor-visible="true" cursor-scale="2" cursor-color="#0095DD" cursor-opacity="0.5"></a-camera>-->
+            <!--<a-entity camera id="camera" position="0 1 4" look-controls></a-entity>-->
+            <a-entity id="camera-wrapper">
+                <a-entity camera id="camera" position="0 1.5 0" look-controls></a-entity>
+            </a-entity>
+
+        </a-scene>
+
+        <p id="version1">v1.0.12</p>
+        <p id="debug1" style="display: inline">wdh: 0.0 ∠ 0.0</p>
+        <p id="debug2" style="display: inline">pos X: 0.0 Y: 0.0 Z: 0.0</p>
+        <p id="debug3" style="display: inline">dir X: 0.0 Y: 0.0 Z: 0.0</p>
+
+        <script src="js/gifshader.js"></script>
+        <script src="js/chromakey.js"></script>
+        <script src="js/ar-view.roulette.js"></script>
+
+</body>
+
+</html>

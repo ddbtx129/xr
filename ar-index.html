@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+        <meta name="robots" content="noindex,nofollow,noarchive">
+        <meta name="twitter:card" content="summary" />
+        <meta property="og:title" content="WebAR" />
+        <meta property="og:description" content="標準ブラウザからARが見られます。" />
+        <meta property="og:image" content="asset/share.png" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        
+        <title>ＡＲ</title>
+
+        <script type="text/javascript">
+
+            var param = GetParam();
+           
+            if (((navigator.userAgent.indexOf('iPhone') > 0 || navigator.userAgent.indexOf('Android') > 0) && navigator.userAgent.indexOf('Mobile') > 0)
+                || navigator.userAgent.indexOf('iPad') > 0 || navigator.userAgent.indexOf('Android') > 0) {
+
+                if (navigator.userAgent.indexOf('iPhone') > 0) {
+
+                    if (iosVersion() >= 11) {
+
+                        // TODO: iOS 11.0以上の場合
+                        //if (navigator.userAgent.indexOf('Safari') == -1) {
+                        //    Err_Exit('【Safari】をご使用下さい。');
+                        //}
+                        if (navigator.userAgent.indexOf('CriOS') > 0) {
+                            Err_Exit('【Safari】をご使用下さい。');
+                        }
+
+                    } else {
+                        Err_Exit('このバージョンのiOSは対応していません。iOS11以上をご使用下さい。');
+                    }
+
+                } else if (navigator.userAgent.indexOf('iPad') > 0) {
+
+                    if (iosVersion() >= 13) {
+
+                        // TODO: iOS 13.0以上の場合
+                        if (navigator.userAgent.indexOf('Safari') < 0) {
+                            Err_Exit('【Safari】をご使用下さい。');
+                        }
+
+                    } else {
+                        Err_Exit('このバージョンのiOSは対応していません。iOS11以上をご使用下さい。');
+                    }
+
+                } else if (navigator.userAgent.indexOf('Android') > 0 && navigator.userAgent.indexOf('Mobile') < 0 && navigator.userAgent.indexOf('Chrome') < 0) {
+                    Err_Exit('【Android Chrome】をご使用下さい。');
+                }
+
+                var date = new Date();
+                var year = date.getFullYear();
+                var month = date.getMonth() + 1;
+                var day = date.getDate();
+                month = ('0' + month).slice(-2);
+                day = ('0' + day).slice(-2);
+
+                if (!!(param.ed)) {
+
+                    if (parseInt(param.ed.toString(), 16).toString(10) < (year + month + day).toString()) {
+                        Err_Exit('表示期限が終了しているため、表示することができません。');
+                    }
+                }
+            }
+            //} else {
+            //        Err_Exit('パソコンで表示することはできません。');
+            //}
+
+            var paramfull = document.location.search.substring(1);
+            //var rootPath = "https://www.aoshima-bk.co.jp/special/webar/"
+            var rootPath = (location.href).replace('ar-index.html' + '?' + paramfull, '');
+
+            if (param.ar) {
+                if (Number(param.ar) > 0) {
+                    location.href = rootPath + 'nft-view1.html' + '?' + paramfull;
+                } else {
+                    location.href = rootPath + 'ar-view1.html' + '?' + paramfull;
+                }
+            } else if (param.xd) {
+                location.href = rootPath + 'ar-view.multi.html' + '?' + paramfull;
+            } else {
+                location.href = rootPath + 'ar-view1.html' + '?' + paramfull;
+            }
+
+            function iosVersion() {
+                var v, versions;
+                if (/iP(hone|od|ad)/.test(navigator.platform)) {
+                    // supports iOS 2.0 and later: &lt;http://bit.ly/TJjs1V&gt;
+                    v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
+                    versions = [parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10)];
+                    return versions[0];
+                }
+
+                return versions;
+            }
+
+            function GetParam() {
+                // URLのパラメータを取得
+                var urlParam = location.search.substring(1);
+
+                // パラメータを格納する用の配列を用意
+                var paramArray = [];
+
+                // URLにパラメータが存在する場合
+                if (urlParam) {
+                    // 「&」が含まれている場合は「&」で分割
+                    var param = urlParam.split('&');
+
+                    // 用意した配列にパラメータを格納
+                    for (i = 0; i < param.length; i++) {
+                        var paramItem = param[i].split('=');
+                        paramArray[paramItem[0]] = paramItem[1];
+                    }
+                }
+
+                return paramArray;
+            }
+
+            function Err_Exit(msg) {
+                window.alert(msg);
+                location.href = "warning.html";
+            }
+
+        </script>
+
+    </head>
+
+    <body>
+
+    </body>
+
+</html>

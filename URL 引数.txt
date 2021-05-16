@@ -1,0 +1,63 @@
+URL引数
+　
+　例）
+	Merker https://ddbtx129.github.io/AR/ar-index.html?ed=13465BA&wh=BC9&xs=1&m2=01&mo=cm&o2=01&t=v
+	NFT    https://ddbtx129.github.io/AR/ar-index.html?ed=13465BA&ar=1&wh=17AC&xs=1&m2=01&mo=miabyss&o2=01&t=p
+
+　〇 有効期限
+　　　引数　ed : 年月日(/無し) 16進数表示　　例）2021/11/30 → 20211130 → 13465BA
+
+　〇 ARタイプ
+　　　引数　ar : 0 = ARマーカー　1 or 2 = NFT (Image Tracking)
+
+　〇 マーカーファイル
+　　　引数　m : 個別フォルダ無し 　ARマーカー　 pattern/pattern-[m],patt
+　　　　　　　　　　　　　　　　　 NFTマーカー　ImageDescriptors/[m]
+　　　引数　m1 : 個別フォルダ名 　 ARマーカー　 pattern/[m1]/pattern-[2],patt
+　　　　　　　　　　　　　　　　　 NFTマーカー　ImageDescriptors/[1]/[2]
+　　　引数　m2 : 個別ファイル名　　ARマーカー　 pattern/[m1]/pattern-[2],patt
+　　　　　　　　　　　　　　　　　 NFTマーカー　ImageDescriptors/[1]/[2]
+
+　〇 マーカー・オブジェクトフォルダ名
+　　　引数　mo : マーカー[m1]・オブジェク[o1]引数 同一の場合
+　　　　　　(その場合、それぞれ[m1][o1]が無く、[m2][o2]のみ指定する)
+
+　〇 ファイル
+　　　引数　t :　p (png)  [画像ファイル]
+                 g (gif)  [画像ファイル(アニメーション含む)]
+                 v (mp4)  [動画ファイル]
+				 d (gltf) [3Dファイル]
+　
+
+　〇 影表示の有無
+　　　引数　xs : 0 (or無し) = 影無し　1 = 影有り
+
+　〇 初期表示角度タイプ
+　　　引数　an : 0(or引数無し) = 初期設定表示　1 = マーカーに対して平行
+
+　〇 表示サイズ
+　　　引数　wh : 幅高さ　 16進数表示　例 44 (幅：4 高さ： 4)　初期設定 ARマーカー(pic)   4×4   (44)   16進数 2C
+                                                                                 (video) 3×1.7 (3017) 16進数 BC9
+																				  ・参考  4×2.3 (4023) 16進数 FB7
+																				  ・参考  6×3.4 (6023) 16進数 1792 
+                                                                                  ・参考  2×1.1 (2011) 16進数 7DB
+                                                                       NFTマーカー(pic)  60×60 (6060) 16進数 17AC
+                                                                                 (video) 64×36 (6436) 16進数 1924
+
+　〇 オブジェクトファイル (拡張子有り)
+　　　引数　o : 個別フォルダ無し 　ARマーカー(pic)　  article/pic/[o] (.png)
+　　　　　　　　　　　　　　　　　 ARマーカー(video)  article/video/[o] (.mp4)
+　　　　　　　　　　　　　　　　　 NFTマーカー(pic)　 article/pic/[o] (.png)
+　　　　　　　　　　　　　　　　　 NFTマーカー(video)article/video/[o] (.mp4)
+　　　引数　o1 : 個別フォルダ名 　 ARマーカー(pic)　  article/pic/[o1]/[o2] (.png)
+　　　　　　　　　　　　　　　　　 ARマーカー(video)  article/video/[o1]/[o2] (.mp4)
+　　　　　　　　　　　　　　　　　 NFTマーカー(pic)　 article/pic/[o1]/[o2] (.png)
+　　　　　　　　　　　　　　　　　 NFTマーカー(video)article/video/[o1]/[o2] (.mp4)
+　　　引数　o2 : 個別ファイル名　　ARマーカー(pic)　  article/pic/[o1]/[o2] (.png)
+　　　　　　　　　　　　　　　　　 ARマーカー(video)  article/video/[o1]/[o2] (.mp4)
+　　　　　　　　　　　　　　　　　 NFTマーカー(pic)　 article/pic/[o1]/[o2] (.png)
+　　　　　　　　　　　　　　　　　 NFTマーカー(video)article/video/[o1]/[o2] (.mp4)
+
+　〇 表示モード
+　　　引数　pv : 0 (or無し) マーカーorNFT(イメージ追跡)
+				 1 ビュー表示
