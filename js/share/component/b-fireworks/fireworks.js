@@ -28,7 +28,7 @@
 			},
 			texture: {
 				type: "string",
-				default: '/images/particles/sparkle.png'
+				default: 'images/particles/sparkle.png'
 			},
 			bPos: {
 				type: "array",
@@ -246,7 +246,7 @@
 			},
 			texture: {
 				type: "string",
-				default: path + '/images/particles/sparkle.png'
+				default: path + 'images/particles/sparkle.png'
 			},
 			pCount: {
 				type: "array",
@@ -258,11 +258,11 @@
 			},
 			fireball: {
 				type: "string",
-				default: path + '/images/fireball.png'
+				default: path + 'images/fireball.png'
 			},
 			fireballSheet: {
 				type: "string",
-				default: path + '/images/fireball-up.png'
+				default: path + 'images/fireball-up.png'
 			}
 		},
 
