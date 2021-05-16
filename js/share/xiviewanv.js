@@ -2913,14 +2913,14 @@ var viewmode = 'marker';
 
                 if (!(f.hasAttribute('scatter'))) {
                     f.setAttribute('scatter', '');
-                    f.setAttribute('scatter', 'bOpacity', webAr.ar.args[oidx].Particlefireworks[fireworksidx[i]].bOpacity);
-                    f.setAttribute('scatter', 'tOpacity', webAr.ar.args[oidx].Particlefireworks[fireworksidx[i]].tOpacity);
-                    f.setAttribute('scatter', 'maxHeightLen', webAr.ar.args[oidx].Particlefireworks[fireworksidx[i]].maxHeightLen);
-                    f.setAttribute('scatter', 'riseTimeLen', webAr.ar.args[oidx].Particlefireworks[fireworksidx[i]].riseTimeLen);
-                    f.setAttribute('scatter', 'bPos', webAr.ar.args[oidx].Particlefireworks[fireworksidx[i]].bPos);
-                    f.setAttribute('scatter', 'posfacter', webAr.ar.args[oidx].Particlefireworks[fireworksidx[i]].posfacter);
-                    f.setAttribute('scatter', 'radius', webAr.ar.args[oidx].Particlefireworks[fireworksidx[i]].radius);
-                    f.setAttribute('scatter', 'loop', !!(webAr.ar.args[oidx].Particlefireworks[fireworksidx[i]].loop));
+                    f.setAttribute('scatter', 'bOpacity', webAr.ar.args[oidx].Particlefireworks[i].bOpacity);
+                    f.setAttribute('scatter', 'tOpacity', webAr.ar.args[oidx].Particlefireworks[i].tOpacity);
+                    f.setAttribute('scatter', 'maxHeightLen', webAr.ar.args[oidx].Particlefireworks[i].maxHeightLen);
+                    f.setAttribute('scatter', 'riseTimeLen', webAr.ar.args[oidx].Particlefireworks[i].riseTimeLen);
+                    f.setAttribute('scatter', 'bPos', webAr.ar.args[oidx].Particlefireworks[i].bPos);
+                    f.setAttribute('scatter', 'posfacter', webAr.ar.args[oidx].Particlefireworks[i].posfacter);
+                    f.setAttribute('scatter', 'radius', webAr.ar.args[oidx].Particlefireworks[i].radius);
+                    f.setAttribute('scatter', 'loop', !!(webAr.ar.args[oidx].Particlefireworks[i].loop));
                 }
             }
 
