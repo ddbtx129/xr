@@ -56,7 +56,7 @@
     <texture></texture>
     <bPos>0,-4,-8</bPos>
     <posfactor>270,-4,180</posfactor>
-    <maxHeightLen>8,12</maxHeightLen>
+    <maxHeightLen>5, 8</maxHeightLen>
     <riseTimeLen>1,3</riseTimeLen>
     <bOpacity>0.25</bOpacity>
     <tOpacity>1</tOpacity>
