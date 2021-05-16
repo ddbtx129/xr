@@ -58,7 +58,7 @@
     <posfactor>270,0,180</posfactor>
     <maxHeightLen>1,5</maxHeightLen>
     <riseTimeLen>1,3</riseTimeLen>
-    <bOpacity>0.5</bOpacity>
+    <bOpacity>0.35</bOpacity>
     <tOpacity>1</tOpacity>
     <frequency>0.75</frequency>
     <radius>8</radius>
