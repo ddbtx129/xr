@@ -277,7 +277,8 @@
 			if (this.data.color == "") {
 				this.data.color = this.randomColor();
 			}
-
+			console.log(path);
+			console.log(texture);
 			this.pCount = { min: Number(this.data.pCount[0]), max: Number(this.data.pCount[1]) };
 			this.bVelocity = { min: Number(this.data.bVelocity[0]), max: Number(this.data.bVelocity[1]) };
 
