@@ -298,7 +298,7 @@ function GetFileType (arg) {
     }
 
     return exct;
-}
+};
 
 function GetDefaultSize(arType, oType) {
     
@@ -323,7 +323,7 @@ function GetDefaultSize(arType, oType) {
     }
 
     return wh;
-}
+};
 
 function SizeSplit(size10) {
     var wh = '20,20';
@@ -358,7 +358,7 @@ function loadscriptheader(src) {
     script.src = src;
 
     document.head.appendChild(script);
-}
+};
 
 function loadscriptbody(src) {
     var script = document.createElement('script');
@@ -366,7 +366,7 @@ function loadscriptbody(src) {
     script.src = src;
 
     document.body.appendChild(script);
-}
+};
 
 function loadscript(src, before) {
     var script = document.createElement('script');
@@ -387,4 +387,4 @@ function loadARScript() {
     }
 
     loadscriptbody(objscriptjs, 'version');
-}
+};
