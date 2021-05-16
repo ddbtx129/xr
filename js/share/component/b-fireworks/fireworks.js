@@ -297,7 +297,7 @@
 			this.particleTrail.setAttribute("height", "0.5");
 			this.particleTrail.setAttribute("scale", "1 1 1");
 
-			this.particleTrail.setAttribute("src", this.data.fireballSheet);
+			this.particleTrail.setAttribute("src", this.data.fireball);
 			this.particleTrail.setAttribute("spritesheet-animation", "rows: 1; columns: 8; frameDuration: 0.08; loop: true;");
 			this.particleTrail.setAttribute("material", "blending: additive; transparent: true; opacity: " + this.data.tOpacity + ";color:" + this.data.color);
 
