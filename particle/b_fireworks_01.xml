@@ -42,6 +42,8 @@
                 <xs:element name="multifirework" type="xs:string" minOccurs="0" />
                 <!--ループ-->
                 <xs:element name="loop" type="xs:string" minOccurs="0" />
+                <!--停止タイマー-->
+                <xs:element name="stoptimer" type="xs:string" minOccurs="0" />
               </xs:sequence>
             </xs:complexType>
           </xs:element>
@@ -69,6 +71,7 @@
     <bVelocity>0.75</bVelocity>
     <multifirework>0.15</multifirework>
     <loop>true</loop>
+    <stoptimer>10</stoptimer>
   </particle>
   
 </ArData>
