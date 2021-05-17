@@ -327,6 +327,7 @@ var viewmode = 'marker';
                                 attribute.bVelocity = fw[k].bVelocity;
                                 attribute.multifirework = fw[k].multifirework;
                                 attribute.loop = fw[k].loop;
+                                attribute.stoptimer = fw[k].stoptimer;
 
                                 particle[k] = attribute;
                             }
@@ -2911,7 +2912,7 @@ var viewmode = 'marker';
                 }
 
                 let f = document.querySelector('#bFirework' + (i + 1).toString());
-                console.log(!(f.hasAttribute('scatter')));
+
                 if (!(f.hasAttribute('scatter'))) {
                     f.setAttribute('scatter', '');
 
@@ -2933,6 +2934,12 @@ var viewmode = 'marker';
                     f.setAttribute('scatter', 'tScale', Number(webAr.ar.args[oidx].Particlefireworks[i].tScale));
                     f.setAttribute('scatter', 'radius', Number(webAr.ar.args[oidx].Particlefireworks[i].radius));
                     f.setAttribute('scatter', 'loop', !!(webAr.ar.args[oidx].Particlefireworks[i].loop));
+
+                    if(Number(webAr.ar.args[oidx].Particlefireworks[i].stoptimer) > 0){
+                        setTimeout(function() {
+                            webAr.ar.stopFireworksEvent();
+                        }, Number(webAr.ar.args[oidx].Particlefireworks[i].stoptimer) * 1000);
+                    }
                 }
             }
 
@@ -3121,6 +3128,7 @@ var viewmode = 'marker';
                 var cbVelocity = xmldata.getElementsByTagName("bVelocity");
                 var cMultifirework = xmldata.getElementsByTagName("multifirework");
                 var cLoop = xmldata.getElementsByTagName("loop");
+                var cStoptimer = xmldata.getElementsByTagName("stoptimer");
 
                 var len = cKind.length;
                 for (var i = 0; i < len; i++) {
@@ -3142,7 +3150,8 @@ var viewmode = 'marker';
                         pCount: (cpCount[i] != null) && cpCount[i].textContent,
                         bVelocity: (cbVelocity[i] != null) && cbVelocity[i].textContent,
                         multifirework: (cMultifirework[i] != null) && cMultifirework[i].textContent,
-                        loop: (cLoop[i] != null) && cLoop[i].textContent
+                        loop: (cLoop[i] != null) && cLoop[i].textContent,
+                        stoptimer: (cStoptimer[i] != null) && cStoptimer[i].textContent
                     };
                 };
 
@@ -3277,21 +3286,16 @@ var viewmode = 'marker';
                         o1: (cO1[i] != null) && cO1[i].textContent,
                         o2: (cO2[i] != null) && cO2[i].textContent,
                         o3: (cO3[i] != null) && cO3[i].textContent,
-
                         oa: (cOa[i] != null) && cOa[i].textContent,
                         ob: (cOb[i] != null) && cOb[i].textContent,
                         oc: (cOc[i] != null) && cOc[i].textContent,
-
                         wrapz: (cWrapZ[i] != null) && cWrapZ[i].textContent,
                         oz: (cOZ[i] != null) && cOZ[i].textContent,
                         oaz: (cOaZ[i] != null) && cOaZ[i].textContent,
                         obz: (cObZ[i] != null) && cObZ[i].textContent,
                         ocz: (cOcZ[i] != null) && cOcZ[i].textContent,
-
                         bg: (cBg[i] != null) && cBg[i].textContent,
-
                         l: (cL[i] != null) && cL[i].textContent,
-
                         par: (cPar[i] != null) && cPar[i].textContent,
                         firework: (cFirework[i] != null) && cFirework[i].textContent
                     };
