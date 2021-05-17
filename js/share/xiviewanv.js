@@ -2959,8 +2959,11 @@ var viewmode = 'marker';
                     if (f[i].hasAttribute('scatter')) {
                         f[i].removeAttribute("scatter");
                     }
-                    f[i].remove();
                 }
+
+                //for (var i = 0; i < f.length; i++) {
+                //    f[i].removee();
+                //}
             } 
         },
 
