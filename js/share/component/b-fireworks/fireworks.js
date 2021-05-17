@@ -38,6 +38,10 @@
 				type: "array",
 				default: [270, 0, 90]
 			},
+			maxWidthtLen: {
+			    type: 'array',
+			    default: [-3, 3]
+			},
 			maxHeightLen: {
 				type: 'array',
 				default: [4, 8]
@@ -96,6 +100,10 @@
 				this.maxHeightLen = { min: Number(this.data.maxHeightLen[0]), max: Number(this.data.maxHeightLen[1]) };
 			}
 			console.log(this.maxHeightLen.min, this.maxHeightLen.max);
+			if (this.data.maxWidthtLen != null) {
+			    this.maxWidthtLen = { min: Number(this.data.maxWidthtLen[0]), max: Number(this.data.maxWidthtLen[1]) };
+			}
+
 			if (this.data.bPos != null) {
 				this.bPos = { x: Number(this.data.bPos[0]), y: Number(this.data.bPos[1]), z: Number(this.data.bPos[2]) };
 			}
@@ -162,7 +170,7 @@
 					let angleRadians = angle + randomNormal(-angleSpread, angleSpread);
 					let radius = this.data.radius;
 				    //let x = radius * Math.cos(angleRadians);
-					let x = randomNormal(-3, 3);
+					let x = randomNormal(this.data.maxWidthtLen.min, this.data.maxWidthtLen.max);
 					let y = this.posfactor.y;
 					let z = radius * Math.sin(angleRadians);
 
