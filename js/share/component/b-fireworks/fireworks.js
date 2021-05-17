@@ -86,6 +86,10 @@
 			    type: "array",
 			    default: [1.0, 3.0]
 			},
+			bSpread: {
+				type: "array",
+				default: [4.0, 5.0]
+			},
 			multifirework: {
 				type: "number",
 				default: 0.15
@@ -108,6 +112,7 @@
 			this.pCount = { min: Number(this.data.pCount[0]), max: Number(this.data.pCount[1]) };
 			this.bVelocity = { min: Number(this.data.bVelocity[0]), max: Number(this.data.bVelocity[1]) };
 			this.bDuration = { min: Number(this.data.bDuration[0]), max: Number(this.data.bDuration[1]) };
+			this.bSpread = { min: Number(this.data.bSpread[0]), max: Number(this.data.bSpread[1]) };
 
 			// ランダムな飛行パラメータ
 			let maxHeight = this.maxHeightLen.min;
@@ -136,7 +141,8 @@
 			firework.setAttribute("firework", "riseTime", riseTime);
 			firework.setAttribute("firework", "pCount", this.pCount.min + ',' + this.pCount.max);
 			firework.setAttribute("firework", "bVelocity", this.bVelocity.min + ',' + this.bVelocity.max);
-			firework.setAttribute("firework", "bVelocity", this.bDuration.min + ',' + this.bDuration.max);
+			firework.setAttribute("firework", "bDuration", this.bDuration.min + ',' + this.bDuration.max);
+			firework.setAttribute("firework", "bSpread", this.bSpread.min + ',' + this.bSpread.max);
 
 			this.fElement.appendChild(firework);
 			this.firework = firework;
@@ -175,7 +181,8 @@
 					firework.setAttribute("firework", "riseTime", riseTime);
 					firework.setAttribute("firework", "pCount", this.pCount.min + ',' + this.pCount.max);
 					firework.setAttribute("firework", "bVelocity", this.bVelocity.min + ',' + this.bVelocity.max);
-					firework.setAttribute("firework", "bVelocity", this.bDuration.min + ',' + this.bDuration.max);
+					firework.setAttribute("firework", "bDuration", this.bDuration.min + ',' + this.bDuration.max);
+					firework.setAttribute("firework", "bSpread", this.bSpread.min + ',' + this.bSpread.max);
 
 					this.fElement.appendChild(firework);
 					this.firework = firework;
@@ -196,7 +203,8 @@
 						fireworkExtra.setAttribute("firework", "riseTime", riseTime);
 						fireworkExtra.setAttribute("firework", "pCount", this.pCount.min + ',' + this.pCount.max);
 						fireworkExtra.setAttribute("firework", "bVelocity", this.bVelocity.min + ',' + this.bVelocity.max);
-						fireworkExtra.setAttribute("firework", "bVelocity", this.bDuration.min + ',' + this.bDuration.max);
+						fireworkExtra.setAttribute("firework", "bDuration", this.bDuration.min + ',' + this.bDuration.max);
+						fireworkExtra.setAttribute("firework", "bSpread", this.bSpread.min + ',' + this.bSpread.max);
 
 						this.fElement.appendChild(fireworkExtra);
 						this.fireworkExtra = fireworkExtra;
@@ -267,6 +275,10 @@
 			bDuration: {
 			    type: "array",
 			    default: [1.0, 3.0]
+			},
+			bSpread: {
+				type: "array",
+				default: [4.0, 5.0]
 			},
 			fireball: {
 				type: "string",
@@ -364,10 +376,12 @@
 
 		    // 粒子がどのくらい持続するか
 			this.bDuration = { min: Number(this.data.bDuration[0]), max: Number(this.data.bDuration[1]) };
+			this.bSpread = { min: Number(this.data.bSpread[0]), max: Number(this.data.bSpread[1]) };
 		    //this.burstDuration = randomUniform(1.0, 3.0);
 			this.burstDuration = randomUniform(this.bDuration.min, this.bDuration.max);
+			this.burstSpread = randomUniform(this.bSpread.min, this.bSpread.max);
 			this.particleBurst.setAttribute("spe-particles", "maxAge", this.burstDuration);
-			this.particleBurst.setAttribute("spe-particles", "maxAgeSpread", this.burstDuration / 6);
+			this.particleBurst.setAttribute("spe-particles", "maxAgeSpread", this.burstDuration / this.burstSpread);
 			// 持続時間=粒子を放出する最大時間
 			// 2回目のバーストを防ぐために、最小最大年齢未満にする必要
 			this.particleBurst.setAttribute("spe-particles", "duration", 0.5);
