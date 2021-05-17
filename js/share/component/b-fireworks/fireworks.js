@@ -95,7 +95,7 @@
 			if (this.data.maxHeightLen != null) {
 				this.maxHeightLen = { min: Number(this.data.maxHeightLen[0]), max: Number(this.data.maxHeightLen[1]) };
 			}
-
+			console.log(this.maxHeightLen.min, this.maxHeightLen.max);
 			if (this.data.bPos != null) {
 				this.bPos = { x: Number(this.data.bPos[0]), y: Number(this.data.bPos[1]), z: Number(this.data.bPos[2]) };
 			}
