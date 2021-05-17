@@ -42,6 +42,8 @@
                 <xs:element name="bVelocity" type="xs:string" minOccurs="0" />
                 <!--粒子持続時間範囲(乱数)-->
                 <xs:element name="bDuration" type="xs:string" minOccurs="0" />
+                <!--粒子広がり範囲(乱数)-->
+                <xs:element name="bSpread" type="xs:string" minOccurs="0" />
                 <!--複数の花火-->
                 <xs:element name="multifirework" type="xs:string" minOccurs="0" />
                 <!--ループ-->
@@ -75,6 +77,7 @@
     <pCount>100,999</pCount>
     <bVelocity>0.75</bVelocity>
     <bDuration>3.0,6.0</bDuration>
+    <bSpread>4.0,6.0</bSpread>
     <multifirework>0.15</multifirework>
     <loop>true</loop>
     <stoptimer>0</stoptimer>
