@@ -3137,7 +3137,7 @@ var viewmode = 'marker';
                         bOpacity: (cbOpacity[i] != null) && cbOpacity[i].textContent,
                         tOpacity: (ctOpacity[i] != null) && ctOpacity[i].textContent,
                         frequency: (cFrequency[i] != null) && cFrequency[i].textContent,
-                        tOpacity: (ctScale[i] != null) && ctScale[i].textContent,
+                        tScale: (ctScale[i] != null) && ctScale[i].textContent,
                         radius: (cRadius[i] != null) && cRadius[i].textContent,
                         pCount: (cpCount[i] != null) && cpCount[i].textContent,
                         bVelocity: (cbVelocity[i] != null) && cbVelocity[i].textContent,
@@ -3239,21 +3239,16 @@ var viewmode = 'marker';
                 var cO1 = tabelnm.getElementsByTagName("o1");
                 var cO2 = tabelnm.getElementsByTagName("o2");
                 var cO3 = tabelnm.getElementsByTagName("o3");
-
                 var cOa = tabelnm.getElementsByTagName("oa");
                 var cOb = tabelnm.getElementsByTagName("ob");
                 var cOc = tabelnm.getElementsByTagName("oc");
-
                 var cWrapZ = tabelnm.getElementsByTagName("wrapz");
                 var cOZ = tabelnm.getElementsByTagName("oz");
                 var cOaZ = tabelnm.getElementsByTagName("oaz");
                 var cObZ = tabelnm.getElementsByTagName("obz");
                 var cOcZ = tabelnm.getElementsByTagName("ocz");
-
                 var cBg = tabelnm.getElementsByTagName("bg");
-
                 var cL = tabelnm.getElementsByTagName("l");
-
                 var cPar = tabelnm.getElementsByTagName("par");
                 var cFirework = tabelnm.getElementsByTagName("firework");
 
