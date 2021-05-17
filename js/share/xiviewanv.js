@@ -2966,7 +2966,7 @@ var viewmode = 'marker';
                     if(pf.length > 0) {
                         for (var i = 0; i < pf.length; i++) {
                             if(pf[i] != null) {
-                                pf[i].removee();
+                                pf[i].remove();
                             }
                         }
                     }
