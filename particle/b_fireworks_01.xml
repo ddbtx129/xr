@@ -72,7 +72,7 @@
     <bOpacity>1</bOpacity>
     <tOpacity>1</tOpacity>
     <frequency>0.75</frequency>
-    <tScale>0.25</tScale>
+    <tScale>0.5</tScale>
     <radius>8</radius>
     <pCount>100,999</pCount>
     <bVelocity>1,2</bVelocity>
