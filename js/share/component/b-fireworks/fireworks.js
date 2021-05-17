@@ -300,7 +300,8 @@
 			this.el.setAttribute("animation__position", "to", { "x": p.x, "y": p.y + this.data.maxHeight, "z": p.z });
 			this.el.setAttribute("animation__position", "dur", this.data.riseTime * 1000);
 			this.el.setAttribute("animation__position", "easing", "easeOutQuad");  // fast at start, then slower
-
+			console.log(p.x, p.y, p.z);
+			console.log(p.x, p.y + this.data.maxHeight, p.z);
 			// trail effect ----------------------------------------------------------
 			this.particleTrail = document.createElement("a-image");
 			this.particleTrail.setAttribute("position", "0 -0.1 0");
