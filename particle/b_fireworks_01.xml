@@ -77,7 +77,7 @@
     <pCount>100,999</pCount>
     <bVelocity>1,2</bVelocity>
     <bDuration>1.0,3.0</bDuration>
-    <bSpread>3.5,4.0</bSpread>
+    <bSpread>1.0,2.0</bSpread>
     <multifirework>0.15</multifirework>
     <loop>true</loop>
     <stoptimer>0</stoptimer>
