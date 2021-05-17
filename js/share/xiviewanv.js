@@ -2911,17 +2911,16 @@ var viewmode = 'marker';
                 }
 
                 let f = document.querySelector('#bFirework' + (i + 1).toString());
-
+                console.lo(!(f.hasAttribute('scatter')));
                 if (!(f.hasAttribute('scatter'))) {
                     f.setAttribute('scatter', '');
 
                     f.setAttribute('scatter', 'bOpacity', Number(webAr.ar.args[oidx].Particlefireworks[i].bOpacity));
-
                     f.setAttribute('scatter', 'tOpacity', Number(webAr.ar.args[oidx].Particlefireworks[i].tOpacity));
 
                     var maxHeight = webAr.ar.args[oidx].Particlefireworks[i].maxHeightLen.split(',');
                     f.setAttribute('scatter', 'maxHeightLen', [Number(maxHeight[0]), Number(maxHeight[1])]);
-
+                    console.log(maxHeight[0], maxHeight[1])
                     var riseTime = webAr.ar.args[oidx].Particlefireworks[i].riseTimeLen.split(',');
                     f.setAttribute('scatter', 'riseTimeLen', [Number(riseTime[0]), Number(riseTime[1])]);
 
