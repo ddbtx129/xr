@@ -2963,8 +2963,12 @@ var viewmode = 'marker';
 
                 setTimeout(function(){
                     let pf = document.querySelectorAll('.bSpawner');
-                    for (var i = 0; i < pf.length; i++) {
-                        pf[i].removee();
+                    if(pf.length > 0) {
+                        for (var i = 0; i < pf.length; i++) {
+                            if(pf[i] != null) {
+                                pf[i].removee();
+                            }
+                        }
                     }
                 }, 1000);
             } 
