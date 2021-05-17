@@ -321,6 +321,7 @@ var viewmode = 'marker';
                                 attribute.bOpacity = fw[k].bOpacity;
                                 attribute.tOpacity = fw[k].tOpacity;
                                 attribute.frequency = fw[k].frequency;
+                                attribute.tScale = fw[k].tScale;
                                 attribute.radius = fw[k].radius;
                                 attribute.pCount = fw[k].pCount;
                                 attribute.bVelocity = fw[k].bVelocity;
@@ -2915,10 +2916,8 @@ var viewmode = 'marker';
                     f.setAttribute('scatter', '');
 
                     f.setAttribute('scatter', 'bOpacity', Number(webAr.ar.args[oidx].Particlefireworks[i].bOpacity));
-                    console.log(Number(webAr.ar.args[oidx].Particlefireworks[i].bOpacity));
 
                     f.setAttribute('scatter', 'tOpacity', Number(webAr.ar.args[oidx].Particlefireworks[i].tOpacity));
-                    console.log(Number(webAr.ar.args[oidx].Particlefireworks[i].tOpacity));
 
                     var maxHeight = webAr.ar.args[oidx].Particlefireworks[i].maxHeightLen.split(',');
                     f.setAttribute('scatter', 'maxHeightLen', [Number(maxHeight[0]), Number(maxHeight[1])]);
@@ -2928,10 +2927,11 @@ var viewmode = 'marker';
 
                     var bPos = webAr.ar.args[oidx].Particlefireworks[i].bPos.split(',');
                     f.setAttribute('scatter', 'bPos', [Number(bPos[0]), Number(bPos[1]), Number(bPos[2])]);
-                    console.log(webAr.ar.args[oidx].Particlefireworks[i].posfactor);
+
                     var posfactor = webAr.ar.args[oidx].Particlefireworks[i].posfactor.split(',');
                     f.setAttribute('scatter', 'posfactor', [Number(posfactor[0]), Number(posfactor[1]), Number(posfactor[2])]);
 
+                    f.setAttribute('scatter', 'tScale', Number(webAr.ar.args[oidx].Particlefireworks[i].tScale));
                     f.setAttribute('scatter', 'radius', Number(webAr.ar.args[oidx].Particlefireworks[i].radius));
                     f.setAttribute('scatter', 'loop', !!(webAr.ar.args[oidx].Particlefireworks[i].loop));
                 }
@@ -3115,6 +3115,7 @@ var viewmode = 'marker';
                 var cbOpacity = xmldata.getElementsByTagName("bOpacity");
                 var ctOpacity = xmldata.getElementsByTagName("tOpacity");
                 var cFrequency = xmldata.getElementsByTagName("frequency");
+                var ctScale = xmldata.getElementsByTagName("tScale");
                 var cRadius = xmldata.getElementsByTagName("radius");
                 var cpCount = xmldata.getElementsByTagName("pCount");
                 var cbVelocity = xmldata.getElementsByTagName("bVelocity");
@@ -3136,6 +3137,7 @@ var viewmode = 'marker';
                         bOpacity: (cbOpacity[i] != null) && cbOpacity[i].textContent,
                         tOpacity: (ctOpacity[i] != null) && ctOpacity[i].textContent,
                         frequency: (cFrequency[i] != null) && cFrequency[i].textContent,
+                        tOpacity: (ctScale[i] != null) && ctScale[i].textContent,
                         radius: (cRadius[i] != null) && cRadius[i].textContent,
                         pCount: (cpCount[i] != null) && cpCount[i].textContent,
                         bVelocity: (cbVelocity[i] != null) && cbVelocity[i].textContent,
