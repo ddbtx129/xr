@@ -162,7 +162,7 @@
 					let angleRadians = angle + randomNormal(-angleSpread, angleSpread);
 					let radius = this.data.radius;
 				    //let x = radius * Math.cos(angleRadians);
-					let x = 0;
+					let x = randomNormal(-1, 1);
 					let y = this.posfactor.y;
 					let z = radius * Math.sin(angleRadians);
 
