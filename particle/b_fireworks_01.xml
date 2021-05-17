@@ -71,7 +71,7 @@
     <bVelocity>0.75</bVelocity>
     <multifirework>0.15</multifirework>
     <loop>true</loop>
-    <stoptimer>10</stoptimer>
+    <stoptimer>7.5</stoptimer>
   </particle>
   
 </ArData>
