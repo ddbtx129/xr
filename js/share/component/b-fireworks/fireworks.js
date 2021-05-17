@@ -161,7 +161,8 @@
 					let angleSpread = THREE.Math.degToRad(this.posfactor.z);
 					let angleRadians = angle + randomNormal(-angleSpread, angleSpread);
 					let radius = this.data.radius;
-					let x = radius * Math.cos(angleRadians);
+				    //let x = radius * Math.cos(angleRadians);
+					let x = 0;
 					let y = this.posfactor.y;
 					let z = radius * Math.sin(angleRadians);
 
