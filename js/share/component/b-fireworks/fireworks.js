@@ -319,9 +319,9 @@
 			this.particleTrail.setAttribute("animation__fade", "easing", "easeOutQuad");  // slow at start, then fast
 
 			this.particleTrail.setAttribute("animation__shrink", "property", "scale");
-		    this.particleTrail.setAttribute("animation__shrink", "from", "1 1 1");
-		    //var tScale = this.data.tScale + ' ' + this.data.tScale + ' ' + this.data.tScale;
-		    //this.particleTrail.setAttribute("animation__shrink", "from", tScale);
+		    //this.particleTrail.setAttribute("animation__shrink", "from", "1 1 1");
+		    var tScale = this.data.tScale + ' ' + this.data.tScale + ' ' + this.data.tScale;
+		    this.particleTrail.setAttribute("animation__shrink", "from", tScale);
 			this.particleTrail.setAttribute("animation__shrink", "to", "0.25 0.25 0.25");
 			this.particleTrail.setAttribute("animation__shrink", "dur", this.data.riseTime * 1000);
 			this.particleTrail.setAttribute("animation__shrink", "easing", "easeOutQuad");  // slow at start, then fast
