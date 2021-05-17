@@ -381,8 +381,8 @@
 			this.burstDuration = randomUniform(this.bDuration.min, this.bDuration.max);
 			this.burstSpread = randomUniform(this.bSpread.min, this.bSpread.max);
 			this.particleBurst.setAttribute("spe-particles", "maxAge", this.burstDuration);
-			this.particleBurst.setAttribute("spe-particles", "maxAgeSpread", this.burstDuration / 4);
-			//this.particleBurst.setAttribute("spe-particles", "maxAgeSpread", this.burstDuration / this.burstSpread);
+			//this.particleBurst.setAttribute("spe-particles", "maxAgeSpread", this.burstDuration / 4);
+			this.particleBurst.setAttribute("spe-particles", "maxAgeSpread", this.burstDuration / this.burstSpread);
 			// 持続時間=粒子を放出する最大時間
 			// 2回目のバーストを防ぐために、最小最大年齢未満にする必要
 			this.particleBurst.setAttribute("spe-particles", "duration", 0.5);
