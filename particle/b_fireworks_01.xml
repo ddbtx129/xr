@@ -61,7 +61,7 @@
     <maxHeightLen>3,5</maxHeightLen>
     <riseTimeLen>1,3</riseTimeLen>
     <bOpacity>0.3</bOpacity>
-    <tOpacity>0.5</tOpacity>
+    <tOpacity>1</tOpacity>
     <frequency>0.75</frequency>
     <tScale>0.5</tScale>
     <radius>8</radius>
