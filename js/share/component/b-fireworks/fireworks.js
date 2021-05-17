@@ -131,7 +131,7 @@
 			} else {
 				riseTime = randomNormal(this.riseTimeLen.min, this.riseTimeLen.max);
 			}
-
+			con.log(this.data.tScale);
 			var firework = document.createElement("a-entity");
 			firework.setAttribute("firework", "");
 			firework.setAttribute("position", { "x": this.bPos.x, "y": this.bPos.y, "z": this.bPos.z });
