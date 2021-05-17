@@ -62,8 +62,8 @@
     <posfactor>270,0,50</posfactor>
     <maxHeightLen>3.5,4</maxHeightLen>
     <riseTimeLen>1,3</riseTimeLen>
-    <bOpacity>0.3</bOpacity>
-    <tOpacity>0.5</tOpacity>
+    <bOpacity>0.5</bOpacity>
+    <tOpacity>0.75</tOpacity>
     <frequency>0.75</frequency>
     <tScale>0.5</tScale>
     <radius>8</radius>
@@ -71,7 +71,7 @@
     <bVelocity>0.75</bVelocity>
     <multifirework>0.15</multifirework>
     <loop>true</loop>
-    <stoptimer>20</stoptimer>
+    <stoptimer>7.5</stoptimer>
   </particle>
   
 </ArData>
