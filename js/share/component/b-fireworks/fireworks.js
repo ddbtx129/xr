@@ -96,33 +96,13 @@
 
 			this.fElement = this.el;
 
-			if (this.data.maxHeightLen != null) {
-				this.maxHeightLen = { min: Number(this.data.maxHeightLen[0]), max: Number(this.data.maxHeightLen[1]) };
-			}
-			console.log(this.maxHeightLen.min, this.maxHeightLen.max);
-			if (this.data.maxWidthtLen != null) {
-			    this.maxWidthtLen = { min: Number(this.data.maxWidthtLen[0]), max: Number(this.data.maxWidthtLen[1]) };
-			}
-
-			if (this.data.bPos != null) {
-				this.bPos = { x: Number(this.data.bPos[0]), y: Number(this.data.bPos[1]), z: Number(this.data.bPos[2]) };
-			}
-
-			if (this.data.posfactor != null) {
-				this.posfactor = { x: Number(this.data.posfactor[0]), y: Number(this.data.posfactor[1]), z: Number(this.data.posfactor[2]) };
-			}
-
-			if (this.data.riseTimeLen != null) {
-				this.riseTimeLen = { min: Number(this.data.riseTimeLen[0]), max: Number(this.data.riseTimeLen[1]) };
-			}
-
-			if (this.data.pCount != null) {
-				this.pCount = { min: Number(this.data.pCount[0]), max: Number(this.data.pCount[1]) };
-			}
-
-			if (this.data.bVelocity) {
-				this.bVelocity = { min: Number(this.data.bVelocity[0]), max: Number(this.data.bVelocity[1]) };
-			}
+			this.maxHeightLen = { min: Number(this.data.maxHeightLen[0]), max: Number(this.data.maxHeightLen[1]) };
+			this.maxWidthtLen = { min: Number(this.data.maxWidthtLen[0]), max: Number(this.data.maxWidthtLen[1]) };
+			this.bPos = { x: Number(this.data.bPos[0]), y: Number(this.data.bPos[1]), z: Number(this.data.bPos[2]) };
+			this.posfactor = { x: Number(this.data.posfactor[0]), y: Number(this.data.posfactor[1]), z: Number(this.data.posfactor[2]) };
+			this.riseTimeLen = { min: Number(this.data.riseTimeLen[0]), max: Number(this.data.riseTimeLen[1]) };
+			this.pCount = { min: Number(this.data.pCount[0]), max: Number(this.data.pCount[1]) };
+			this.bVelocity = { min: Number(this.data.bVelocity[0]), max: Number(this.data.bVelocity[1]) };
 
 			// ランダムな飛行パラメータ
 			let maxHeight = this.maxHeightLen.min;
@@ -308,8 +288,7 @@
 			this.el.setAttribute("animation__position", "to", { "x": p.x, "y": p.y + this.data.maxHeight, "z": p.z });
 			this.el.setAttribute("animation__position", "dur", this.data.riseTime * 1000);
 			this.el.setAttribute("animation__position", "easing", "easeOutQuad");  // fast at start, then slower
-			console.log(p.x, p.y, p.z);
-			console.log(p.x, p.y + this.data.maxHeight, p.z);
+
 			// trail effect ----------------------------------------------------------
 			this.particleTrail = document.createElement("a-image");
 			this.particleTrail.setAttribute("position", "0 -0.1 0");
