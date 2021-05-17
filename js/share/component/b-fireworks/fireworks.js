@@ -130,22 +130,22 @@
 				riseTime = randomNormal(this.riseTimeLen.min, this.riseTimeLen.max);
 			}
 
-			//var firework = document.createElement("a-entity");
-			//firework.setAttribute("firework", "");
-			//firework.setAttribute("position", { "x": this.bPos.x, "y": this.bPos.y, "z": this.bPos.z });
-			//firework.setAttribute("firework", "color", this.data.color);
-			//firework.setAttribute("firework", "bOpacity", this.data.bOpacity);
-			//firework.setAttribute("firework", "tOpacity", this.data.tOpacity);
-			//firework.setAttribute("firework", "tScale", this.data.tScale);
-			//firework.setAttribute("firework", "maxHeight", maxHeight);
-			//firework.setAttribute("firework", "riseTime", riseTime);
-			//firework.setAttribute("firework", "pCount", this.pCount.min + ',' + this.pCount.max);
-			//firework.setAttribute("firework", "bVelocity", this.bVelocity.min + ',' + this.bVelocity.max);
-			//firework.setAttribute("firework", "bDuration", this.bDuration.min + ',' + this.bDuration.max);
-			//firework.setAttribute("firework", "bSpread", this.bSpread.min + ',' + this.bSpread.max);
+			var firework = document.createElement("a-entity");
+			firework.setAttribute("firework", "");
+			firework.setAttribute("position", { "x": this.bPos.x, "y": this.bPos.y, "z": this.bPos.z });
+			firework.setAttribute("firework", "color", this.data.color);
+			firework.setAttribute("firework", "bOpacity", this.data.bOpacity);
+			firework.setAttribute("firework", "tOpacity", 0.25);
+			firework.setAttribute("firework", "tScale", this.data.tScale);
+			firework.setAttribute("firework", "maxHeight", maxHeight);
+			firework.setAttribute("firework", "riseTime", riseTime);
+			firework.setAttribute("firework", "pCount", this.pCount.min + ',' + this.pCount.max);
+			firework.setAttribute("firework", "bVelocity", this.bVelocity.min + ',' + this.bVelocity.max);
+			firework.setAttribute("firework", "bDuration", this.bDuration.min + ',' + this.bDuration.max);
+			firework.setAttribute("firework", "bSpread", this.bSpread.min + ',' + this.bSpread.max);
 
-			//this.fElement.appendChild(firework);
-			//this.firework = firework;
+			this.fElement.appendChild(firework);
+			this.firework = firework;
 		},
 
 		tick: function (time, deltaTime) // deltaTime: milliseconds
