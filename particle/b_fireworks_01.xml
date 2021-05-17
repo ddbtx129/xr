@@ -76,7 +76,7 @@
     <radius>8</radius>
     <pCount>100,999</pCount>
     <bVelocity>0.75</bVelocity>
-    <bDuration>1.0,3.0</bDuration>
+    <bDuration>0.5,1.5</bDuration>
     <bSpread>3.5,4.0</bSpread>
     <multifirework>0.15</multifirework>
     <loop>true</loop>
