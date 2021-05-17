@@ -2911,7 +2911,7 @@ var viewmode = 'marker';
                 }
 
                 let f = document.querySelector('#bFirework' + (i + 1).toString());
-                console.lo(!(f.hasAttribute('scatter')));
+                console.log(!(f.hasAttribute('scatter')));
                 if (!(f.hasAttribute('scatter'))) {
                     f.setAttribute('scatter', '');
 
