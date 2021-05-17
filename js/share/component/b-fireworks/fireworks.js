@@ -309,7 +309,8 @@
 
 
 			this.particleTrail.setAttribute("animation__shrink", "property", "scale");
-			this.particleTrail.setAttribute("animation__shrink", "from", "1 1 1");
+		    //this.particleTrail.setAttribute("animation__shrink", "from", "1 1 1");
+			this.particleTrail.setAttribute("animation__shrink", "from", "0.5 0.5 0.5");
 			this.particleTrail.setAttribute("animation__shrink", "to", "0.25 0.25 0.25");
 			this.particleTrail.setAttribute("animation__shrink", "dur", this.data.riseTime * 1000);
 			this.particleTrail.setAttribute("animation__shrink", "easing", "easeOutQuad");  // slow at start, then fast
