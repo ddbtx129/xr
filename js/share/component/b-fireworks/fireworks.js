@@ -131,7 +131,7 @@
 			} else {
 				riseTime = randomNormal(this.riseTimeLen.min, this.riseTimeLen.max);
 			}
-			con.log(this.data.tScale);
+
 			var firework = document.createElement("a-entity");
 			firework.setAttribute("firework", "");
 			firework.setAttribute("position", { "x": this.bPos.x, "y": this.bPos.y, "z": this.bPos.z });
@@ -311,13 +311,13 @@
 			this.particleTrail.setAttribute("src", this.data.fireball);
 			this.particleTrail.setAttribute("spritesheet-animation", "rows: 1; columns: 8; frameDuration: 0.08; loop: true;");
 			this.particleTrail.setAttribute("material", "blending: additive; transparent: true; opacity: " + this.data.tOpacity + ";color:" + this.data.color);
-			console.log(this.data.tOpacity);
+
 			this.particleTrail.setAttribute("animation__fade", "property", "material.opacity");
 			this.particleTrail.setAttribute("animation__fade", "from", this.data.tOpacity);
 			this.particleTrail.setAttribute("animation__fade", "to", 0.2);
 			this.particleTrail.setAttribute("animation__fade", "dur", this.data.riseTime * 1000);
 			this.particleTrail.setAttribute("animation__fade", "easing", "easeOutQuad");  // slow at start, then fast
-			console.log(this.data.tScale);
+
 			this.particleTrail.setAttribute("animation__shrink", "property", "scale");
 		    //this.particleTrail.setAttribute("animation__shrink", "from", "1 1 1");
 		    var tScale = this.data.tScale + ' ' + this.data.tScale + ' ' + this.data.tScale;
