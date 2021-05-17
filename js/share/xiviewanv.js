@@ -2961,9 +2961,12 @@ var viewmode = 'marker';
                     }
                 }
 
-                //for (var i = 0; i < f.length; i++) {
-                //    f[i].removee();
-                //}
+                setTimeout(function(){
+                    let pf = document.querySelectorAll('.bSpawner');
+                    for (var i = 0; i < pf.length; i++) {
+                        pf[i].removee();
+                    }
+                }, 1000);
             } 
         },
 
