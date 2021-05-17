@@ -150,7 +150,7 @@
 					let angleRadians = angle + randomNormal(-angleSpread, angleSpread);
 					let radius = this.data.radius;
 				    //let x = radius * Math.cos(angleRadians);
-					let x = randomNormal(this.data.maxWidthtLen.min, this.data.maxWidthtLen.max);
+					let x = randomNormal(this.maxWidthtLen.min, this.maxWidthtLen.max);
 					let y = this.posfactor.y;
 					let z = radius * Math.sin(angleRadians);
 
