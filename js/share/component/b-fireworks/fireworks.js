@@ -62,6 +62,10 @@
 				type: "number",
 				default: 0.75
 			},
+			tScale: {
+			    type: "number",
+			    default: 0.75
+			},
 			radius: {
 				type: 'number',
 				default: 9
@@ -134,6 +138,7 @@
 			firework.setAttribute("firework", "color", this.data.color);
 			firework.setAttribute("firework", "bOpacity", this.data.bOpacity);
 			firework.setAttribute("firework", "tOpacity", this.data.tOpacity);
+			firework.setAttribute("firework", "tScale", this.data.tScale);
 			firework.setAttribute("firework", "maxHeight", maxHeight);
 			firework.setAttribute("firework", "riseTime", riseTime);
 			firework.setAttribute("firework", "pCount", this.pCount.min + ',' + this.pCount.max);
@@ -170,6 +175,7 @@
 					firework.setAttribute("firework", "color", this.data.color);
 					firework.setAttribute("firework", "bOpacity", this.data.bOpacity);
 					firework.setAttribute("firework", "tOpacity", this.data.tOpacity);
+					firework.setAttribute("firework", "tScale", this.data.tScale);
 					firework.setAttribute("firework", "maxHeight", maxHeight);
 					firework.setAttribute("firework", "riseTime", riseTime);
 					firework.setAttribute("firework", "pCount", this.pCount.min + ',' + this.pCount.max);
@@ -189,6 +195,7 @@
 						fireworkExtra.setAttribute("firework", "color", this.data.color);
 						fireworkExtra.setAttribute("firework", "bOpacity", this.data.bOpacity);
 						fireworkExtra.setAttribute("firework", "tOpacity", this.data.tOpacity);
+						fireworkExtra.setAttribute("firework", "tScale", this.data.tScale);
 						fireworkExtra.setAttribute("firework", "maxHeight", maxHeight);
 						fireworkExtra.setAttribute("firework", "riseTime", riseTime);
 						fireworkExtra.setAttribute("firework", "pCount", this.pCount.min + ',' + this.pCount.max);
@@ -244,6 +251,10 @@
 				type: 'number',
 				default: 1
 			},
+			tScale: {
+			    type: "number",
+			    default: 0.75
+			},
 			texture: {
 				type: "string",
 				default: path + 'images/particles/sparkle.png'
@@ -277,8 +288,7 @@
 			if (this.data.color == "") {
 				this.data.color = this.randomColor();
 			}
-			console.log(path);
-			console.log(this.data.texture);
+
 			this.pCount = { min: Number(this.data.pCount[0]), max: Number(this.data.pCount[1]) };
 			this.bVelocity = { min: Number(this.data.bVelocity[0]), max: Number(this.data.bVelocity[1]) };
 
@@ -310,7 +320,7 @@
 
 			this.particleTrail.setAttribute("animation__shrink", "property", "scale");
 		    //this.particleTrail.setAttribute("animation__shrink", "from", "1 1 1");
-			this.particleTrail.setAttribute("animation__shrink", "from", "0.5 0.5 0.5");
+			this.particleTrail.setAttribute("animation__shrink", "from", this.data.tScale + ' ' + this.data.tScale + ' ' + this.data.tScale);
 			this.particleTrail.setAttribute("animation__shrink", "to", "0.25 0.25 0.25");
 			this.particleTrail.setAttribute("animation__shrink", "dur", this.data.riseTime * 1000);
 			this.particleTrail.setAttribute("animation__shrink", "easing", "easeOutQuad");  // slow at start, then fast
