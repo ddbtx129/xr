@@ -56,9 +56,9 @@
     <attribute>scatter</attribute>
     <color></color>
     <texture></texture>
-    <bPos>0,-1,-12</bPos>
-    <posfactor>270,-1,50</posfactor>
-    <maxHeightLen>3.5,5</maxHeightLen>
+    <bPos>0,0,-12</bPos>
+    <posfactor>270,0,50</posfactor>
+    <maxHeightLen>3.5,4</maxHeightLen>
     <riseTimeLen>1,3</riseTimeLen>
     <bOpacity>0.3</bOpacity>
     <tOpacity>0.5</tOpacity>
