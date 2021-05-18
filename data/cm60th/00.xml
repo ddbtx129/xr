@@ -115,7 +115,7 @@
     <ar1>2</ar1>
     <m></m>
     <m1></m1>
-    <m2>00</m2>
+    <m2>01</m2>
     <mo>cm60th</mo>
     <t>v</t>
     <xs>0</xs>
@@ -131,7 +131,7 @@
     <materialshader>chromakey</materialshader>
     <o></o>
     <o1></o1>
-    <o2>19</o2>
+    <o2>00</o2>
     <o3></o3>
     <oa></oa>
     <ob></ob>
