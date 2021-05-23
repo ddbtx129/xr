@@ -53,6 +53,10 @@
                     'images/autumn/01.png', 'images/autumn/02.png', 'images/autumn/03.png',
                     'images/winter/01.png', 'images/winter/02.png', 'images/winter/03.png',]
             },
+            partisys: {
+                type: 'string',
+                default: 'preset: snow; opacity: 0.7; ParticleCount: 500; size: 4, enabled: true'
+            },
             starttime: {
                 type: 'number',
                 default: 1000
@@ -71,6 +75,7 @@
 
             this.Pos = this.data.Pos;
             this.textures = this.data.textures;
+            this.partisys = this.data.partisys;
             this.starttime = this.data.starttime;
             this.duration = this.data.duration;
 
@@ -80,10 +85,12 @@
                     var parti = document.createElement('a-entity');
                     parti.setAttribute('id', 'fourseason' + (j + 1).toString());
                     parti.setAttribute('position', this.Pos);
-                    parti.setAttribute('particle-system', "preset: snow; color: #24CAFF; opacity: 0.7; ParticleCount: 500; size: 4, enabled: true");
+                    parti.setAttribute('particle-system', '');
                     parti.setAttribute('particle-system', 'texture', path + this.textures[j]);
+                    parti.setAttribute('particle-system', this.partisys);
 
                     this.fElement.appendChild(parti);
+
                 }, Number(this.starttime));
 
                 setTimeout(function (i) {
