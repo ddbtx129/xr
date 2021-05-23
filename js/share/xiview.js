@@ -291,8 +291,6 @@ var viewmode = 'marker';
                                 attribute.duration = parti[k].duration;
 
                                 particle[k] = attribute;
-                                console.log(particle[0].kind);
-                                console.log(particle[0].pos);
                             }
 
                             args[idx].Particle = particle;
@@ -874,18 +872,20 @@ var viewmode = 'marker';
                                 parti.setAttribute('position', self.args[idx].Particle[k].pos);
                                 parti.setAttribute(self.args[idx].Particle[k].attribute, self.args[idx].Particle[k].partisys);
                                 parti.setAttribute('style', 'display:none');
+                                el.appendChild(parti);
+
                             } else if (self.args[idx].Particle[k].kind == '1') {
                                 parti.setAttribute('id', self.args[idx].Particle[k].idnm);
                                 parti.setAttribute(self.args[idx].Particle[k].attribute, '');
+                                //parti.setAttribute('style', 'display:none');
+
+                                el.appendChild(parti);
+
                                 parti.setAttribute(self.args[idx].Particle[k].attribute, 'pos', self.args[idx].Particle[k].pos);
                                 parti.setAttribute(self.args[idx].Particle[k].attribute, 'partisys', self.args[idx].Particle[k].partisys);
                                 parti.setAttribute(self.args[idx].Particle[k].attribute, 'starttime', self.args[idx].Particle[k].starttime);
                                 parti.setAttribute(self.args[idx].Particle[k].attribute, 'duration', self.args[idx].Particle[k].duration);
-
-                                parti.setAttribute('style', 'display:none');
                             }
-
-                            el.appendChild(parti);
                         }
                     }
                 }
