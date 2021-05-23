@@ -65,8 +65,10 @@
             console.log(this.duration);
             setInterval(function () {
                 for (var i = 0; i < len; i++) {
-                    console.log(i);
+                    console.log(this.textures[i]);
                     function create(i) {
+                        console.log(i);
+
                         var parti = document.createElement('a-entity');
                         parti.setAttribute('id', 'fourseason' + (i + 1).toString());
                         parti.setAttribute('position', this.pos);
