@@ -867,12 +867,12 @@ var viewmode = 'marker';
 
                         if (!!(self.args[idx].Particle[k].idnm)) {
                             var parti = document.createElement('a-entity');
-                            if (self.args[idx].kind == 0) {
+                            if (self.args[idx].Particle[k].kind == 0) {
                                 parti.setAttribute('id', self.args[idx].Particle[k].idnm);
                                 parti.setAttribute('position', self.args[idx].Particle[k].pos);
                                 parti.setAttribute(self.args[idx].Particle[k].attribute, self.args[idx].Particle[k].partisys);
                                 parti.setAttribute('style', 'display:none');
-                            } else if (self.args[idx].kind == 1) {
+                            } else if (self.args[idx].Particle[k].kind == 1) {
                                 parti.setAttribute('id', self.args[idx].Particle[k].idnm);
                                 parti.setAttribute(self.args[idx].Particle[k].attribute, '');
                                 parti.setAttribute(self.args[idx].Particle[k].attribute, 'pos', self.args[idx].Particle[k].pos);
@@ -2005,8 +2005,8 @@ var viewmode = 'marker';
                 var wrapPos = { x: defwrap[idx].Pos.x, y: defwrap[idx].Pos.y, z: defwrap[idx].Pos.z };
 
                 if (!!(val[idx].isParti)) {
-                    if (self.args[idx].particle.kind == 0) {
-                        for (var k = 0; k < self.args[idx].Particle.length; k++) {
+                    for (var k = 0; k < self.args[idx].Particle.length; k++) {
+                        if (self.args[idx].particle[k].kind == 0) {
                             var parti = document.getElementById("arParticle" + ((idx + 1) * 100 + (k + 1)));
                             AFRAME.utils.entity.setComponentProperty(parti, "particle-system", { enabled: false });
                         }
@@ -2039,8 +2039,8 @@ var viewmode = 'marker';
                         self.wrap[idx].setAttribute('visible', false);
                     } else {
                         if (!!(val[idx].isParti)) {
-                            if (self.args[idx].particle.kind == 0) {
-                                for (var k = 0; k < self.args[idx].Particle.length; k++) {
+                            for (var k = 0; k < self.args[idx].Particle.length; k++) {
+                                if (self.args[idx].particle[k].kind == 0) {
                                     var parti = document.getElementById("arParticle" + ((idx + 1) * 100 + (k + 1)));
                                     parti.setAttribute('position', '0 ' + (2.25 + wrapPos.y) + ' -15');
                                     AFRAME.utils.entity.setComponentProperty(parti, "particle-system", { enabled: true });
@@ -2054,8 +2054,8 @@ var viewmode = 'marker';
                 } else {
 
                     if (!!(val[idx].isParti)) {
-                        if (self.args[idx].particle.kind == 0) {
-                            for (var k = 0; k < self.args[idx].Particle.length; k++) {
+                        for (var k = 0; k < self.args[idx].Particle.length; k++) {
+                            if (self.args[idx].particle[k].kind == 0) {
                                 var parti = document.getElementById("arParticle" + ((idx + 1) * 100 + (k + 1)));
                                 parti.setAttribute('position', '0 2.25 -15');
                                 AFRAME.utils.entity.setComponentProperty(parti, "particle-system", { enabled: false });
@@ -2148,8 +2148,8 @@ var viewmode = 'marker';
                         var i = Number(targetmarker.getAttribute('data-index'));
 
                         if (webAr.ar.arData[i].isParti) {
-                            if (self.args[idx].particle.kind == 0) {
-                                for (var k = 0; k < webAr.ar.args[i].Particle.length; k++) {
+                            for (var k = 0; k < webAr.ar.args[i].Particle.length; k++) {
+                                if (self.args[idx].particle[k].kind == 0) {
                                     var parti = document.getElementById("arParticle" + ((i + 1) * 100 + (k + 1)));
                                     AFRAME.utils.entity.setComponentProperty(parti, "particle-system", { enabled: true });
                                 }
@@ -2207,8 +2207,8 @@ var viewmode = 'marker';
                         var i = Number(targetmarker.getAttribute('data-index'));
 
                         if (webAr.ar.arData[i].isParti) {
-                            if (self.args[idx].particle.kind == 0) {
-                                for (var k = 0; k < webAr.ar.args[i].Particle.length; k++) {
+                            for (var k = 0; k < webAr.ar.args[i].Particle.length; k++) {
+                                if (self.args[idx].particle[k].kind == 0) {
                                     var parti = document.getElementById("arParticle" + ((i + 1) * 100 + (k + 1)));
                                     AFRAME.utils.entity.setComponentProperty(parti, "particle-system", { enabled: false });
                                 }
@@ -2746,8 +2746,8 @@ var viewmode = 'marker';
                     }
 
                     if (webAr.ar.arData[i].isParti) {
-                        if (self.args[idx].particle.kind == 0) {
-                            for (var k = 0; k < webAr.ar.args[i].Particle.length; k++) {
+                        for (var k = 0; k < webAr.ar.args[i].Particle.length; k++) {
+                            if (self.args[idx].particle[k].kind == 0) {
                                 var parti = document.getElementById("arParticle" + ((i + 1) * 100 + (k + 1)));
                                 AFRAME.utils.entity.setComponentProperty(parti, "particle-system", { enabled: false });
                             }
@@ -2790,8 +2790,8 @@ var viewmode = 'marker';
                     }
 
                     if (webAr.ar.arData[j].isParti) {
-                        if (self.args[idx].particle.kind == 0) {
-                            for (var k = 0; k < webAr.ar.args[j].Particle.length; k++) {
+                        for (var k = 0; k < webAr.ar.args[j].Particle.length; k++) {
+                            if (self.args[idx].particle[k].kind == 0) {
                                 var parti = document.getElementById("arParticle" + ((j + 1) * 100 + (k + 1)));
                                 AFRAME.utils.entity.setComponentProperty(parti, "particle-system", { enabled: true });
                             }
