@@ -21,7 +21,7 @@
     AFRAME.registerComponent('four-season', {
 
         schema: {
-            Pos: {
+            pos: {
                 type: 'string',
                 default: '0 2.25 -15'
             },
@@ -56,7 +56,7 @@
 
             var len = this.data.textures.length;
 
-            this.Pos = this.data.Pos;
+            this.pos = this.data.pos;
             this.textures = this.data.textures;
             this.partisys = this.data.partisys;
             this.starttime = this.data.starttime;
@@ -69,7 +69,7 @@
                     function create(i) {
                         var parti = document.createElement('a-entity');
                         parti.setAttribute('id', 'fourseason' + (i + 1).toString());
-                        parti.setAttribute('position', this.Pos);
+                        parti.setAttribute('position', this.pos);
                         parti.setAttribute('particle-system', '');
                         parti.setAttribute('particle-system', 'texture', path + this.textures[i] + ',' + this.partisys);
                         this.fElement.appendChild(parti);
