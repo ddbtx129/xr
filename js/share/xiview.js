@@ -291,10 +291,11 @@ var viewmode = 'marker';
                                 attribute.duration = parti[k].duration;
 
                                 particle[k] = attribute;
+                                console.log(particle[0].kind);
+                                console.log(particle[0].pos);
                             }
 
                             args[idx].Particle = particle;
-                            console.log(args[idx].particle[0].pos);
                         }
                     }
 
