@@ -66,21 +66,41 @@
             setInterval(function () {
                 for (var i = 0; i < len; i++) {
                     console.log(i);
-                    setTimeout(function (i) {
+                    function create(i) {
                         var parti = document.createElement('a-entity');
-                        parti.setAttribute('id', 'fourseason' + (j + 1).toString());
+                        parti.setAttribute('id', 'fourseason' + (i + 1).toString());
                         parti.setAttribute('position', this.Pos);
                         parti.setAttribute('particle-system', '');
-                        parti.setAttribute('particle-system', 'texture', path + this.textures[j] + ',' + this.partisys);
+                        parti.setAttribute('particle-system', 'texture', path + this.textures[i] + ',' + this.partisys);
                         this.fElement.appendChild(parti);
-                    }, Number(this.starttime) * (i + 1));
+                    };
 
-                    setTimeout(function (i) {
-                        var parti = document.querySelector('#fourseason' + (j + 1).toString());
+                    setTimeout(create, Number(this.starttime) * (i + 1), i);
+
+                    //setTimeout(function (i) {
+                    //    var parti = document.createElement('a-entity');
+                    //    parti.setAttribute('id', 'fourseason' + (j + 1).toString());
+                    //    parti.setAttribute('position', this.Pos);
+                    //    parti.setAttribute('particle-system', '');
+                    //    parti.setAttribute('particle-system', 'texture', path + this.textures[j] + ',' + this.partisys);
+                    //    this.fElement.appendChild(parti);
+                    //}, Number(this.starttime) * (i + 1));
+
+                    function remove(i) {
+                        var parti = document.querySelector('#fourseason' + (i + 1).toString());
                         if (parti != null) {
                             parti.remove();
                         }
-                    }, Number(this.duration) * (i + 1));
+                    };
+
+                    setTimeout(remove, Number(this.duration) * (i + 1), i);
+
+                    //setTimeout(function (i) {
+                    //    //var parti = document.querySelector('#fourseason' + (j + 1).toString());
+                    //    //if (parti != null) {
+                    //    //    parti.remove();
+                    //    //}
+                    //}, Number(this.duration) * (i + 1));
                 }
             }, Number(this.duration) * len);
         }
