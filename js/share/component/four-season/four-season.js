@@ -68,6 +68,7 @@
 
             setInterval(function () {
                 for (var i = 0; i < len; i++) {
+                    console.log(i);
                     console.log(this.data.textures[i]);
                     function create(i) {
                         console.log(i);
