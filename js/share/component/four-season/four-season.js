@@ -61,27 +61,20 @@
             this.partisys = this.data.partisys;
             this.starttime = this.data.starttime;
             this.duration = this.data.duration;
-            console.log(this.starttime);
-            console.log(this.duration);
-            console.log(this.data.textures[0]);
-            console.log(this.data.textures[1]);
 
             setInterval(function () {
                 for (var i = 0; i < len; i++) {
-                    console.log(i);
-                    console.log(this.data.textures[i]);
-                    function create(i) {
-                        console.log(i);
 
+                    function create(val) {
                         var parti = document.createElement('a-entity');
-                        parti.setAttribute('id', 'fourseason' + (i + 1).toString());
-                        parti.setAttribute('position', this.data.pos);
+                        parti.setAttribute('id', val[0]);
+                        parti.setAttribute('position', val[1]);
                         parti.setAttribute('particle-system', '');
-                        parti.setAttribute('particle-system', 'texture', path + this.data.textures[i] + ',' + this.data.partisys);
+                        parti.setAttribute('particle-system', 'texture', val[2]);
                         this.fElement.appendChild(parti);
                     };
 
-                    setTimeout(create, Number(this.data.starttime) * (i + 1), i);
+                    setTimeout(create, Number(this.starttime) * (i + 1), ['fourseason' + (i + 1).toString(), this.pos, path + this.textures[i] + ',' + this.partisys]);
 
                     //setTimeout(function (i) {
                     //    var parti = document.createElement('a-entity');
@@ -92,14 +85,14 @@
                     //    this.fElement.appendChild(parti);
                     //}, Number(this.starttime) * (i + 1));
 
-                    function remove(i) {
-                        var parti = document.querySelector('#fourseason' + (i + 1).toString());
+                    function remove(val) {
+                        var parti = document.querySelector('#fourseason' + (val[0] + 1).toString());
                         if (parti != null) {
                             parti.remove();
                         }
                     };
 
-                    setTimeout(remove, Number(this.data.duration) * (i + 1), i);
+                    setTimeout(remove, Number(this.duration) * (i + 1), [i]);
 
                     //setTimeout(function (i) {
                     //    //var parti = document.querySelector('#fourseason' + (j + 1).toString());
@@ -108,7 +101,7 @@
                     //    //}
                     //}, Number(this.duration) * (i + 1));
                 }
-            }, Number(this.data.duration) * len);
+            }, Number(this.duration) * len);
         }
     });
 
