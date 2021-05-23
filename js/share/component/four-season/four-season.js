@@ -65,19 +65,19 @@
             console.log(this.duration);
             setInterval(function () {
                 for (var i = 0; i < len; i++) {
-                    console.log(this.textures[i]);
+                    console.log(this.data.textures[i]);
                     function create(i) {
                         console.log(i);
 
                         var parti = document.createElement('a-entity');
                         parti.setAttribute('id', 'fourseason' + (i + 1).toString());
-                        parti.setAttribute('position', this.pos);
+                        parti.setAttribute('position', this.data.pos);
                         parti.setAttribute('particle-system', '');
-                        parti.setAttribute('particle-system', 'texture', path + this.textures[i] + ',' + this.partisys);
+                        parti.setAttribute('particle-system', 'texture', path + this.data.textures[i] + ',' + this.data.partisys);
                         this.fElement.appendChild(parti);
                     };
 
-                    setTimeout(create, Number(this.starttime) * (i + 1), i);
+                    setTimeout(create, Number(this.data.starttime) * (i + 1), i);
 
                     //setTimeout(function (i) {
                     //    var parti = document.createElement('a-entity');
@@ -95,7 +95,7 @@
                         }
                     };
 
-                    setTimeout(remove, Number(this.duration) * (i + 1), i);
+                    setTimeout(remove, Number(this.data.duration) * (i + 1), i);
 
                     //setTimeout(function (i) {
                     //    //var parti = document.querySelector('#fourseason' + (j + 1).toString());
@@ -104,7 +104,7 @@
                     //    //}
                     //}, Number(this.duration) * (i + 1));
                 }
-            }, Number(this.duration) * len);
+            }, Number(this.data.duration) * len);
         }
     });
 
