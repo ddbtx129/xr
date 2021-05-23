@@ -885,8 +885,8 @@ var viewmode = 'marker';
 
                                 parti.setAttribute(self.args[idx].Particle[k].attribute.toString(), 'pos', self.args[idx].Particle[k].pos);
                                 parti.setAttribute(self.args[idx].Particle[k].attribute.toString(), 'partisys', self.args[idx].Particle[k].partisys);
-                                parti.setAttribute(self.args[idx].Particle[k].attribute.toString(), 'starttime', self.args[idx].Particle[k].starttime);
-                                parti.setAttribute(self.args[idx].Particle[k].attribute.toString(), 'duration', self.args[idx].Particle[k].duration);
+                                parti.setAttribute(self.args[idx].Particle[k].attribute.toString(), 'starttime', Number(self.args[idx].Particle[k].starttime));
+                                parti.setAttribute(self.args[idx].Particle[k].attribute.toString(), 'duration', Number(self.args[idx].Particle[k].duration));
                             }
                         }
                     }
