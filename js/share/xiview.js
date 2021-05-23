@@ -278,6 +278,8 @@ var viewmode = 'marker';
 
                                 var attribute = {};
 
+                                attribute.kind = parti[k].duration;
+                                attribute.attribute = (parti[k].attribute != null) ? parti[k].attribute : 'particle-system';
                                 attribute.idnm = (parti[k].idnm + (((idx + 1) * 100) + (k + 1)).toString());
                                 attribute.pos = parti[k].pos;
                                 attribute.partisys = parti[k].partisys;
@@ -285,6 +287,8 @@ var viewmode = 'marker';
                                 attribute.assets = parti[k].assets;
                                 attribute.assetsid = parti[k].assetsid;
                                 attribute.assetssrc = parti[k].assetssrc;
+                                attribute.starttime = parti[k].starttime;
+                                attribute.duration = parti[k].duration;
 
                                 particle[k] = attribute;
                             }
@@ -863,10 +867,21 @@ var viewmode = 'marker';
 
                         if (!!(self.args[idx].Particle[k].idnm)) {
                             var parti = document.createElement('a-entity');
-                            parti.setAttribute('id', self.args[idx].Particle[k].idnm);
-                            parti.setAttribute('position', self.args[idx].Particle[k].pos);
-                            parti.setAttribute('particle-system', self.args[idx].Particle[k].partisys);
-                            parti.setAttribute('style', 'display:none');
+                            if (self.args[idx].kind == 0) {
+                                parti.setAttribute('id', self.args[idx].Particle[k].idnm);
+                                parti.setAttribute('position', self.args[idx].Particle[k].pos);
+                                parti.setAttribute(self.args[idx].Particle[k].attribute, self.args[idx].Particle[k].partisys);
+                                parti.setAttribute('style', 'display:none');
+                            } else if (self.args[idx].kind == 1) {
+                                parti.setAttribute('id', self.args[idx].Particle[k].idnm);
+                                parti.setAttribute(self.args[idx].Particle[k].attribute, '');
+                                parti.setAttribute(self.args[idx].Particle[k].attribute, 'pos', self.args[idx].Particle[k].pos);
+                                parti.setAttribute(self.args[idx].Particle[k].attribute, 'partisys', self.args[idx].Particle[k].partisys);
+                                parti.setAttribute(self.args[idx].Particle[k].attribute, 'starttime', self.args[idx].Particle[k].starttime);
+                                parti.setAttribute(self.args[idx].Particle[k].attribute, 'duration', self.args[idx].Particle[k].duration);
+
+                                parti.setAttribute('style', 'display:none');
+                            }
 
                             el.appendChild(parti);
                         }
@@ -3173,6 +3188,8 @@ var viewmode = 'marker';
 
                 var data = new Array();
 
+                var cKind = xmldata.getElementsByTagName("kind");
+                var cAttribute = xmldata.getElementsByTagName("attribute");
                 var cId = xmldata.getElementsByTagName("idnm");
                 var cPos = xmldata.getElementsByTagName("pos");
                 var cParti = xmldata.getElementsByTagName("partisys");
@@ -3180,17 +3197,24 @@ var viewmode = 'marker';
                 var cAssets = xmldata.getElementsByTagName("assets");
                 var cAssetsid = xmldata.getElementsByTagName("assetsid");
                 var cAssetssrc = xmldata.getElementsByTagName("assetssrc");
+                var cStarttime = xmldata.getElementsByTagName("starttime");
+                var cDuration = xmldata.getElementsByTagName("duration");
 
                 var len = cId.length;
                 for (var i = 0; i < len; i++) {
                     data[i] = {
+                        kind: (cKind[i] != null) ? Number(cKind[i].textContent) : 0,
+                        attribute: (cAttribute[i] != null) && attribute[i].textContent,
                         idnm: (cId[i] != null) && cId[i].textContent,
                         pos: (cPos[i] != null) && cPos[i].textContent,
                         partisys: (cParti[i] != null) && cParti[i].textContent,
                         fireworks: (cFireWorks[i] != null) && cFireWorks[i].textContent,
                         assets: (cAssets[i] != null) && cAssets[i].textContent,
                         assetsid: (cAssetsid[i] != null) && cAssetsid[i].textContent,
-                        cAssetssrc: (cAssetssrc[i] != null) && cAssetssrc[i].textContent
+                        assetssrc: (cAssetssrc[i] != null) && cAssetssrc[i].textContent,
+                        starttime: (cStarttime[i] != null) ? Number(cStarttime[i].textContent) : 0,
+                        duration: (cDuration[i] != null) ? Number(cDuration[i].textContent) : 0
+
                     };
                 };
 
