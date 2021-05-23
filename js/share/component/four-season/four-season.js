@@ -1,21 +1,4 @@
-﻿//<particle>
-//  <idnm>arParticle</idnm>
-//  <pos>0 2.25 -15</pos>
-//  <partisys>texture: asset/autumn/01.png; preset: snow; opacity: 0.7; ParticleCount: 500; size: 4, enabled: true</partisys>
-//</particle>
-
-//<particle>
-//  <idnm>arParticle</idnm>
-//  <pos>0 2.25 -15</pos>
-//  <partisys>texture: asset/autumn/02.png; preset: snow; opacity: 0.7; ParticleCount: 500; size: 4, enabled: true</partisys>
-//</particle>
-
-//<particle>
-//  <idnm>arParticle</idnm>
-//  <pos>0 2.25 -15</pos>
-//  <partisys>texture: asset/autumn/03.png; preset: snow; opacity: 0.7; ParticleCount: 500; size: 4, enabled: true</partisys>
-//</particle>
-
+﻿
 (function () {
     
     var js = document.scripts;
@@ -87,11 +70,8 @@
                         parti.setAttribute('id', 'fourseason' + (j + 1).toString());
                         parti.setAttribute('position', this.Pos);
                         parti.setAttribute('particle-system', '');
-                        parti.setAttribute('particle-system', 'texture', path + this.textures[j]);
-                        parti.setAttribute('particle-system', this.partisys);
-
+                        parti.setAttribute('particle-system', 'texture', path + this.textures[j] + ',' + this.partisys);
                         this.fElement.appendChild(parti);
-
                     }, Number(this.starttime) * (i + 1));
 
                     setTimeout(function (i) {
@@ -105,4 +85,4 @@
         }
     });
 
-});
+}());
