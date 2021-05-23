@@ -866,7 +866,9 @@ var viewmode = 'marker';
                         }
 
                         if (!!(self.args[idx].Particle[k].idnm)) {
+
                             var parti = document.createElement('a-entity');
+
                             if (self.args[idx].Particle[k].kind == '0') {
                                 parti.setAttribute('id', self.args[idx].Particle[k].idnm);
                                 parti.setAttribute('position', self.args[idx].Particle[k].pos);
@@ -881,10 +883,10 @@ var viewmode = 'marker';
 
                                 el.appendChild(parti);
 
-                                parti.setAttribute(self.args[idx].Particle[k].attribute, 'pos', self.args[idx].Particle[k].pos);
-                                parti.setAttribute(self.args[idx].Particle[k].attribute, 'partisys', self.args[idx].Particle[k].partisys);
-                                parti.setAttribute(self.args[idx].Particle[k].attribute, 'starttime', self.args[idx].Particle[k].starttime);
-                                parti.setAttribute(self.args[idx].Particle[k].attribute, 'duration', self.args[idx].Particle[k].duration);
+                                parti.setAttribute(self.args[idx].Particle[k].attribute.toString(), 'pos', self.args[idx].Particle[k].pos);
+                                parti.setAttribute(self.args[idx].Particle[k].attribute.toString(), 'partisys', self.args[idx].Particle[k].partisys);
+                                parti.setAttribute(self.args[idx].Particle[k].attribute.toString(), 'starttime', self.args[idx].Particle[k].starttime);
+                                parti.setAttribute(self.args[idx].Particle[k].attribute.toString(), 'duration', self.args[idx].Particle[k].duration);
                             }
                         }
                     }
