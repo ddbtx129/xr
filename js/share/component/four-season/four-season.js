@@ -63,6 +63,9 @@
             this.duration = this.data.duration;
             console.log(this.starttime);
             console.log(this.duration);
+            console.log(this.data.textures[0]);
+            console.log(this.data.textures[1]);
+
             setInterval(function () {
                 for (var i = 0; i < len; i++) {
                     console.log(this.data.textures[i]);
