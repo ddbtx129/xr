@@ -17,6 +17,7 @@
     function randomUniform(min, max) {
         return min + (max - min) * Math.random();
     }
+    var img = new Array();
 
     AFRAME.registerComponent('four-season', {
 
@@ -61,6 +62,7 @@
             this.partisys = this.data.partisys;
             this.starttime = this.data.starttime;
             this.duration = this.data.duration;
+            img = this.textures;
 
             setInterval(function () {
                 for (var i = 0; i < len; i++) {
@@ -74,7 +76,7 @@
                         this.fElement.appendChild(parti);
                     };
 
-                    setTimeout(create, Number(this.starttime) * (i + 1), ['fourseason' + (i + 1).toString(), this.pos, path + this.textures[i] + ',' + this.partisys]);
+                    setTimeout(create, Number(this.starttime) * (i + 1), ['fourseason' + (i + 1).toString(), this.pos, (path + img[i] + ',' + this.partisys)]);
 
                     //setTimeout(function (i) {
                     //    var parti = document.createElement('a-entity');
