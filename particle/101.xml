@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ArData>
+  <xs:schema id="ArData" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="ArData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+
+          <xs:element name="particle">
+            <xs:complexType>
+              <xs:sequence>
+                <!--種類-->
+                <xs:element name="kind" type="xs:int" minOccurs="0" />
+                <!--要素-->
+                <xs:element name="attribute" type="xs:string" minOccurs="0" />
+                <!--ID名 (固定)-->
+                <xs:element name="idnm" type="xs:string" minOccurs="0" />
+                <!--ポジション-->
+                <xs:element name="pos" type="xs:string" minOccurs="0" />
+                <!--particle-system-->
+                <xs:element name="partisys" type="xs:string" minOccurs="0" />
+                <!--a-assets使用 0:なし 1:使用-->
+                <xs:element name="assets" type="xs:string" minOccurs="0" />
+                <!--a-assets ID-->
+                <xs:element name="assetsid" type="xs:string" minOccurs="0" />
+                <!--a-assetsソース-->
+                <xs:element name="assetssrc" type="xs:string" minOccurs="0" />
+                <!--開始時間-->
+                <xs:element name="starttime" type="xs:int" minOccurs="0" />
+                <!--継続時間-->
+                <xs:element name="duration" type="xs:int" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+
+  <particle>
+    <kind>1</kind>
+    <attribute>four-season</attribute>
+    <idnm>arParticle</idnm>
+    <pos>0 2.25 -15</pos>
+    <partisys>preset: snow; opacity: 0.7; ParticleCount: 5000; size: 8, enabled: true</partisys>
+    <assets></assets>
+    <assetsid></assetsid>
+    <assetssrc></assetssrc>
+    <starttime>1000</starttime>
+    <duration>3000</duration>
+  </particle>
+
+</ArData>
