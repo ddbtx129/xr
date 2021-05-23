@@ -294,7 +294,7 @@ var viewmode = 'marker';
                             }
 
                             args[idx].Particle = particle;
-                            console.log(args[idx].particle[0].kind);
+                            console.log(args[idx].particle[0].pos);
                         }
                     }
 
