@@ -278,7 +278,7 @@ var viewmode = 'marker';
 
                                 var attribute = {};
 
-                                attribute.kind = parti[k].duration;
+                                attribute.kind = parti[k].kind;
                                 attribute.attribute = (parti[k].attribute != null) ? parti[k].attribute : 'particle-system';
                                 attribute.idnm = (parti[k].idnm + (((idx + 1) * 100) + (k + 1)).toString());
                                 attribute.pos = parti[k].pos;
