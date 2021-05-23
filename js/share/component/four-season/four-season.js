@@ -79,27 +79,29 @@
             this.starttime = this.data.starttime;
             this.duration = this.data.duration;
 
-            for (var i = 0; i < len; i++) {
+            setInterval(function () {
+                for (var i = 0; i < len; i++) {
 
-                setTimeout(function (i) {
-                    var parti = document.createElement('a-entity');
-                    parti.setAttribute('id', 'fourseason' + (j + 1).toString());
-                    parti.setAttribute('position', this.Pos);
-                    parti.setAttribute('particle-system', '');
-                    parti.setAttribute('particle-system', 'texture', path + this.textures[j]);
-                    parti.setAttribute('particle-system', this.partisys);
+                    setTimeout(function (i) {
+                        var parti = document.createElement('a-entity');
+                        parti.setAttribute('id', 'fourseason' + (j + 1).toString());
+                        parti.setAttribute('position', this.Pos);
+                        parti.setAttribute('particle-system', '');
+                        parti.setAttribute('particle-system', 'texture', path + this.textures[j]);
+                        parti.setAttribute('particle-system', this.partisys);
 
-                    this.fElement.appendChild(parti);
+                        this.fElement.appendChild(parti);
 
-                }, Number(this.starttime));
+                    }, Number(this.starttime) * (i + 1));
 
-                setTimeout(function (i) {
-                    var parti = document.querySelector('#fourseason' + (j + 1).toString());
-                    if (parti != null) {
-                        parti.remove();
-                    }
-                }, Number(this.duration));
-            }
+                    setTimeout(function (i) {
+                        var parti = document.querySelector('#fourseason' + (j + 1).toString());
+                        if (parti != null) {
+                            parti.remove();
+                        }
+                    }, Number(this.duration) * (i + 1));
+                }
+            }, Number(this.duration) * len);
         }
     });
 
