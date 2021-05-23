@@ -61,10 +61,11 @@
             this.partisys = this.data.partisys;
             this.starttime = this.data.starttime;
             this.duration = this.data.duration;
-
+            console.log(starttime);
+            console.log(duration);
             setInterval(function () {
                 for (var i = 0; i < len; i++) {
-
+                    console.log(i);
                     setTimeout(function (i) {
                         var parti = document.createElement('a-entity');
                         parti.setAttribute('id', 'fourseason' + (j + 1).toString());
