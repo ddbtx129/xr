@@ -46,8 +46,8 @@
     <assets></assets>
     <assetsid></assetsid>
     <assetssrc></assetssrc>
-    <starttime>1000</starttime>
-    <duration>3000</duration>
+    <starttime>2000</starttime>
+    <duration>6000</duration>
   </particle>
 
 </ArData>
