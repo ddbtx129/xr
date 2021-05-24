@@ -154,12 +154,20 @@
             console.log('one-season:' + path + this.texture);
             console.log('one-season:' + this.partisys);
 
+            this.view = false;
+
             this.tick = AFRAME.utils.throttle(this.tick, this.duration, this);
+
         },
 
         tick: function (time, dt) {
-            let element = this.el;
-            element.parentNode.removeChild(element);
+
+            if (this.view) {
+                let element = this.el;
+                element.parentNode.removeChild(element);
+            }
+
+            this.view = true;
         }
     });
 
