@@ -34,7 +34,7 @@
                 type: 'string',
                 default: 'images/particles/sparkle.png'
             },
-            textures: {
+            images: {
                 type: 'array',
                 default: ['images/spring/01.png', 'images/spring/02.png', 'images/spring/03.png',
                     'images/summer/01.png', 'images/summer/02.png', 'images/summer/03.png',
@@ -60,10 +60,10 @@
             this.fElement = this.el;
 
             this.idx = 0;
-            this.len = this.data.textures.length;
+            this.len = this.data.images.length;
 
             this.pos = this.data.pos;
-            this.textures = this.data.textures;
+            this.images = this.data.images;
             this.partisys = this.data.partisys;
             this.starttime = this.data.starttime;
             this.duration = this.data.duration;
@@ -71,7 +71,7 @@
             var parti = document.createElement('a-entity');
             parti.setAttribute('id', 'fourseason' + (this.idx + 1).toString());
             parti.setAttribute('one-season', 'pos', this.pos);
-            parti.setAttribute('one-season', 'texture', this.textures[this.idx]);
+            parti.setAttribute('one-season', 'texture', this.images[this.idx]);
             parti.setAttribute('one-season', 'partisys', this.partisys);
             parti.setAttribute('one-season', 'starttime', this.starttime);
             parti.setAttribute('one-season', 'duration', this.duration);
@@ -86,7 +86,7 @@
             var parti = document.createElement('a-entity');
             parti.setAttribute('id', 'fourseason' + (this.idx + 1).toString());
             parti.setAttribute('one-season', 'pos', this.pos);
-            parti.setAttribute('one-season', 'texture', this.textures[this.idx]);
+            parti.setAttribute('one-season', 'texture', this.images[this.idx]);
             parti.setAttribute('one-season', 'partisys', this.partisys);
             parti.setAttribute('one-season', 'starttime', this.starttime);
             parti.setAttribute('one-season', 'duration', this.duration);
