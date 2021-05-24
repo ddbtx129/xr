@@ -91,8 +91,8 @@
             //parti.setAttribute('one-season', 'starttime', this.starttime);
             //parti.setAttribute('one-season', 'duration', this.duration);
             parti.setAttribute('position', this.pos);
-            parti.setAttribute('particle-system', ('texture: ' + path + this.images[this.idx] + ',' + this.partisys));
-
+            parti.setAttribute('particle-system', ('texture: ' + path + this.images[this.idx] + ';' + this.partisys));
+            console.log(('texture: ' + path + this.images[this.idx] + ',' + this.partisys));
             this.fElement.appendChild(parti);
 
             //function remove(val) {
