@@ -84,6 +84,8 @@
                 parti.setAttribute('one-season', 'starttime', this.starttime);
                 parti.setAttribute('one-season', 'duration', this.duration);
 
+                this.fElement.appendChild(parti);
+                
                 this.nexttexture += 1;
             }
 
