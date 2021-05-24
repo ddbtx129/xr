@@ -64,6 +64,7 @@
             this.fElement = this.el;
 
             this.idx = 0;
+            this.nexttexture = 1;
             this.len = this.data.images.length;
 
             this.pos = this.data.pos;
@@ -82,6 +83,8 @@
                 parti.setAttribute('one-season', 'partisys', this.partisys);
                 parti.setAttribute('one-season', 'starttime', this.starttime);
                 parti.setAttribute('one-season', 'duration', this.duration);
+
+                this.nexttexture += 1;
             }
 
             this.view = false;
@@ -96,8 +99,9 @@
                 var element = document.querySelector('#fourseason' + (idx + 1).toString());
 
                 if(element != null){
+                    
                     element.setAttribute('one-season', 'pos', this.pos);
-                    element.setAttribute('one-season', 'texture', this.images[this.idx]);
+                    element.setAttribute('one-season', 'texture', this.images[this.nexttexture]);
                     element.setAttribute('one-season', 'partisys', this.partisys);
                     element.setAttribute('one-season', 'starttime', this.starttime);
                     element.setAttribute('one-season', 'duration', this.duration);
@@ -107,6 +111,12 @@
                     this.idx += 1;
                 } else {
                     this.idx = 0;
+                }
+
+                if ((this.nexttexture + 1) < this.len) {
+                    this.nexttexture += 1;
+                } else {
+                    this.nexttexture = 0;
                 }
             }
 
@@ -164,12 +174,12 @@
 
         tick: function (time, dt) {
 
-            if (this.view) {
-                let element = this.el;
-                element.parentNode.removeChild(element);
-            }
+            //if (this.view) {
+            //    let element = this.el;
+            //    element.parentNode.removeChild(element);
+            //}
 
-            this.view = true;
+            //this.view = true;
         }
     });
 
