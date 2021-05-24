@@ -85,13 +85,13 @@
 
             var parti = document.createElement('a-entity');
             parti.setAttribute('id', 'fourseason' + (this.idx + 1).toString());
-            //parti.setAttribute('one-season', 'pos', this.pos);
-            //parti.setAttribute('one-season', 'texture', this.images[this.idx]);
-            //parti.setAttribute('one-season', 'partisys', this.partisys);
-            //parti.setAttribute('one-season', 'starttime', this.starttime);
-            //parti.setAttribute('one-season', 'duration', this.duration);
-            parti.setAttribute('position', this.pos);
-            parti.setAttribute('particle-system', ('texture: ' + path + this.images[this.idx] + ';' + this.partisys));
+            parti.setAttribute('one-season', 'pos', this.pos);
+            parti.setAttribute('one-season', 'texture', this.images[this.idx]);
+            parti.setAttribute('one-season', 'partisys', this.partisys);
+            parti.setAttribute('one-season', 'starttime', this.starttime);
+            parti.setAttribute('one-season', 'duration', this.duration);
+            //parti.setAttribute('position', this.pos);
+            //parti.setAttribute('particle-system', ('texture: ' + path + this.images[this.idx] + ';' + this.partisys));
             console.log(('texture: ' + path + this.images[this.idx] + ',' + this.partisys));
             this.fElement.appendChild(parti);
 
@@ -150,7 +150,7 @@
             this.duration = this.data.duration;
 
             this.fElement.setAttribute('position', this.pos);
-            this.fElement.setAttribute('particle-system', ('texture: ' + path + this.texture + ',' + this.partisys));
+            this.fElement.setAttribute('particle-system', ('texture: ' + path + this.images[this.idx] + ';' + this.partisys));
             console.log('one-season:' + path + this.texture);
             console.log('one-season:' + this.partisys);
 
