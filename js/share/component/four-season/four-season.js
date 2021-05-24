@@ -96,7 +96,7 @@
             
             if (this.view) {
 
-                var element = document.querySelector('#fourseason' + (idx + 1).toString());
+                var element = document.querySelector('#fourseason' + (this.idx + 1).toString());
 
                 if(element != null){
                     
