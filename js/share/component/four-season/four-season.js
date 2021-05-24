@@ -85,11 +85,13 @@
 
             var parti = document.createElement('a-entity');
             parti.setAttribute('id', 'fourseason' + (this.idx + 1).toString());
-            parti.setAttribute('one-season', 'pos', this.pos);
-            parti.setAttribute('one-season', 'texture', this.images[this.idx]);
-            parti.setAttribute('one-season', 'partisys', this.partisys);
-            parti.setAttribute('one-season', 'starttime', this.starttime);
-            parti.setAttribute('one-season', 'duration', this.duration);
+            //parti.setAttribute('one-season', 'pos', this.pos);
+            //parti.setAttribute('one-season', 'texture', this.images[this.idx]);
+            //parti.setAttribute('one-season', 'partisys', this.partisys);
+            //parti.setAttribute('one-season', 'starttime', this.starttime);
+            //parti.setAttribute('one-season', 'duration', this.duration);
+            parti.setAttribute('position', this.pos);
+            parti.setAttribute('particle-system', ('texture: ' + path + this.images[this.idx] + ',' + this.partisys));
 
             this.fElement.appendChild(parti);
 
@@ -150,7 +152,7 @@
             this.fElement.setAttribute('position', this.pos);
             this.fElement.setAttribute('particle-system', ('texture: ' + path + this.texture + ',' + this.partisys));
             console.log('one-season:' + path + this.texture);
-            console.log('one-season:' + path + this.partisys);
+            console.log('one-season:' + this.partisys);
 
             this.tick = AFRAME.utils.throttle(this.tick, this.duration, this);
         },
