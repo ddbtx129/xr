@@ -155,7 +155,8 @@
         },
 
         tick: function (time, dt) {
-
+            let element = this.el;
+            element.parentNode.removeChild(element);
         }
     });
 
