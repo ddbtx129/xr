@@ -140,7 +140,6 @@
             this.fElement = this.el;
 
             this.idx = 0;
-            this.len = this.data.textures.length;
 
             this.pos = this.data.pos;
             this.texture = this.data.texture;
