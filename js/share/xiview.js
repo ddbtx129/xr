@@ -291,6 +291,8 @@ var viewmode = 'marker';
                                 attribute.duration = parti[k].duration;
 
                                 particle[k] = attribute;
+
+                                console.log(attribute.attribute);
                             }
 
                             args[idx].Particle = particle;
