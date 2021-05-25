@@ -73,7 +73,7 @@
             this.starttime = this.data.starttime;
             this.duration = this.data.duration;
             this.grouplegth = this.data.grouplegth;
-            console.log('four-season [grouplegth]:' + this.grouplegth);
+            console.log('four-season [grouplegth]:' + this.data.grouplegth);
             for (var i = 0; i < this.grouplegth; i++) {
 
                 var parti = document.createElement('a-entity');
