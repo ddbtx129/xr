@@ -64,7 +64,7 @@
             this.fElement = this.el;
 
             this.idx = 0;
-            this.nexttexture = 1;
+            this.nexttexture = 0;
             this.len = this.data.images.length;
 
             this.pos = this.data.pos;
@@ -79,13 +79,13 @@
                 var parti = document.createElement('a-entity');
                 parti.setAttribute('id', 'fourseason' + (i + 1).toString());
                 parti.setAttribute('one-season', 'pos', this.pos);
-                parti.setAttribute('one-season', 'texture', this.images[i]);
+                parti.setAttribute('one-season', 'texture', this.images[this.nexttexture]);
                 parti.setAttribute('one-season', 'partisys', this.partisys);
                 parti.setAttribute('one-season', 'starttime', this.starttime);
                 parti.setAttribute('one-season', 'duration', this.duration);
 
                 this.fElement.appendChild(parti);
-                
+                console.log('four-season:' + this.images[this.nexttexture]);
                 this.nexttexture += 1;
             }
 
