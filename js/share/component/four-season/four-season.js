@@ -184,8 +184,8 @@
         },
 
         remove: function () {
-            fElement.removeAttribute("position");
-            fElement.removeAttribute("particle-system");
+            this.fElement.removeAttribute("position");
+            this.fElement.removeAttribute("particle-system");
         },
 
         update: function () {
