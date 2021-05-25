@@ -170,7 +170,7 @@
 
             if (this.len > 0) {
                 if (this.len == 1) {
-                    this.fElement.setAttribute('particle-system', 'opacity', 0.35);
+                    this.fElement.setAttribute('particle-system', 'opacity', 0, 0.35, 0);
                 } else {
                     let element = this.el;
                     element.parentNode.removeChild(element);
