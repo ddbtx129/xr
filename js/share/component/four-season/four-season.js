@@ -158,7 +158,7 @@
             this.duration = this.data.duration;
 
             this.fElement.setAttribute('position', this.pos);
-            this.fElement.setAttribute('particle-system', ('texture: ' + path + this.texture + ';' + this.partisys));
+            this.fElement.setAttribute('particle-system', ('texture: ' + this.texture + '; ' + this.partisys));
 
             this.view = false;
 
