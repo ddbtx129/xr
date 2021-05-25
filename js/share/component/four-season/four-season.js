@@ -102,7 +102,7 @@
 
                 if(element != null){
                     
-                    fElement.removeAttribute("one-season");
+                    element.removeAttribute("one-season");
 
                     element.setAttribute('one-season', 'pos', this.pos);
                     element.setAttribute('one-season', 'texture', this.images[this.nexttexture]);
