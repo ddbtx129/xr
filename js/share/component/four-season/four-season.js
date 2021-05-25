@@ -102,11 +102,13 @@
 
                 if(element != null){
                     
-                    //element.setAttribute('one-season', 'pos', this.pos);
+                    fElement.removeAttribute("one-season");
+
+                    element.setAttribute('one-season', 'pos', this.pos);
                     element.setAttribute('one-season', 'texture', this.images[this.nexttexture]);
-                    //element.setAttribute('one-season', 'partisys', this.partisys);
-                    //element.setAttribute('one-season', 'starttime', this.starttime);
-                    //element.setAttribute('one-season', 'duration', this.duration);
+                    element.setAttribute('one-season', 'partisys', this.partisys);
+                    element.setAttribute('one-season', 'starttime', this.starttime);
+                    element.setAttribute('one-season', 'duration', this.duration);
 
                     console.log('four-season by tick:' + this.images[this.nexttexture]);
                     //console.log('four-season:' + this.partisys);
@@ -181,11 +183,14 @@
             //this.view = true;
         },
 
+        remove: function () {
+            fElement.removeAttribute("position");
+            fElement.removeAttribute("particle-system");
+        },
+
         update: function () {
             this.fElement.setAttribute('position', this.pos);
             this.fElement.setAttribute('particle-system', ('texture: ' + path + this.texture + ';' + this.partisys));
-            console.log('one-season:' + path + this.texture);
-            console.log('one-season:' + this.partisys);
         }
     });
 
