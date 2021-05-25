@@ -165,7 +165,7 @@
             this.fElement.setAttribute('position', this.pos);
             this.fElement.setAttribute('particle-system', ('texture: ' + this.texture + '; opacity: ' + this.opacity + '; ' + this.partisys));
 
-            //this.view = false;
+            this.view = false;
             this.len = 0;
             this.tick = AFRAME.utils.throttle(this.tick, (this.duration / 3), this);
 
@@ -176,9 +176,12 @@
             if (this.len > 0) {
                 if (this.len == 2) {
                     this.fElement.setAttribute('particle-system', ('texture: ' + this.texture + '; opacity: ' + (this.opacity / 2) + '; ' + this.partisys));
+                    this.view = true:
                 } else {
-                    let element = this.el;
-                    element.parentNode.removeChild(element);
+                    if (this.view) {
+                        let element = this.el;
+                        element.parentNode.removeChild(element);
+                    }
                 }
             }
 
