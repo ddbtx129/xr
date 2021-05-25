@@ -133,7 +133,11 @@
             },
             partisys: {
                 type: 'string',
-                default: 'preset: snow; opacity: 0.7; ParticleCount: 500; size: 4, enabled: true'
+                default: 'preset: snow; ParticleCount: 500; size: 4, enabled: true'
+            },
+            opacity: {
+                type: 'number',
+                default: 0.7
             },
             starttime: {
                 type: 'number',
@@ -154,11 +158,12 @@
             this.pos = this.data.pos;
             this.texture = this.data.texture;
             this.partisys = this.data.partisys;
+            this.opacity = this.data.opacity;
             this.starttime = this.data.starttime;
             this.duration = this.data.duration;
 
             this.fElement.setAttribute('position', this.pos);
-            this.fElement.setAttribute('particle-system', ('texture: ' + this.texture + '; ' + this.partisys));
+            this.fElement.setAttribute('particle-system', ('texture: ' + this.texture + '; opacity: ' + this.opacity + '; ' + this.partisys));
 
             //this.view = false;
             this.len = 0;
@@ -170,7 +175,7 @@
 
             if (this.len > 0) {
                 if (this.len == 1) {
-                    this.fElement.setAttribute('particle-system', 'opacity', 0, 0.35, 0);
+                    this.fElement.setAttribute('particle-system', ('texture: ' + this.texture + '; opacity: ' + (this.opacity / 2) + '; ' + this.partisys));
                 } else {
                     let element = this.el;
                     element.parentNode.removeChild(element);
