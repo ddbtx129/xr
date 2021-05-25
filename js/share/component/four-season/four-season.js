@@ -52,10 +52,6 @@
             duration: {
                 type: 'number',
                 default: 3000
-            },
-            grouplength: {
-                type: 'number',
-                default: 3
             }
         },
 
@@ -64,7 +60,6 @@
             this.fElement = this.el;
 
             this.idx = 0;
-            this.nexttexture = 0;
             this.len = this.data.images.length;
 
             this.pos = this.data.pos;
@@ -72,69 +67,56 @@
             this.partisys = this.data.partisys;
             this.starttime = this.data.starttime;
             this.duration = this.data.duration;
-            this.grouplength = this.data.grouplength;
-            console.log('four-season [grouplegth]:' + this.grouplength);
-            for (var i = 0; i < this.grouplength; i++) {
 
-                var parti = document.createElement('a-entity');
-                parti.setAttribute('id', 'fourseason' + (i + 1).toString());
-                parti.setAttribute('one-season', 'pos', this.pos);
-                parti.setAttribute('one-season', 'texture', this.images[this.nexttexture]);
-                parti.setAttribute('one-season', 'partisys', this.partisys);
-                parti.setAttribute('one-season', 'starttime', this.starttime);
-                parti.setAttribute('one-season', 'duration', this.duration);
-
-                this.fElement.appendChild(parti);
-                console.log('four-season:' + this.images[this.nexttexture]);
-                this.nexttexture += 1;
+            for (var i = 0; i < this.images.length; i++) {
+                var assist = document.createElement('a-assist');
+                assist.setAttribute('id', 'afourseason' + (i + 1).toString());
+                assist.setAttribute('src', path + this.images[i]);
+                this.fElement.appendChild(assist);
             }
 
-            this.view = false;
-            this.del = 0;
+            var parti = document.createElement('a-entity');
+            parti.setAttribute('id', 'fourseason' + (this.idx + 1).toString());
+            parti.setAttribute('one-season', 'pos', this.pos);
+            parti.setAttribute('one-season', 'texture', '#afourseason' + (this.idx + 1).toString());
+            parti.setAttribute('one-season', 'partisys', this.partisys);
+            parti.setAttribute('one-season', 'starttime', this.starttime);
+            parti.setAttribute('one-season', 'duration', this.duration);
+            this.fElement.appendChild(parti);
 
-            this.tick = AFRAME.utils.throttle(this.tick, (this.duration - this.starttime) / 2, this);
+            this.idx += 1;
+
+            this.tick = AFRAME.utils.throttle(this.tick, this.duration - this.starttime, this);
         },
 
-        tick: function (time, timeDelta) {
-            
-            if (this.view) {
+        tick: function (time, dt) {
 
-                var element = document.querySelector('#fourseason' + (this.idx + 1).toString());
+            var parti = document.createElement('a-entity');
+            parti.setAttribute('id', 'fourseason' + (this.idx + 1).toString());
+            parti.setAttribute('one-season', 'pos', this.pos);
+            parti.setAttribute('one-season', 'texture', '#afourseason' + (this.idx + 1).toString());
+            parti.setAttribute('one-season', 'partisys', this.partisys);
+            parti.setAttribute('one-season', 'starttime', this.starttime);
+            parti.setAttribute('one-season', 'duration', this.duration);
+            //parti.setAttribute('position', this.pos);
+            //parti.setAttribute('particle-system', ('texture: ' + path + this.images[this.idx] + ';' + this.partisys));
+            console.log(('texture: ' + path + this.images[this.idx] + ',' + this.partisys));
+            this.fElement.appendChild(parti);
 
-                if(element != null){
-                    
-                    if (this.del == 0) {
-                        element.removeAttribute("one-season");
-                        this.del = 1;
-                    } else {
-                        element.setAttribute('one-season', 'pos', this.pos);
-                        element.setAttribute('one-season', 'texture', this.images[this.nexttexture]);
-                        element.setAttribute('one-season', 'partisys', this.partisys);
-                        element.setAttribute('one-season', 'starttime', this.starttime);
-                        element.setAttribute('one-season', 'duration', this.duration);
-                        this.del = 0;
+            //function remove(val) {
+            //    var parti = document.querySelector('#fourseason' + (val[0] + 1).toString());
+            //    if (parti != null) {
+            //        parti.remove();
+            //    }
+            //};
 
-                        if ((this.idx + 1) < this.grouplength) {
-                            this.idx += 1;
-                        } else {
-                            this.idx = 0;
-                        }
+            //setTimeout(remove, Number(this.duration), [this.idx]);
 
-                        if ((this.nexttexture + 1) < this.len) {
-                            this.nexttexture += 1;
-                        } else {
-                            this.nexttexture = 0;
-                        }
-                        console.log('four-season by idx:' + this.idx);
-                        console.log('four-season by nexttexture:' + this.nexttexture);
-                    }
-
-                    //console.log('four-season by tick:' + this.nexttexture);
-                    //console.log('four-season:' + this.partisys);
-                }
+            if ((this.idx + 1) < this.len) {
+                this.idx += 1;
+            } else {
+                this.idx = 0;
             }
-
-            this.view = true;
         }
     });
 
@@ -178,29 +160,20 @@
             this.fElement.setAttribute('position', this.pos);
             this.fElement.setAttribute('particle-system', ('texture: ' + path + this.texture + ';' + this.partisys));
 
-            //this.view = false;
+            this.view = false;
 
-            //this.tick = AFRAME.utils.throttle(this.tick, this.duration, this);
+            this.tick = AFRAME.utils.throttle(this.tick, this.duration, this);
 
         },
 
-        //tick: function (time, timeDelta) {
-        //    //if (this.view) {
-        //    //    let element = this.el;
-        //    //    element.parentNode.removeChild(element);
-        //    //}
+        tick: function (time, dt) {
 
-        //    //this.view = true;
-        //},
+            if (this.view) {
+                let element = this.el;
+                element.parentNode.removeChild(element);
+            }
 
-        remove: function () {
-            this.fElement.removeAttribute("position");
-            this.fElement.removeAttribute("particle-system");
-        },
-
-        update: function () {
-            this.fElement.setAttribute('position', this.pos);
-            this.fElement.setAttribute('particle-system', ('texture: ' + path + this.texture + ';' + this.partisys));
+            this.view = true;
         }
     });
 
