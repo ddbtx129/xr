@@ -100,6 +100,8 @@
 
                 var element = document.querySelector('#fourseason' + (this.idx + 1).toString());
                 console.log('four-season by tick:' + this.idx);
+                console.log('four-season by tick:' + (element != null));
+
                 if(element != null){
                     
                     element.removeAttribute("one-season");
@@ -110,7 +112,7 @@
                     element.setAttribute('one-season', 'starttime', this.starttime);
                     element.setAttribute('one-season', 'duration', this.duration);
 
-                    console.log('four-season by tick:' + this.nexttexture);
+                    //console.log('four-season by tick:' + this.nexttexture);
                     //console.log('four-season:' + this.partisys);
                 }
 
