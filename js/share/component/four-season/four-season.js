@@ -72,9 +72,9 @@
             this.partisys = this.data.partisys;
             this.starttime = this.data.starttime;
             this.duration = this.data.duration;
-            this.grouplegth = this.data.grouplegth;
-            console.log('four-season [grouplegth]:' + this.data.grouplegth);
-            for (var i = 0; i < this.grouplegth; i++) {
+            this.grouplength = this.data.grouplength;
+            console.log('four-season [grouplegth]:' + this.grouplength);
+            for (var i = 0; i < this.grouplength; i++) {
 
                 var parti = document.createElement('a-entity');
                 parti.setAttribute('id', 'fourseason' + (i + 1).toString());
