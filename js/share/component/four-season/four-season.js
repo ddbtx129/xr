@@ -94,7 +94,7 @@
             this.tick = AFRAME.utils.throttle(this.tick, this.duration - this.starttime, this);
         },
 
-        tick: function (time, dt) {
+        tick: function (time, timeDelta) {
             
             if (this.view) {
 
@@ -166,28 +166,26 @@
             this.starttime = this.data.starttime;
             this.duration = this.data.duration;
 
-            //this.fElement.setAttribute('position', this.pos);
-            //this.fElement.setAttribute('particle-system', ('texture: ' + path + this.texture + ';' + this.partisys));
-            //console.log('one-season:' + path + this.texture);
-            //console.log('one-season:' + this.partisys);
-
             this.view = false;
 
             this.tick = AFRAME.utils.throttle(this.tick, this.duration, this);
 
         },
 
-        tick: function (time, dt) {
-            this.fElement.setAttribute('position', this.pos);
-            this.fElement.setAttribute('particle-system', ('texture: ' + path + this.texture + ';' + this.partisys));
-            console.log('one-season:' + path + this.texture);
-            console.log('one-season:' + this.partisys);
+        tick: function (time, timeDelta) {
             //if (this.view) {
             //    let element = this.el;
             //    element.parentNode.removeChild(element);
             //}
 
             //this.view = true;
+        },
+
+        update: function (oldData) {
+            this.fElement.setAttribute('position', this.pos);
+            this.fElement.setAttribute('particle-system', ('texture: ' + path + this.texture + ';' + this.partisys));
+            console.log('one-season:' + path + this.texture);
+            console.log('one-season:' + this.partisys);
         }
     });
 
