@@ -90,8 +90,9 @@
             }
 
             this.view = false;
+            this.del = 0;
 
-            this.tick = AFRAME.utils.throttle(this.tick, this.duration - this.starttime, this);
+            this.tick = AFRAME.utils.throttle(this.tick, (this.duration - this.starttime) / 2, this);
         },
 
         tick: function (time, timeDelta) {
@@ -104,28 +105,32 @@
 
                 if(element != null){
                     
-                    element.removeAttribute("one-season");
+                    if (this.del == 0) {
+                        element.removeAttribute("one-season");
+                        this.del = 1;
+                    } else {
+                        element.setAttribute('one-season', 'pos', this.pos);
+                        element.setAttribute('one-season', 'texture', this.images[this.nexttexture]);
+                        element.setAttribute('one-season', 'partisys', this.partisys);
+                        element.setAttribute('one-season', 'starttime', this.starttime);
+                        element.setAttribute('one-season', 'duration', this.duration);
+                        this.del = 1;
 
-                    element.setAttribute('one-season', 'pos', this.pos);
-                    element.setAttribute('one-season', 'texture', this.images[this.nexttexture]);
-                    element.setAttribute('one-season', 'partisys', this.partisys);
-                    element.setAttribute('one-season', 'starttime', this.starttime);
-                    element.setAttribute('one-season', 'duration', this.duration);
+                        if ((this.idx + 1) < this.grouplength) {
+                            this.idx += 1;
+                        } else {
+                            this.idx = 0;
+                        }
+
+                        if ((this.nexttexture + 1) < this.len) {
+                            this.nexttexture += 1;
+                        } else {
+                            this.nexttexture = 0;
+                        }
+                    }
 
                     //console.log('four-season by tick:' + this.nexttexture);
                     //console.log('four-season:' + this.partisys);
-                }
-
-                if ((this.idx + 1) < this.grouplength) {
-                    this.idx += 1;
-                } else {
-                    this.idx = 0;
-                }
-
-                if ((this.nexttexture + 1) < this.len) {
-                    this.nexttexture += 1;
-                } else {
-                    this.nexttexture = 0;
                 }
             }
 
