@@ -168,9 +168,14 @@
             this.starttime = this.data.starttime;
             this.duration = this.data.duration;
 
-            this.view = false;
+            this.fElement.setAttribute('position', this.pos);
+            this.fElement.setAttribute('particle-system', ('texture: ' + path + this.texture + ';' + this.partisys));
+            console.log('one-season:' + path + this.texture);
+            console.log('one-season:' + this.partisys);
 
-            this.tick = AFRAME.utils.throttle(this.tick, this.duration, this);
+            //this.view = false;
+
+            //this.tick = AFRAME.utils.throttle(this.tick, this.duration, this);
 
         },
 
