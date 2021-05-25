@@ -42,7 +42,7 @@
     <attribute>four-season</attribute>
     <idnm>arParticle</idnm>
     <pos>0 2.25 -15</pos>
-    <partisys>preset: snow; ParticleCount: 500; size: 5; enabled: true</partisys>
+    <partisys>preset: snow; opacity: 0.7; maxAge: 10; ParticleCount: 2500; velocityValue: 0 5 0; size: 5; enabled: true</partisys>
     <assets></assets>
     <assetsid></assetsid>
     <assetssrc></assetssrc>
