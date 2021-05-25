@@ -177,7 +177,7 @@
                 if (this.len == 2) {
                     this.fElement.setAttribute('particle-system', ('texture: ' + this.texture + '; opacity: ' + (this.opacity / 2) + '; ' + this.partisys));
                     this.view = true;
-                } else {
+                } else if (this.len > 2) {
                     if (this.view) {
                         let element = this.el;
                         element.parentNode.removeChild(element);
