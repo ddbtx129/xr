@@ -175,7 +175,7 @@
 
             if (this.len > 0) {
                 if (this.len == 2) {
-                    this.fElement.setAttribute('particle-system', ('texture: ' + this.texture + '; opacity: ' + (this.opacity / 2) + '; ' + this.partisys));
+                    //this.fElement.setAttribute('particle-system', ('texture: ' + this.texture + '; opacity: ' + (this.opacity / 2) + '; ' + this.partisys));
                     this.view = true;
                 } else if (this.len > 2) {
                     if (this.view) {
