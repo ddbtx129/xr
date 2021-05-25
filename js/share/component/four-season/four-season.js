@@ -114,7 +114,7 @@
                         element.setAttribute('one-season', 'partisys', this.partisys);
                         element.setAttribute('one-season', 'starttime', this.starttime);
                         element.setAttribute('one-season', 'duration', this.duration);
-                        this.del = 1;
+                        this.del = 0;
 
                         if ((this.idx + 1) < this.grouplength) {
                             this.idx += 1;
@@ -127,6 +127,8 @@
                         } else {
                             this.nexttexture = 0;
                         }
+                        console.log('four-season by idx:' + this.idx);
+                        console.log('four-season by nexttexture:' + this.nexttexture);
                     }
 
                     //console.log('four-season by tick:' + this.nexttexture);
