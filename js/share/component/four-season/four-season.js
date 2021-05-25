@@ -160,20 +160,24 @@
             this.fElement.setAttribute('position', this.pos);
             this.fElement.setAttribute('particle-system', ('texture: ' + this.texture + '; ' + this.partisys));
 
-            this.view = false;
-
-            this.tick = AFRAME.utils.throttle(this.tick, this.duration, this);
+            //this.view = false;
+            this.len = 0;
+            this.tick = AFRAME.utils.throttle(this.tick, (this.duration / 2), this);
 
         },
 
         tick: function (time, dt) {
 
-            if (this.view) {
-                let element = this.el;
-                element.parentNode.removeChild(element);
+            if (this.len > 0) {
+                if (this.len == 1) {
+                    this.fElement.setAttribute('particle-system', 'opacity', 0.35);
+                } else {
+                    let element = this.el;
+                    element.parentNode.removeChild(element);
+                }
             }
 
-            this.view = true;
+            this.len += 1;
         }
     });
 
