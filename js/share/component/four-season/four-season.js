@@ -99,7 +99,7 @@
             if (this.view) {
 
                 var element = document.querySelector('#fourseason' + (this.idx + 1).toString());
-
+                console.log('four-season by tick:' + this.idx);
                 if(element != null){
                     
                     element.removeAttribute("one-season");
@@ -110,7 +110,7 @@
                     element.setAttribute('one-season', 'starttime', this.starttime);
                     element.setAttribute('one-season', 'duration', this.duration);
 
-                    console.log('four-season by tick:' + this.images[this.nexttexture]);
+                    console.log('four-season by tick:' + this.nexttexture);
                     //console.log('four-season:' + this.partisys);
                 }
 
@@ -174,14 +174,14 @@
 
         },
 
-        tick: function (time, timeDelta) {
-            //if (this.view) {
-            //    let element = this.el;
-            //    element.parentNode.removeChild(element);
-            //}
+        //tick: function (time, timeDelta) {
+        //    //if (this.view) {
+        //    //    let element = this.el;
+        //    //    element.parentNode.removeChild(element);
+        //    //}
 
-            //this.view = true;
-        },
+        //    //this.view = true;
+        //},
 
         remove: function () {
             this.fElement.removeAttribute("position");
