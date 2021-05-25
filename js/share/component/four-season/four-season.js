@@ -167,14 +167,14 @@
 
             //this.view = false;
             this.len = 0;
-            this.tick = AFRAME.utils.throttle(this.tick, (this.duration / 2), this);
+            this.tick = AFRAME.utils.throttle(this.tick, (this.duration / 3), this);
 
         },
 
         tick: function (time, dt) {
 
             if (this.len > 0) {
-                if (this.len == 1) {
+                if (this.len == 2) {
                     this.fElement.setAttribute('particle-system', ('texture: ' + this.texture + '; opacity: ' + (this.opacity / 2) + '; ' + this.partisys));
                 } else {
                     let element = this.el;
