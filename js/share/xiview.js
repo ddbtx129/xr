@@ -3533,6 +3533,8 @@ var viewmode = 'marker';
     webAr.ar = ar;
     webAr.ar.init();
 
+    webAr.ar.args = ar.args;
+
     webAr.ar.setDiplayBtn(!!(ar.args[0].pv));
 
     webAr.srcno = srcno;
