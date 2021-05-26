@@ -132,6 +132,7 @@
                 for (var i = 0; i < this.fElement.childElementCount; i++) {
                     if (this.fElement.children[i].hasAttribute('one-season')) {
                         //this.fElement.children[i].setAttribute('one-season', 'enabled', this.enabled);
+                        AFRAME.utils.entity.setComponentProperty(this.fElement.children[i], "one-season", { pos: this.pos });
                         AFRAME.utils.entity.setComponentProperty(this.fElement.children[i], "one-season", { enabled: this.enabled });
                     }
                 }
@@ -196,22 +197,17 @@
 
         tick: function (time, dt) {
 
-            if (this.len > 0 && this.len < 2) {
-                //console.log('one-season:tick len:1')
-                //this.fElement.style["opacity"] = "0";
-                //this.fElement.style["transition"] = "opacity " + (this.duration / 2) + "ms linear";
-                this.view = true;
-            } else {
-                if (this.view) {
-                    let element = this.el;
-                    element.parentNode.removeChild(element);
-                }
+            if (this.view) {
+                let element = this.el;
+                element.parentNode.removeChild(element);
             }
 
+            this.view = true;
             this.len += 1;
         },
 
-        update: function(){
+        update: function () {
+            AFRAME.utils.entity.setComponentProperty(this.fElement, "particle-system", { pos: this.pos });
             AFRAME.utils.entity.setComponentProperty(this.fElement, "particle-system", { enabled: this.enabled });
         }
     });
