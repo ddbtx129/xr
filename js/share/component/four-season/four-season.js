@@ -131,6 +131,19 @@
         update: function () {
             let element = this.el;
 
+            this.fElement = this.el;
+            this.len = this.data.images.length;
+
+            this.idx = 0;
+
+            this.pos = this.data.pos;
+            this.images = this.data.images;
+            this.partisys = this.data.partisys;
+            this.opacity = this.data.opacity;
+            this.enabled = this.data.enabled;
+            this.starttime = this.data.starttime;
+            this.duration = this.data.duration;
+
             if (this.fElement.childElementCount > 0) {
                 for (var i = 0; i < this.fElement.childElementCount; i++) {
                     if (this.fElement.children[i].hasAttribute('one-season')) {
@@ -223,6 +236,19 @@
         },
 
         update: function () {
+
+            this.fElement = this.el;
+
+            this.idx = 0;
+
+            this.pos = this.data.pos;
+            this.texture = this.data.texture;
+            this.partisys = this.data.partisys;
+            this.opacity = this.data.opacity;
+            this.enabled = this.data.enabled;
+            this.starttime = this.data.starttime;
+            this.duration = this.data.duration;
+
             AFRAME.utils.entity.setComponentProperty(this.fElement, "particle-system", { pos: this.pos });
             AFRAME.utils.entity.setComponentProperty(this.fElement, "particle-system", { enabled: this.enabled });
         }
