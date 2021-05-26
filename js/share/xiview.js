@@ -283,7 +283,9 @@ var viewmode = 'marker';
                                 attribute.idnm = (parti[k].idnm + (((idx + 1) * 100) + (k + 1)).toString());
                                 attribute.pos = parti[k].pos;
                                 attribute.partisys = parti[k].partisys;
-                                attribute.fireworks = parti[k].fireworks;
+                                //attribute.fireworks = parti[k].fireworks;
+                                attribute.opacity = parti[k].opacity;
+                                attribute.enabled = parti[k].enabled;
                                 attribute.assets = parti[k].assets;
                                 attribute.assetsid = parti[k].assetsid;
                                 attribute.assetssrc = parti[k].assetssrc;
@@ -291,8 +293,6 @@ var viewmode = 'marker';
                                 attribute.duration = parti[k].duration;
 
                                 particle[k] = attribute;
-
-                                console.log(attribute.attribute);
                             }
 
                             args[idx].Particle = particle;
@@ -872,6 +872,7 @@ var viewmode = 'marker';
                             var parti = document.createElement('a-entity');
 
                             if (self.args[idx].Particle[k].kind == '0') {
+
                                 parti.setAttribute('id', self.args[idx].Particle[k].idnm);
                                 parti.setAttribute('position', self.args[idx].Particle[k].pos);
                                 parti.setAttribute(self.args[idx].Particle[k].attribute, self.args[idx].Particle[k].partisys);
@@ -879,9 +880,9 @@ var viewmode = 'marker';
                                 el.appendChild(parti);
 
                             } else if (self.args[idx].Particle[k].kind == '1') {
+
                                 parti.setAttribute('id', self.args[idx].Particle[k].idnm);
                                 parti.setAttribute(self.args[idx].Particle[k].attribute, '');
-                                //parti.setAttribute('style', 'display:none');
 
                                 el.appendChild(parti);
 
@@ -3213,7 +3214,9 @@ var viewmode = 'marker';
                 var cId = xmldata.getElementsByTagName("idnm");
                 var cPos = xmldata.getElementsByTagName("pos");
                 var cParti = xmldata.getElementsByTagName("partisys");
-                var cFireWorks = xmldata.getElementsByTagName("fireworks");
+                //var cFireWorks = xmldata.getElementsByTagName("fireworks");
+                var cOpacity = xmldata.getElementsByTagName("opacity");
+                var cEnabled = xmldata.getElementsByTagName("enabled");
                 var cAssets = xmldata.getElementsByTagName("assets");
                 var cAssetsid = xmldata.getElementsByTagName("assetsid");
                 var cAssetssrc = xmldata.getElementsByTagName("assetssrc");
@@ -3228,7 +3231,9 @@ var viewmode = 'marker';
                         idnm: (cId[i] != null) && cId[i].textContent,
                         pos: (cPos[i] != null) && cPos[i].textContent,
                         partisys: (cParti[i] != null) && cParti[i].textContent,
-                        fireworks: (cFireWorks[i] != null) && cFireWorks[i].textContent,
+                        //fireworks: (cFireWorks[i] != null) && cFireWorks[i].textContent,
+                        opacity: (cOpacity[i] != null) ? Number(cOpacity[i].textContent) : 1,
+                        enabled: ((cEnabled[i] != null) && cEnabled[i].textContent) ? Boolean(cEnabled[i].textContent) : false,
                         assets: (cAssets[i] != null) && cAssets[i].textContent,
                         assetsid: (cAssetsid[i] != null) && cAssetsid[i].textContent,
                         assetssrc: (cAssetssrc[i] != null) && cAssetssrc[i].textContent,
