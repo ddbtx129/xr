@@ -2169,11 +2169,11 @@ var viewmode = 'marker';
 
                         if (webAr.ar.arData[i].isParti) {
                             for (var k = 0; k < webAr.ar.args[i].Particle.length; k++) {
-                                var parti = document.getElementById(self.args[idx].Particle[k].idnm);
-                                if (self.args[idx].particle[k].kind == '0') {
+                                var parti = document.getElementById(self.args[i].Particle[k].idnm);
+                                if (self.args[i].particle[k].kind == '0') {
                                     //var parti = document.getElementById("arParticle" + ((i + 1) * 100 + (k + 1)));
                                     AFRAME.utils.entity.setComponentProperty(parti, "particle-system", { enabled: true });
-                                } else if (self.args[idx].Particle[k].kind == '1') {
+                                } else if (self.args[i].Particle[k].kind == '1') {
                                     AFRAME.utils.entity.setComponentProperty(parti, "four-season", { enabled: true });
                                 }
                             }
@@ -2231,11 +2231,11 @@ var viewmode = 'marker';
 
                         if (webAr.ar.arData[i].isParti) {
                             for (var k = 0; k < webAr.ar.args[i].Particle.length; k++) {
-                                var parti = document.getElementById(self.args[idx].Particle[k].idnm);
-                                if (self.args[idx].particle[k].kind == '0') {
+                                var parti = document.getElementById(self.args[i].Particle[k].idnm);
+                                if (self.args[i].particle[k].kind == '0') {
                                     //var parti = document.getElementById("arParticle" + ((i + 1) * 100 + (k + 1)));
                                     AFRAME.utils.entity.setComponentProperty(parti, "particle-system", { enabled: false });
-                                } else if (self.args[idx].Particle[k].kind == '1') {
+                                } else if (self.args[i].Particle[k].kind == '1') {
                                     AFRAME.utils.entity.setComponentProperty(parti, "four-season", { enabled: false });
                                 }
                             }
@@ -2820,11 +2820,11 @@ var viewmode = 'marker';
 
                     if (webAr.ar.arData[j].isParti) {
                         for (var k = 0; k < webAr.ar.args[j].Particle.length; k++) {
-                            var parti = document.getElementById(self.args[idx].Particle[k].idnm);
-                            if (self.args[idx].particle[k].kind == '0') {
+                            var parti = document.getElementById(self.args[j].Particle[k].idnm);
+                            if (self.args[j].particle[k].kind == '0') {
                                 //var parti = document.getElementById("arParticle" + ((j + 1) * 100 + (k + 1)));
                                 AFRAME.utils.entity.setComponentProperty(parti, "particle-system", { enabled: true });
-                            } else if (self.args[idx].Particle[k].kind == '1') {
+                            } else if (self.args[j].Particle[k].kind == '1') {
                                 AFRAME.utils.entity.setComponentProperty(parti, "four-season", { enabled: true });
                             }
                         }
