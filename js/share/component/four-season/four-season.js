@@ -24,7 +24,6 @@
 
     AFRAME.registerComponent('four-season', {
 
-
         schema: {
             pos: {
                 type: 'string',
@@ -43,7 +42,15 @@
             },
             partisys: {
                 type: 'string',
-                default: 'preset: snow; opacity: 0.7; ParticleCount: 500; size: 4, enabled: true'
+                default: 'preset: snow; ParticleCount: 500; size: 4'
+            },
+            opacity: {
+                type: 'number',
+                default: 0.7
+            },
+            enabled: {
+                type: 'boolean',
+                default: true
             },
             starttime: {
                 type: 'number',
@@ -65,6 +72,8 @@
             this.pos = this.data.pos;
             this.images = this.data.images;
             this.partisys = this.data.partisys;
+            this.opacity = this.data.opacity;
+            this.enabled = this.data.enabled;
             this.starttime = this.data.starttime;
             this.duration = this.data.duration;
 
@@ -76,12 +85,16 @@
             }
 
             var parti = document.createElement('a-entity');
+
             parti.setAttribute('id', 'fourseason' + (this.idx + 1).toString());
             parti.setAttribute('one-season', 'pos', this.pos);
             parti.setAttribute('one-season', 'texture', '#afourseason' + (this.idx + 1).toString());
             parti.setAttribute('one-season', 'partisys', this.partisys);
+            parti.setAttribute('one-season', 'opacity', this.opacity);
+            parti.setAttribute('one-season', 'enabled', this.enabled);
             parti.setAttribute('one-season', 'starttime', this.starttime);
             parti.setAttribute('one-season', 'duration', this.duration);
+
             this.fElement.appendChild(parti);
 
             this.idx += 1;
@@ -92,30 +105,36 @@
         tick: function (time, dt) {
 
             var parti = document.createElement('a-entity');
+
             parti.setAttribute('id', 'fourseason' + (this.idx + 1).toString());
             parti.setAttribute('one-season', 'pos', this.pos);
             parti.setAttribute('one-season', 'texture', '#afourseason' + (this.idx + 1).toString());
             parti.setAttribute('one-season', 'partisys', this.partisys);
+            parti.setAttribute('one-season', 'opacity', this.opacity);
+            parti.setAttribute('one-season', 'enabled', this.enabled);
             parti.setAttribute('one-season', 'starttime', this.starttime);
             parti.setAttribute('one-season', 'duration', this.duration);
-            //parti.setAttribute('position', this.pos);
-            //parti.setAttribute('particle-system', ('texture: ' + path + this.images[this.idx] + ';' + this.partisys));
-            console.log(('texture: ' + path + this.images[this.idx] + ',' + this.partisys));
+
+            //console.log(('texture: ' + path + this.images[this.idx] + ',' + this.partisys));
             this.fElement.appendChild(parti);
-
-            //function remove(val) {
-            //    var parti = document.querySelector('#fourseason' + (val[0] + 1).toString());
-            //    if (parti != null) {
-            //        parti.remove();
-            //    }
-            //};
-
-            //setTimeout(remove, Number(this.duration), [this.idx]);
 
             if ((this.idx + 1) < this.len) {
                 this.idx += 1;
             } else {
                 this.idx = 0;
+            }
+        },
+
+        update: function () {
+            let element = this.el;
+
+            if (this.fElement.childElementCount > 0) {
+                for (var i = 0; i < this.fElement.childElementCount; i++) {
+                    if (this.fElement.children[i].hasAttribute('one-season')) {
+                        //this.fElement.children[i].setAttribute('one-season', 'enabled', this.enabled);
+                        AFRAME.utils.entity.setComponentProperty(this.fElement.children[i], "one-season", { enabled: this.enabled });
+                    }
+                }
             }
         }
     });
@@ -133,11 +152,15 @@
             },
             partisys: {
                 type: 'string',
-                default: 'preset: snow; ParticleCount: 500; size: 4, enabled: true'
+                default: 'preset: snow; ParticleCount: 500; size: 4'
             },
             opacity: {
                 type: 'number',
                 default: 0.7
+            },
+            enabled: {
+                type: 'boolean',
+                default: true
             },
             starttime: {
                 type: 'number',
@@ -154,38 +177,44 @@
             this.fElement = this.el;
 
             this.idx = 0;
-
+            
             this.pos = this.data.pos;
             this.texture = this.data.texture;
             this.partisys = this.data.partisys;
             this.opacity = this.data.opacity;
+            this.enabled = this.data.enabled;
             this.starttime = this.data.starttime;
             this.duration = this.data.duration;
 
             this.fElement.setAttribute('position', this.pos);
-            this.fElement.setAttribute('particle-system', ('texture: ' + this.texture + '; opacity: ' + this.opacity + '; ' + this.partisys));
+            this.fElement.setAttribute('particle-system', ('texture: ' + this.texture + '; opacity: ' + this.opacity + '; ' + this.partisys + '; enabled: ' + this.enabled));
+            //this.fElement.style["background-color"] = "rgba(0, 0, 0, 0.0)";
+            //this.fElement.style["transition"] = "background-color " + (this.duration).toString() + "ms linear";
 
             this.view = false;
             this.len = 0;
-            this.tick = AFRAME.utils.throttle(this.tick, (this.duration / 3), this);
+            this.tick = AFRAME.utils.throttle(this.tick, (this.duration / 2), this);
 
         },
 
         tick: function (time, dt) {
 
-            if (this.len > 0) {
-                if (this.len == 2) {
-                    //this.fElement.setAttribute('particle-system', ('texture: ' + this.texture + '; opacity: ' + (this.opacity / 2) + '; ' + this.partisys));
-                    this.view = true;
-                } else if (this.len > 2) {
-                    if (this.view) {
-                        let element = this.el;
-                        element.parentNode.removeChild(element);
-                    }
+            if (this.len > 0 && this.len < 2) {
+                this.fElement.style["background-color"] = "rgba(0, 0, 0, 0.0)";
+                this.fElement.style["transition"] = "background-color " + (this.duration / 2).toString() + "ms linear";
+                this.view = true;
+            } else {
+                if (this.view) {
+                    let element = this.el;
+                    element.parentNode.removeChild(element);
                 }
             }
 
             this.len += 1;
+        },
+
+        update: function(){
+            AFRAME.utils.entity.setComponentProperty(this.fElement, "particle-system", { enabled: this.enabled });
         }
     });
 
