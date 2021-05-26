@@ -84,6 +84,8 @@
                 this.fElement.appendChild(assist);
             }
 
+            console.log('one-season init');
+
             var parti = document.createElement('a-entity');
 
             parti.setAttribute('id', 'fourseason' + (this.idx + 1).toString());
@@ -105,6 +107,7 @@
         tick: function (time, dt) {
             console.log(this.enabled);
             if (this.enabled) {
+                console.log('one-season');
 
                 var parti = document.createElement('a-entity');
 
@@ -135,6 +138,7 @@
             this.len = this.data.images.length;
 
             this.idx = 0;
+            console.log('one-season update');
 
             this.pos = this.data.pos;
             this.images = this.data.images;
@@ -144,12 +148,12 @@
             this.starttime = this.data.starttime;
             this.duration = this.data.duration;
 
-            if (this.fElement.childElementCount > 0) {
-                for (var i = 0; i < this.fElement.childElementCount; i++) {
-                    if (this.fElement.children[i].hasAttribute('one-season')) {
+            if (element.childElementCount > 0) {
+                for (var i = 0; i < elementchildElementCount; i++) {
+                    if (element.children[i].hasAttribute('one-season')) {
                         //this.fElement.children[i].setAttribute('one-season', 'enabled', this.enabled);
-                        AFRAME.utils.entity.setComponentProperty(this.fElement.children[i], "one-season", { pos: this.pos });
-                        AFRAME.utils.entity.setComponentProperty(this.fElement.children[i], "one-season", { enabled: this.enabled });
+                        AFRAME.utils.entity.setComponentProperty(element.children[i], "one-season", { pos: this.pos });
+                        AFRAME.utils.entity.setComponentProperty(element.children[i], "one-season", { enabled: this.enabled });
                     }
                 }
             }
