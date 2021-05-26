@@ -104,24 +104,26 @@
 
         tick: function (time, dt) {
 
-            var parti = document.createElement('a-entity');
+            if (this.enabled) {
+                var parti = document.createElement('a-entity');
 
-            parti.setAttribute('id', 'fourseason' + (this.idx + 1).toString());
-            parti.setAttribute('one-season', 'pos', this.pos);
-            parti.setAttribute('one-season', 'texture', '#afourseason' + (this.idx + 1).toString());
-            parti.setAttribute('one-season', 'partisys', this.partisys);
-            parti.setAttribute('one-season', 'opacity', this.opacity);
-            parti.setAttribute('one-season', 'enabled', this.enabled);
-            parti.setAttribute('one-season', 'starttime', this.starttime);
-            parti.setAttribute('one-season', 'duration', this.duration);
+                parti.setAttribute('id', 'fourseason' + (this.idx + 1).toString());
+                parti.setAttribute('one-season', 'pos', this.pos);
+                parti.setAttribute('one-season', 'texture', '#afourseason' + (this.idx + 1).toString());
+                parti.setAttribute('one-season', 'partisys', this.partisys);
+                parti.setAttribute('one-season', 'opacity', this.opacity);
+                parti.setAttribute('one-season', 'enabled', this.enabled);
+                parti.setAttribute('one-season', 'starttime', this.starttime);
+                parti.setAttribute('one-season', 'duration', this.duration);
 
-            //console.log(('texture: ' + path + this.images[this.idx] + ',' + this.partisys));
-            this.fElement.appendChild(parti);
+                //console.log(('texture: ' + path + this.images[this.idx] + ',' + this.partisys));
+                this.fElement.appendChild(parti);
 
-            if ((this.idx + 1) < this.len) {
-                this.idx += 1;
-            } else {
-                this.idx = 0;
+                if ((this.idx + 1) < this.len) {
+                    this.idx += 1;
+                } else {
+                    this.idx = 0;
+                }
             }
         },
 
@@ -196,14 +198,16 @@
         },
 
         tick: function (time, dt) {
+            if (this.enabled) {
 
-            if (this.view) {
-                let element = this.el;
-                element.parentNode.removeChild(element);
+                if (this.view) {
+                    let element = this.el;
+                    element.parentNode.removeChild(element);
+                }
+
+                this.view = true;
+                this.len += 1;
             }
-
-            this.view = true;
-            this.len += 1;
         },
 
         update: function () {
