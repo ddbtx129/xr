@@ -191,7 +191,7 @@
 
             this.view = false;
             this.len = 0;
-            this.tick = AFRAME.utils.throttle(this.tick, (this.duration / 2), this);
+            this.tick = AFRAME.utils.throttle(this.tick, this.duration, this);
         },
 
         tick: function (time, dt) {
@@ -212,8 +212,7 @@
         },
 
         update: function(){
-            //AFRAME.utils.entity.setComponentProperty(this.fElement, "particle-system", { enabled: this.enabled });
-            this.fElement.setAttribute('particle-system', ('texture: ' + this.texture + '; opacity: ' + this.opacity + '; ' + this.partisys + '; enabled: ' + this.enabled));
+            AFRAME.utils.entity.setComponentProperty(this.fElement, "particle-system", { enabled: this.enabled });
         }
     });
 
