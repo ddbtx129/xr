@@ -198,7 +198,8 @@
 
             if (this.len > 0 && this.len < 2) {
                 console.log('one-season:tick len:1')
-                this.fElement.setAttribute("particle-system", 'opacity', (this.opacity / 2));
+                this.fElement.style["opacity"] = "0";
+                this.fElement.style["transition"] = "opacity " + (this.duration / 2) + "ms linear";
                 this.view = true;
             } else {
                 if (this.view) {
@@ -211,7 +212,8 @@
         },
 
         update: function(){
-            AFRAME.utils.entity.setComponentProperty(this.fElement, "particle-system", { enabled: this.enabled });
+            //AFRAME.utils.entity.setComponentProperty(this.fElement, "particle-system", { enabled: this.enabled });
+            this.fElement.setAttribute('particle-system', ('texture: ' + this.texture + '; opacity: ' + this.opacity + '; ' + this.partisys + '; enabled: ' + this.enabled));
         }
     });
 
