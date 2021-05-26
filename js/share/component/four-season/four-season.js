@@ -103,8 +103,9 @@
         },
 
         tick: function (time, dt) {
-
+            console.log(this.enabled);
             if (this.enabled) {
+
                 var parti = document.createElement('a-entity');
 
                 parti.setAttribute('id', 'fourseason' + (this.idx + 1).toString());
@@ -137,6 +138,17 @@
                         AFRAME.utils.entity.setComponentProperty(this.fElement.children[i], "one-season", { pos: this.pos });
                         AFRAME.utils.entity.setComponentProperty(this.fElement.children[i], "one-season", { enabled: this.enabled });
                     }
+                }
+            }
+        },
+
+        remove: function () {
+            let element = this.el;
+
+            if (this.fElement.childElementCount > 0) {
+                for (var i = 0; i < this.fElement.childElementCount; i++) {
+                    let element = this.el;
+                    element.removeChild(element.children[i]);
                 }
             }
         }
@@ -188,7 +200,7 @@
             this.enabled = this.data.enabled;
             this.starttime = this.data.starttime;
             this.duration = this.data.duration;
-
+            console.log('particle-system');
             this.fElement.setAttribute('position', this.pos);
             this.fElement.setAttribute('particle-system', ('texture: ' + this.texture + '; opacity: ' + this.opacity + '; ' + this.partisys + '; enabled: ' + this.enabled));
 
