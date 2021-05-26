@@ -197,9 +197,9 @@
         tick: function (time, dt) {
 
             if (this.len > 0 && this.len < 2) {
-                console.log('one-season:tick len:1')
-                this.fElement.style["opacity"] = "0";
-                this.fElement.style["transition"] = "opacity " + (this.duration / 2) + "ms linear";
+                //console.log('one-season:tick len:1')
+                //this.fElement.style["opacity"] = "0";
+                //this.fElement.style["transition"] = "opacity " + (this.duration / 2) + "ms linear";
                 this.view = true;
             } else {
                 if (this.view) {
