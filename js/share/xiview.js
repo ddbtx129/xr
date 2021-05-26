@@ -2171,7 +2171,7 @@ var viewmode = 'marker';
                         if (webAr.ar.arData[i].isParti) {
                             for (var k = 0; k < webAr.ar.args[i].Particle.length; k++) {
                                 var parti = document.getElementById(webAr.ar.args[i].Particle[k].idnm);
-                                if (webAr.ar.args[i].particle[k].kind == 0) {
+                                if (webAr.ar.args[i].Particle[k].kind == 0) {
                                     //var parti = document.getElementById("arParticle" + ((i + 1) * 100 + (k + 1)));
                                     AFRAME.utils.entity.setComponentProperty(parti, "particle-system", { enabled: true });
                                 } else if (webAr.ar.args[i].Particle[k].kind == 1) {
@@ -2233,7 +2233,7 @@ var viewmode = 'marker';
                         if (webAr.ar.arData[i].isParti) {
                             for (var k = 0; k < webAr.ar.args[i].Particle.length; k++) {
                                 var parti = document.getElementById(webAr.ar.args[i].Particle[k].idnm);
-                                if (webAr.ar.args[i].particle[k].kind == 0) {
+                                if (webAr.ar.args[i].Particle[k].kind == 0) {
                                     //var parti = document.getElementById("arParticle" + ((i + 1) * 100 + (k + 1)));
                                     AFRAME.utils.entity.setComponentProperty(parti, "particle-system", { enabled: false });
                                 } else if (webAr.ar.args[i].Particle[k].kind == 1) {
@@ -2775,7 +2775,7 @@ var viewmode = 'marker';
                     if (webAr.ar.arData[i].isParti) {
                         for (var k = 0; k < webAr.ar.args[i].Particle.length; k++) {
                             var parti = document.getElementById(self.args[idx].Particle[k].idnm);
-                            if (self.args[idx].particle[k].kind == 0) {
+                            if (self.args[idx].Particle[k].kind == 0) {
                                 //var parti = document.getElementById("arParticle" + ((i + 1) * 100 + (k + 1)));
                                 AFRAME.utils.entity.setComponentProperty(parti, "particle-system", { enabled: false });
                             } else if (self.args[idx].Particle[k].kind == 1) {
@@ -2822,7 +2822,7 @@ var viewmode = 'marker';
                     if (webAr.ar.arData[j].isParti) {
                         for (var k = 0; k < webAr.ar.args[j].Particle.length; k++) {
                             var parti = document.getElementById(webAr.ar.args[j].Particle[k].idnm);
-                            if (webAr.ar.args[j].particle[k].kind == 0) {
+                            if (webAr.ar.args[j].Particle[k].kind == 0) {
                                 //var parti = document.getElementById("arParticle" + ((j + 1) * 100 + (k + 1)));
                                 AFRAME.utils.entity.setComponentProperty(parti, "particle-system", { enabled: true });
                             } else if (webAr.ar.args[j].Particle[k].kind == 1) {
@@ -3534,7 +3534,7 @@ var viewmode = 'marker';
     webAr.ar = ar;
     webAr.ar.init();
 
-    webAr.ar.args = ar.args;
+    //webAr.ar.args = ar.args;
 
     webAr.ar.setDiplayBtn(!!(ar.args[0].pv));
 
