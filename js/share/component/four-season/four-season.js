@@ -149,7 +149,7 @@
             this.duration = this.data.duration;
 
             if (element.childElementCount > 0) {
-                for (var i = 0; i < elementchildElementCount; i++) {
+                for (var i = 0; i < element.childElementCount; i++) {
                     if (element.children[i].hasAttribute('one-season')) {
                         //this.fElement.children[i].setAttribute('one-season', 'enabled', this.enabled);
                         AFRAME.utils.entity.setComponentProperty(element.children[i], "one-season", { pos: this.pos });
