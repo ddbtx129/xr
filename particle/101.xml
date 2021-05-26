@@ -18,6 +18,10 @@
                 <xs:element name="pos" type="xs:string" minOccurs="0" />
                 <!--particle-system-->
                 <xs:element name="partisys" type="xs:string" minOccurs="0" />
+                <!--particle-system opacity プロパティ-->
+                <xs:element name="opacity" type="xs:string" minOccurs="0" />
+                <!--particle-system enabled プロパティ-->
+                <xs:element name="enabled" type="xs:string" minOccurs="0" />
                 <!--a-assets使用 0:なし 1:使用-->
                 <xs:element name="assets" type="xs:string" minOccurs="0" />
                 <!--a-assets ID-->
@@ -43,6 +47,8 @@
     <idnm>arParticle</idnm>
     <pos>0 2.25 -15</pos>
     <partisys>preset: snow; opacity: 0.7; maxAge: 10; ParticleCount: 2500; velocityValue: 0 5 0; size: 5; enabled: true</partisys>
+    <opacity>0.7</opacity>
+    <enabled>true</enabled>
     <assets></assets>
     <assetsid></assetsid>
     <assetssrc></assetssrc>
