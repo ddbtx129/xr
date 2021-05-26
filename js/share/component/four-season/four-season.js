@@ -198,7 +198,7 @@
 
             if (this.len > 0 && this.len < 2) {
                 console.log('one-season:tick len:1')
-                AFRAME.utils.entity.setComponentProperty(this.fElement, "particle-system", { opacity: (this.opacity / 2) });
+                AFRAME.utils.entity.setComponentProperty("particle-system", 'opacity', (this.opacity / 2));
                 this.view = true;
             } else {
                 if (this.view) {
