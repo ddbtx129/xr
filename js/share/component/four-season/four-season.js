@@ -188,20 +188,16 @@
 
             this.fElement.setAttribute('position', this.pos);
             this.fElement.setAttribute('particle-system', ('texture: ' + this.texture + '; opacity: ' + this.opacity + '; ' + this.partisys + '; enabled: ' + this.enabled));
-            //this.fElement.style["background-color"] = "rgba(0, 0, 0, 0.0)";
-            //this.fElement.style["transition"] = "background-color " + (this.duration).toString() + "ms linear";
 
             this.view = false;
             this.len = 0;
             this.tick = AFRAME.utils.throttle(this.tick, (this.duration / 2), this);
-
         },
 
         tick: function (time, dt) {
 
             if (this.len > 0 && this.len < 2) {
-                this.fElement.style["background-color"] = "rgba(0, 0, 0, 0.0)";
-                this.fElement.style["transition"] = "background-color " + (this.duration / 2).toString() + "ms linear";
+                AFRAME.utils.entity.setComponentProperty(this.fElement, "particle-system", { opacity: (this.opacity / 2) });
                 this.view = true;
             } else {
                 if (this.view) {
