@@ -98,18 +98,18 @@
   </xs:schema>
 
   <basedata>
-    <ed0>1346359</ed0>
+    <ed0>1346363</ed0>
     <ar0>2</ar0>
     <pv></pv>
     <len>1</len>
     <wzoom>12</wzoom>
     <xyz>0 0 50</xyz>
-    <parti></parti>
+    <parti>101</parti>
     <fireworks></fireworks>
   </basedata>
 
   <pcsdata>
-    <ed1>1346359</ed1>
+    <ed1>1346363</ed1>
     <ar1>2</ar1>
     <m></m>
     <m1></m1>
@@ -140,7 +140,7 @@
     <ocz></ocz>
     <bg></bg>
     <l>C7</l>
-    <par>4905083106983_02</par>
+    <par>101</par>
     <firework></firework>
   </pcsdata>
 
