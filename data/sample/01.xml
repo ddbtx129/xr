@@ -45,6 +45,8 @@
                 <xs:element name="mo" type="xs:string" minOccurs="0" />
                 <!--オブジェクトタイプ-->
                 <xs:element name="t" type="xs:string" minOccurs="0" />
+                <!--オートプレイ-->
+                <xs:element name="aoutplay" type="xs:string" minOccurs="0" />
                 <!--影-->
                 <xs:element name="xs" type="xs:string" minOccurs="0" />
                 <xs:element name="xsa" type="xs:string" minOccurs="0" />
@@ -119,6 +121,7 @@
     <m2>01</m2>
     <mo></mo>
     <t>v</t>
+    <aoutplay>1</aoutplay>
     <xs></xs>
     <xsa></xsa>
     <xsb></xsb>
