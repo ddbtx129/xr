@@ -131,7 +131,7 @@
     <wha></wha>
     <whb></whb>
     <whc></whc>
-    <wrapzoom></wrapzoom>
+    <wrapzoom>0.8</wrapzoom>
     <materialshader>chromakey</materialshader>
     <o></o>
     <o1>sample</o1>
