@@ -217,6 +217,9 @@ var viewmode = 'marker';
                     // オブジェクトタイプ
                     args[idx].typeList = pcs[idx].t;
 
+                    // オートプレイ
+                    args[idx].aoutplay = pcs[idx].aoutplay;
+
                     // マーカー
                     args[idx].markerList = pcs[idx].m;
                     args[idx].markerList1 = pcs[idx].m1;
@@ -253,8 +256,10 @@ var viewmode = 'marker';
 
                     args[idx].LogoList = {};
                     args[idx].LogoAnimeList = {};
+                    args[idx].LogoPath = pcs[idx].logpath;
 
                     if (!!(logo)) {
+                        // マーカー＆オブジェクト
                         logo = (logo.match(/.{2}/g));
                         args[idx].LogoList = (logo).toString().split(',');
                         args[idx].LogoAnimeList = (args[idx].LogoList[1] && parseInt(args[idx].LogoList[1]));
@@ -411,6 +416,7 @@ var viewmode = 'marker';
 
                 args[idx].LogoList = {};
                 args[idx].LogoAnimeList = {};
+                args[idx].LogoPath = pcs[idx].logpath;
 
                 if (!!(logo)) {
                     logo = (logo.match(/.{2}/g));
@@ -576,6 +582,8 @@ var viewmode = 'marker';
                 dataObj[idx].isGif = !!(dataObj[idx].path || '').match(/\.gif$/i);
                 dataObj[idx].isMp4 = false;
                 dataObj[idx].isMp4 = !!(dataObj[idx].path || '').match(/\.mp4$/i);
+                dataObj[idx].isAoutplay = false;
+                dataObj[idx].isAoutplay = !!(self.args[idx].aoutplay);
                 dataObj[idx].isGltf = !!(dataObj[idx].path || '').match(/\.gltf$/i);
                 dataObj[idx].isPV = !!(self.arg.PVList);
                 dataObj[idx].isNFT = !!(self.arg.ARList);
@@ -808,8 +816,11 @@ var viewmode = 'marker';
                     }
 
                     if (dataObj[idx].isLogo) {
-
-                        dataObj[idx].logopath = rootPath + 'article/gltf/' + n_object + '/' + 'logo-' + self.args[idx].LogoList[0] + '.gltf';
+                        if(!(self.args[idx].LogoPath)){
+                            dataObj[idx].logopath = rootPath + 'article/gltf/' + n_object + '/' + 'logo-' + self.args[idx].LogoList[0] + '.gltf';
+                        } else {
+                            dataObj[idx].logopath = rootPath + 'article/gltf/' + self.args[idx].LogoPath.toString() + '/' + 'logo-' + self.args[idx].LogoList[0] + '.gltf';
+                        }
 
                         var model = document.createElement('a-asset-item');
                         model.setAttribute('crossorigin', 'anonymous');
@@ -2196,17 +2207,21 @@ var viewmode = 'marker';
                                     if (webAr.ar.arData[0].isRandom == 8 || webAr.ar.arData[0].isRandom == 9) {
                                         objnm = video.getAttribute('object-name');
                                     }
-                                    (document.getElementById("swPlay")).setAttribute('src', webAr.ar.getPlayButton(objnm));
-                                    document.getElementById("swPlay").style.display = 'inline';
-                                    webAr.ar.videoState[i] = 1;
-                                    video.pause();
+                                    if (webAr.ar.arData[i].isAoutplay) {
+                                        webAr.ar.videoState[i] = 3;
+                                        video.play();
+                                    } else {
+                                        (document.getElementById("swPlay")).setAttribute('src', webAr.ar.getPlayButton(objnm));
+                                        document.getElementById("swPlay").style.display = 'inline';
+                                        webAr.ar.videoState[i] = 1;
+                                        video.pause();
+                                    }
                                 } else {
                                     webAr.ar.videoState[i] = 3;
                                     video.play();
                                 }
                             }
                         } else {
-
                             webAr.ar.arData[i].viewIdx = 1;
                             webAr.markerIdx = '';
                             for (var j = 0; j < webAr.ar.arg.Multi; j++) {
@@ -2678,6 +2693,14 @@ var viewmode = 'marker';
                     if (webAr.ar.arData[0].isPV && !!(webAr.ar.arData[0].isFirework)) {
                         webAr.ar.startFireworksEvent(0);
                     }
+
+                    if (webAr.ar.arData[0].isMp4 && webAr.ar.arData[0].isAoutplay) {
+                        var video = document.querySelector('#source' + (((Number(0) + 1) * 100) + webAr.ar.arData[0].srcno.obj).toString());
+                        if (video != null) {
+                            webAr.ar.videoState[0] = 3;
+                            video.play();
+                        }
+                    }
                 }
             });
 
@@ -2741,10 +2764,15 @@ var viewmode = 'marker';
                     if (webAr.ar.arData[0].isRandom == 8 || webAr.ar.arData[0].isRandom == 9) {
                         objnm = video.getAttribute('object-name');
                     }
-                    (document.getElementById("swPlay")).setAttribute('src', webAr.ar.getPlayButton(objnm));
-                    document.getElementById('swPlay').style.display = 'inline';
-                    document.getElementById("info1").style.display = "none";
-                    webAr.ar.videoState[oidx] = 1;
+                    if (webAr.ar.arData[oidx].isAoutplay) {
+                        video.play();
+                        webAr.ar.videoState[oidx] = 3;
+                    } else {
+                        (document.getElementById("swPlay")).setAttribute('src', webAr.ar.getPlayButton(objnm));
+                        document.getElementById('swPlay').style.display = 'inline';
+                        document.getElementById("info1").style.display = "none";
+                        webAr.ar.videoState[oidx] = 1;
+                    }
                 } else {
                     video.play();
                     webAr.ar.videoState[oidx] = 3;
@@ -2809,10 +2837,15 @@ var viewmode = 'marker';
                             if (webAr.ar.arData[0].isRandom == 8 || webAr.ar.arData[0].isRandom == 9) {
                                 objnm = video.getAttribute('object-name');
                             }
-                            (document.getElementById("swPlay")).setAttribute('src', webAr.ar.getPlayButton(objnm));
-                            document.getElementById('swPlay').style.display = 'inline';
-                            document.getElementById("info1").style.display = "none";
-                            webAr.ar.videoState[j] = 1;
+                            if (webAr.ar.arData[j].isAoutplay) {
+                                video.play();
+                                webAr.ar.videoState[j] = 3;
+                            } else {
+                                (document.getElementById("swPlay")).setAttribute('src', webAr.ar.getPlayButton(objnm));
+                                document.getElementById('swPlay').style.display = 'inline';
+                                document.getElementById("info1").style.display = "none";
+                                webAr.ar.videoState[j] = 1;
+                            }
                         } else {
                             video.play();
                             webAr.ar.videoState[j] = 3;
@@ -2872,8 +2905,14 @@ var viewmode = 'marker';
                                     if (webAr.ar.arData[0].isRandom == 8 || webAr.ar.arData[0].isRandom == 9) {
                                         objnm = video.getAttribute('object-name');
                                     }
-                                    (document.getElementById("swPlay")).setAttribute('src', webAr.ar.getPlayButton(objnm));
-                                    document.getElementById("swPlay").style.display = 'inline';
+
+                                    if (webAr.ar.arData[j].isAoutplay) {
+                                        video.play();
+                                        webAr.ar.videoState[j] = 3;
+                                    } else {
+                                        (document.getElementById("swPlay")).setAttribute('src', webAr.ar.getPlayButton(objnm));
+                                        document.getElementById("swPlay").style.display = 'inline';
+                                    }
                                 }
                             }
                             var slide = document.getElementById('slideshow').style.display;
@@ -3151,7 +3190,11 @@ var viewmode = 'marker';
                 document.getElementById("swScrshot").style.display = "inline";
                 document.getElementById("swCamera").style.display = "inline";
             } else {
-                document.getElementById("info1").style.display = "inline";
+                if (!(val[0].isAoutplay)) {
+                    document.getElementById("info1").style.display = "inline";
+                } else {
+                    document.getElementById("info1").style.display = "none";
+                }
                 document.getElementById("swScrshot").style.display = "none";
                 document.getElementById("swCamera").style.display = "none";
 
@@ -3181,10 +3224,13 @@ var viewmode = 'marker';
                         if (webAr.ar.arData[0].isRandom == 8 || webAr.ar.arData[0].isRandom == 9) {
                             objnm = video.getAttribute('object-name');
                         }
-                        (document.getElementById("swPlay")).setAttribute('src', webAr.ar.getPlayButton(objnm));
-                        document.getElementById("swPlay").style.display = 'inline';
-                        video.pause();
-                        webAr.ar.videoState[0] = 1;
+
+                        if (!(webAr.ar.arData[0].isAoutplay)) {
+                            (document.getElementById("swPlay")).setAttribute('src', webAr.ar.getPlayButton(objnm));
+                            document.getElementById("swPlay").style.display = 'inline';
+                            video.pause();
+                            webAr.ar.videoState[0] = 1;
+                        }
                     }
                 }
                 document.getElementById("arloader").style.display = 'none';
@@ -3395,6 +3441,7 @@ var viewmode = 'marker';
                 var cM2 = tabelnm.getElementsByTagName("m2");
                 var cMo = tabelnm.getElementsByTagName("mo");
                 var cT = tabelnm.getElementsByTagName("t");
+                var cAoutplay = tabelnm.getElementsByTagName("aoutplay");
                 var cXs = tabelnm.getElementsByTagName("xs");
                 var cXsa = tabelnm.getElementsByTagName("xsa");
                 var cXsb = tabelnm.getElementsByTagName("xsb");
@@ -3422,7 +3469,7 @@ var viewmode = 'marker';
                 var cOcZ = tabelnm.getElementsByTagName("ocz");
 
                 var cBg = tabelnm.getElementsByTagName("bg");
-
+                var cLPath = tabelnm.getElementsByTagName("logpath");
                 var cL = tabelnm.getElementsByTagName("l");
 
                 var cPar = tabelnm.getElementsByTagName("par");
@@ -3438,6 +3485,7 @@ var viewmode = 'marker';
                         m2: (cM2[i] != null) && cM2[i].textContent,
                         mo: (cMo[i] != null) && cMo[i].textContent,
                         t: (cT[i] != null) && cT[i].textContent,
+                        aoutplay: ((cAoutplay[i] != null) && cAoutplay[i].textContent) ? Number(cAoutplay[i].textContent) : 0,
                         xs: (cXs[i] != null) && cXs[i].textContent,
                         xsa: (cXsa[i] != null) && cXsa[i].textContent,
                         xsb: (cXsb[i] != null) && cXsb[i].textContent,
@@ -3465,7 +3513,7 @@ var viewmode = 'marker';
                         ocz: (cOcZ[i] != null) && cOcZ[i].textContent,
 
                         bg: (cBg[i] != null) && cBg[i].textContent,
-
+                        logpath: (cLPath[i] != null) && cLPath[i].textContent,
                         l: (cL[i] != null) && cL[i].textContent,
 
                         par: (cPar[i] != null) && cPar[i].textContent,
