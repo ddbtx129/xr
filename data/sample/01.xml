@@ -129,7 +129,7 @@
     <whb></whb>
     <whc></whc>
     <wrapzoom></wrapzoom>
-    <materialshader></materialshader>
+    <materialshader>chromakey</materialshader>
     <o></o>
     <o1>sample</o1>
     <o2>01</o2>
@@ -144,7 +144,7 @@
     <ocz></ocz>
     <bg></bg>
     <logpath>share</logpath>
-    <l>12B</l>
+    <l>C7</l>
     <par></par>
     <firework></firework>
   </pcsdata>
