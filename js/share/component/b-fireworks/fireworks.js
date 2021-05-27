@@ -221,8 +221,6 @@
 		remove: function () {
 			var self = this;
 
-			var self = this;
-
 			if (self.fElement.childElementCount > 0) {
 				for (var i = 0; i < self.fElement.childElementCount; i++) {
 					self.fElement.children[i].removeAttribute('firework');
