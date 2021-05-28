@@ -107,7 +107,7 @@
     <ar0>1</ar0>
     <pv></pv>
     <len></len>
-    <wzoom>0.8</wzoom>
+    <wzoom>0.6</wzoom>
     <xyz></xyz>
     <parti></parti>
     <fireworks></fireworks>
@@ -131,7 +131,7 @@
     <wha></wha>
     <whb></whb>
     <whc></whc>
-    <wrapzoom>0.8</wrapzoom>
+    <wrapzoom>0.6</wrapzoom>
     <materialshader>chromakey</materialshader>
     <o></o>
     <o1>sample</o1>
