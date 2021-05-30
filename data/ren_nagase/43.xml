@@ -123,7 +123,7 @@
     <an></an>
     <wh></wh>
     <wha>1.61</wha>
-    <whb></whb>
+    <whb>1.61</whb>
     <whc></whc>
     <wrapzoom></wrapzoom>
     <o></o>
@@ -136,7 +136,7 @@
     <wrapz>0 0 0</wrapz>
     <oz>0 0 0</oz>
     <oaz>0 0.65 0.01</oaz>
-    <obz></obz>
+    <obz>0 0 0.01</obz>
     <ocz></ocz>
     <bg></bg>
     <l>12C</l>
