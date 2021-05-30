@@ -154,7 +154,7 @@ var viewmode = 'marker';
                 document.getElementById("swSound").setAttribute("src", "asset/sound_off_w.png");
             }
 
-            if (!!(arg.xd)) {
+            //if (!!(arg.xd)) {
 
                 var base = {};
                 base = this.readBaseXml('data/' + arg.mo + '/' + arg.x + '.xml');
@@ -207,7 +207,8 @@ var viewmode = 'marker';
                     args[idx].sizeCList = pcs[idx].whc && (pcs[idx].whc);
 
                     // 倍率
-                    args[idx].WRAPZOOM = (pcs[idx].wrapzoom) && (parseInt(pcs[idx].wrapzoom, 10).toString());
+                    //args[idx].WRAPZOOM = (pcs[idx].wrapzoom) && (parseInt(pcs[idx].wrapzoom, 10).toString());
+                    args[idx].WRAPZOOM = (pcs[idx].wrapzoom) && pcs[idx].wrapzoom;
 
                     // マテリアル シェーダー
                     args[idx].MaterialShader = pcs[idx].materialshader;
@@ -265,6 +266,9 @@ var viewmode = 'marker';
                         args[idx].LogoAnimeList = (args[idx].LogoList[1] && parseInt(args[idx].LogoList[1]));
                     }
 
+                    args[idx].camera = !!(pcs[idx].camera) ? Number((pcs[idx].camera).toString()) : 0;
+                    args[idx].scrshot = !!(pcs[idx].scrshot) ? Number((pcs[idx].scrshot).toString()) : 0;
+
                     args[idx].PARList = (!!(pcs[idx].par) ? pcs[idx].par : arg.PARTI);
                     args[idx].FireWorkList = (!!(pcs[idx].firework) ? pcs[idx].firework : arg.fireworks);
 
@@ -298,7 +302,6 @@ var viewmode = 'marker';
                                 attribute.duration = parti[k].duration;
 
                                 particle[k] = attribute;
-                                console.log(particle[k].kind);
                             }
 
                             args[idx].Particle = particle;
@@ -309,7 +312,7 @@ var viewmode = 'marker';
 
                     if (!!(args[idx].FireWorkList)) {
 
-                        var file = 'particle/fireworks_' + args[idx].FireWorkList + '.xml';
+                        var file = 'particle/a_fireworks_' + args[idx].FireWorkList + '.xml';
                         var fsize = file.fileSize;
                         var particle = new Array();
 
@@ -348,84 +351,84 @@ var viewmode = 'marker';
                     bMulti.src = 'asset/markers-w.png';
                 }
 
-            } else {
+            //} else {
 
-                arg.Multi = 1;
+            //    arg.Multi = 1;
 
-                arg.ExDate = args[idx].ed && (parseInt(args[idx].ed, 16).toString(10));
+            //    arg.ExDate = args[idx].ed && (parseInt(args[idx].ed, 16).toString(10));
 
-                args[0] = {};
-                idx = 0;
+            //    args[0] = {};
+            //    idx = 0;
 
-                args[idx] = arg;
+            //    args[idx] = arg;
 
-                args[idx].ar = 0;
+            //    args[idx].ar = 0;
 
-                // プレビューモード
-                arg.PVList = arg.pv;
-                // マーカー OR NFT
-                arg.ARList = arg.ar && (parseInt(arg.ar, 10).toString());
+            //    // プレビューモード
+            //    arg.PVList = arg.pv;
+            //    // マーカー OR NFT
+            //    arg.ARList = arg.ar && (parseInt(arg.ar, 10).toString());
 
-                // マーカー OR NFT
-                args[idx].ARList = arg.ar && (parseInt(arg.ar, 10).toString());
+            //    // マーカー OR NFT
+            //    args[idx].ARList = arg.ar && (parseInt(arg.ar, 10).toString());
 
-                // 影
-                args[idx].shodowList = args[idx].xs && (parseInt(args[idx].xs, 16).toString(2));
+            //    // 影
+            //    args[idx].shodowList = args[idx].xs && (parseInt(args[idx].xs, 16).toString(2));
 
-                args[idx].ashodowList = args[idx].xsa && (parseInt(args[idx].xsa, 16).toString(2));
-                args[idx].bshodowList = args[idx].xsb && (parseInt(args[idx].xsb, 16).toString(2));
-                args[idx].cshodowList = args[idx].xsc && (parseInt(args[idx].xsc, 16).toString(2));
+            //    args[idx].ashodowList = args[idx].xsa && (parseInt(args[idx].xsa, 16).toString(2));
+            //    args[idx].bshodowList = args[idx].xsb && (parseInt(args[idx].xsb, 16).toString(2));
+            //    args[idx].cshodowList = args[idx].xsc && (parseInt(args[idx].xsc, 16).toString(2));
 
-                // サイズ
-                args[idx].sizeList = args[idx].wh && (parseInt(args[idx].wh, 16).toString(10));
-                // 角度
-                args[idx].angleList = args[idx].an && ((args[idx].an).toString());
-                // オブジェクトタイプ
-                args[idx].typeList = args[idx].t;
+            //    // サイズ
+            //    args[idx].sizeList = args[idx].wh && (parseInt(args[idx].wh, 16).toString(10));
+            //    // 角度
+            //    args[idx].angleList = args[idx].an && ((args[idx].an).toString());
+            //    // オブジェクトタイプ
+            //    args[idx].typeList = args[idx].t;
 
-                // マーカー
-                args[idx].markerList = args[idx].m;
-                args[idx].markerList1 = args[idx].m1;
-                args[idx].markerList2 = args[idx].m2;
+            //    // マーカー
+            //    args[idx].markerList = args[idx].m;
+            //    args[idx].markerList1 = args[idx].m1;
+            //    args[idx].markerList2 = args[idx].m2;
 
-                // 対象オブジェクト
-                args[idx].ObjectList = args[idx].o;
-                args[idx].ObjectList1 = args[idx].o1;
-                args[idx].ObjectList2 = args[idx].o2;
-                args[idx].ObjectList3 = !!(args[idx].o3) ? args[idx].o3 : args[idx].o2;
+            //    // 対象オブジェクト
+            //    args[idx].ObjectList = args[idx].o;
+            //    args[idx].ObjectList1 = args[idx].o1;
+            //    args[idx].ObjectList2 = args[idx].o2;
+            //    args[idx].ObjectList3 = !!(args[idx].o3) ? args[idx].o3 : args[idx].o2;
 
-                // マーカー＆オブジェクト
-                args[idx].MkObjList = args[idx].mo;
+            //    // マーカー＆オブジェクト
+            //    args[idx].MkObjList = args[idx].mo;
 
-                viewIdx[0] = 0;
-                videoState[0] = 0;
+            //    viewIdx[0] = 0;
+            //    videoState[0] = 0;
 
-                // 追加オブジェクト
-                args[idx].OAtList = args[idx].oa;
-                args[idx].OBtList = args[idx].ob;
-                args[idx].OCList = args[idx].oc;
+            //    // 追加オブジェクト
+            //    args[idx].OAtList = args[idx].oa;
+            //    args[idx].OBtList = args[idx].ob;
+            //    args[idx].OCList = args[idx].oc;
 
-                // オブジェクトZ軸(重なり)
-                args[idx].OZList = 0;
-                args[idx].OAZList = 0;
-                args[idx].OBZList = 0;
-                args[idx].OCZList = 0;
+            //    // オブジェクトZ軸(重なり)
+            //    args[idx].OZList = 0;
+            //    args[idx].OAZList = 0;
+            //    args[idx].OBZList = 0;
+            //    args[idx].OCZList = 0;
 
-                // ロゴ表示
-                var logo = args[idx].l && ('0000' + (parseInt(args[idx].l, 16).toString(10))).slice(-4);
+            //    // ロゴ表示
+            //    var logo = args[idx].l && ('0000' + (parseInt(args[idx].l, 16).toString(10))).slice(-4);
 
-                args[idx].LogoList = {};
-                args[idx].LogoAnimeList = {};
-                args[idx].LogoPath = pcs[idx].logpath;
+            //    args[idx].LogoList = {};
+            //    args[idx].LogoAnimeList = {};
+            //    args[idx].LogoPath = pcs[idx].logpath;
 
-                if (!!(logo)) {
-                    logo = (logo.match(/.{2}/g));
-                    args[idx].LogoList = (logo).toString().split(',');
-                    args[idx].LogoAnimeList = (args[idx].LogoList[1] && parseInt(args[idx].LogoList[1]));
-                }
+            //    if (!!(logo)) {
+            //        logo = (logo.match(/.{2}/g));
+            //        args[idx].LogoList = (logo).toString().split(',');
+            //        args[idx].LogoAnimeList = (args[idx].LogoList[1] && parseInt(args[idx].LogoList[1]));
+            //    }
 
-                args[idx].PARList = args[idx].par;
-            }
+            //    args[idx].PARList = args[idx].par;
+            //}
 
             if (!(arg.DebugMode)) {
                 document.getElementById('debug1').style.display = 'none';
@@ -601,6 +604,9 @@ var viewmode = 'marker';
                 dataObj[idx].isCShadow = self.args[idx].cshodowList && !!Number(self.args[idx].cshodowList);
                 
                 dataObj[idx].Shader = !!(self.args[idx].MaterialShader) ? (self.args[idx].MaterialShader).toString() : "standard";
+
+                dataObj[idx].isCamera = self.args[idx].camera && !!Number(self.args[idx].camera);
+                dataObj[idx].isScrshot = self.args[idx].scrshot && !!Number(self.args[idx].scrshot);
 
                 dataObj[idx].isParti = (!!(self.args[idx].PARList) ? self.args[idx].PARList : self.arg.PARTI);
                 dataObj[idx].isFirework = self.args[idx].FireWorkList;
@@ -3187,14 +3193,26 @@ var viewmode = 'marker';
                 document.getElementById("swSound").style.display = "none";
 
                 document.getElementById("info1").style.display = "none";
-                document.getElementById("swScrshot").style.display = "inline";
-                document.getElementById("swCamera").style.display = "inline";
+
+                if (val[0].isScrshot == 1) {
+                    document.getElementById("swScrshot").style.display = "inline";
+                } else {
+                    document.getElementById("swScrshot").style.display = "none";
+                }
+
+                if (val[0].isCamera == 1) {
+                    document.getElementById("swCamera").style.display = "inline";
+                } else {
+                    document.getElementById("swCamera").style.display = "none";
+                }
+
             } else {
                 if (!(val[0].isAoutplay)) {
                     document.getElementById("info1").style.display = "inline";
                 } else {
                     document.getElementById("info1").style.display = "none";
                 }
+
                 document.getElementById("swScrshot").style.display = "none";
                 document.getElementById("swCamera").style.display = "none";
 
@@ -3472,6 +3490,9 @@ var viewmode = 'marker';
                 var cLPath = tabelnm.getElementsByTagName("logpath");
                 var cL = tabelnm.getElementsByTagName("l");
 
+                var cCamera = tabelnm.getElementsByTagName("camera");
+                var cScrshot = tabelnm.getElementsByTagName("scrshot");
+
                 var cPar = tabelnm.getElementsByTagName("par");
                 var cFirework = tabelnm.getElementsByTagName("firework");
 
@@ -3515,6 +3536,9 @@ var viewmode = 'marker';
                         bg: (cBg[i] != null) && cBg[i].textContent,
                         logpath: (cLPath[i] != null) && cLPath[i].textContent,
                         l: (cL[i] != null) && cL[i].textContent,
+
+                        camera: (cCamera[i] != null) && cCamera[i].textContent,
+                        scrshot: (cScrshot[i] != null) && cScrshot[i].textContent,
 
                         par: (cPar[i] != null) && cPar[i].textContent,
                         firework: (cFirework[i] != null) && cFirework[i].textContent
@@ -3581,8 +3605,6 @@ var viewmode = 'marker';
 
     webAr.ar = ar;
     webAr.ar.init();
-
-    //webAr.ar.args = ar.args;
 
     webAr.ar.setDiplayBtn(!!(ar.args[0].pv));
 

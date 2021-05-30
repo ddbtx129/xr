@@ -154,7 +154,7 @@ var viewmode = 'marker';
                 document.getElementById("swSound").setAttribute("src", "asset/sound_off_w.png");
             }
 
-            if (!!(arg.xd)) {
+            //if (!!(arg.xd)) {
 
                 var base = {};
                 base = this.readBaseXml('data/' + arg.mo + '/' + arg.x + '.xml');
@@ -207,7 +207,8 @@ var viewmode = 'marker';
                     args[idx].sizeCList = pcs[idx].whc && (pcs[idx].whc);
 
                     // 倍率
-                    args[idx].WRAPZOOM = (pcs[idx].wrapzoom) && (parseInt(pcs[idx].wrapzoom, 10).toString());
+                    //args[idx].WRAPZOOM = (pcs[idx].wrapzoom) && (parseInt(pcs[idx].wrapzoom, 10).toString());
+                    args[idx].WRAPZOOM = (pcs[idx].wrapzoom) && pcs[idx].wrapzoom;
 
                     // マテリアル シェーダー
                     args[idx].MaterialShader = pcs[idx].materialshader;
@@ -216,6 +217,9 @@ var viewmode = 'marker';
                     args[idx].angleList = pcs[idx].an && ((pcs[idx].an).toString());
                     // オブジェクトタイプ
                     args[idx].typeList = pcs[idx].t;
+
+                    // オートプレイ
+                    args[idx].aoutplay = pcs[idx].aoutplay;
 
                     // マーカー
                     args[idx].markerList = pcs[idx].m;
@@ -253,12 +257,17 @@ var viewmode = 'marker';
 
                     args[idx].LogoList = {};
                     args[idx].LogoAnimeList = {};
+                    args[idx].LogoPath = pcs[idx].logpath;
 
                     if (!!(logo)) {
+                        // マーカー＆オブジェクト
                         logo = (logo.match(/.{2}/g));
                         args[idx].LogoList = (logo).toString().split(',');
                         args[idx].LogoAnimeList = (args[idx].LogoList[1] && parseInt(args[idx].LogoList[1]));
                     }
+
+                    args[idx].camera = !!(pcs[idx].camera) ? Number((pcs[idx].camera).toString()) : 0;
+                    args[idx].scrshot = !!(pcs[idx].scrshot) ? Number((pcs[idx].scrshot).toString()) : 0;
 
                     args[idx].PARList = (!!(pcs[idx].par) ? pcs[idx].par : arg.PARTI);
                     args[idx].FireWorkList = (!!(pcs[idx].firework) ? pcs[idx].firework : arg.fireworks);
@@ -278,13 +287,19 @@ var viewmode = 'marker';
 
                                 var attribute = {};
 
+                                attribute.kind = parti[k].kind;
+                                attribute.attribute = (parti[k].attribute != null) ? ((parti[k].attribute != '') ? parti[k].attribute : 'particle-system') : 'particle-system';
                                 attribute.idnm = (parti[k].idnm + (((idx + 1) * 100) + (k + 1)).toString());
                                 attribute.pos = parti[k].pos;
                                 attribute.partisys = parti[k].partisys;
-                                attribute.fireworks = parti[k].fireworks;
+                                //attribute.fireworks = parti[k].fireworks;
+                                attribute.opacity = parti[k].opacity;
+                                attribute.enabled = parti[k].enabled;
                                 attribute.assets = parti[k].assets;
                                 attribute.assetsid = parti[k].assetsid;
                                 attribute.assetssrc = parti[k].assetssrc;
+                                attribute.starttime = parti[k].starttime;
+                                attribute.duration = parti[k].duration;
 
                                 particle[k] = attribute;
                             }
@@ -297,7 +312,7 @@ var viewmode = 'marker';
 
                     if (!!(args[idx].FireWorkList)) {
 
-                        var file = 'particle/' + args[idx].FireWorkList + '.xml';
+                        var file = 'particle/b_fireworks_' + args[idx].FireWorkList + '.xml';
                         var fsize = file.fileSize;
                         var particle = new Array();
 
@@ -334,6 +349,7 @@ var viewmode = 'marker';
 
                                 particle[k] = attribute;
                             }
+
                         }
 
                         args[idx].Particlefireworks = particle;
@@ -348,83 +364,84 @@ var viewmode = 'marker';
                     bMulti.src = 'asset/markers-w.png';
                 }
 
-            } else {
+            //} else {
 
-                arg.Multi = 1;
+            //    arg.Multi = 1;
 
-                arg.ExDate = args[idx].ed && (parseInt(args[idx].ed, 16).toString(10));
+            //    arg.ExDate = args[idx].ed && (parseInt(args[idx].ed, 16).toString(10));
 
-                args[0] = {};
-                idx = 0;
+            //    args[0] = {};
+            //    idx = 0;
 
-                args[idx] = arg;
+            //    args[idx] = arg;
 
-                args[idx].ar = 0;
+            //    args[idx].ar = 0;
 
-                // プレビューモード
-                arg.PVList = arg.pv;
-                // マーカー OR NFT
-                arg.ARList = arg.ar && (parseInt(arg.ar, 10).toString());
+            //    // プレビューモード
+            //    arg.PVList = arg.pv;
+            //    // マーカー OR NFT
+            //    arg.ARList = arg.ar && (parseInt(arg.ar, 10).toString());
 
-                // マーカー OR NFT
-                args[idx].ARList = arg.ar && (parseInt(arg.ar, 10).toString());
+            //    // マーカー OR NFT
+            //    args[idx].ARList = arg.ar && (parseInt(arg.ar, 10).toString());
 
-                // 影
-                args[idx].shodowList = args[idx].xs && (parseInt(args[idx].xs, 16).toString(2));
+            //    // 影
+            //    args[idx].shodowList = args[idx].xs && (parseInt(args[idx].xs, 16).toString(2));
 
-                args[idx].ashodowList = args[idx].xsa && (parseInt(args[idx].xsa, 16).toString(2));
-                args[idx].bshodowList = args[idx].xsb && (parseInt(args[idx].xsb, 16).toString(2));
-                args[idx].cshodowList = args[idx].xsc && (parseInt(args[idx].xsc, 16).toString(2));
+            //    args[idx].ashodowList = args[idx].xsa && (parseInt(args[idx].xsa, 16).toString(2));
+            //    args[idx].bshodowList = args[idx].xsb && (parseInt(args[idx].xsb, 16).toString(2));
+            //    args[idx].cshodowList = args[idx].xsc && (parseInt(args[idx].xsc, 16).toString(2));
 
-                // サイズ
-                args[idx].sizeList = args[idx].wh && (parseInt(args[idx].wh, 16).toString(10));
-                // 角度
-                args[idx].angleList = args[idx].an && ((args[idx].an).toString());
-                // オブジェクトタイプ
-                args[idx].typeList = args[idx].t;
+            //    // サイズ
+            //    args[idx].sizeList = args[idx].wh && (parseInt(args[idx].wh, 16).toString(10));
+            //    // 角度
+            //    args[idx].angleList = args[idx].an && ((args[idx].an).toString());
+            //    // オブジェクトタイプ
+            //    args[idx].typeList = args[idx].t;
 
-                // マーカー
-                args[idx].markerList = args[idx].m;
-                args[idx].markerList1 = args[idx].m1;
-                args[idx].markerList2 = args[idx].m2;
+            //    // マーカー
+            //    args[idx].markerList = args[idx].m;
+            //    args[idx].markerList1 = args[idx].m1;
+            //    args[idx].markerList2 = args[idx].m2;
 
-                // 対象オブジェクト
-                args[idx].ObjectList = args[idx].o;
-                args[idx].ObjectList1 = args[idx].o1;
-                args[idx].ObjectList2 = args[idx].o2;
-                args[idx].ObjectList3 = !!(args[idx].o3) ? args[idx].o3 : args[idx].o2;
+            //    // 対象オブジェクト
+            //    args[idx].ObjectList = args[idx].o;
+            //    args[idx].ObjectList1 = args[idx].o1;
+            //    args[idx].ObjectList2 = args[idx].o2;
+            //    args[idx].ObjectList3 = !!(args[idx].o3) ? args[idx].o3 : args[idx].o2;
 
-                // マーカー＆オブジェクト
-                args[idx].MkObjList = args[idx].mo;
+            //    // マーカー＆オブジェクト
+            //    args[idx].MkObjList = args[idx].mo;
 
-                viewIdx[0] = 0;
-                videoState[0] = 0;
+            //    viewIdx[0] = 0;
+            //    videoState[0] = 0;
 
-                // 追加オブジェクト
-                args[idx].OAtList = args[idx].oa;
-                args[idx].OBtList = args[idx].ob;
-                args[idx].OCList = args[idx].oc;
+            //    // 追加オブジェクト
+            //    args[idx].OAtList = args[idx].oa;
+            //    args[idx].OBtList = args[idx].ob;
+            //    args[idx].OCList = args[idx].oc;
 
-                // オブジェクトZ軸(重なり)
-                args[idx].OZList = 0;
-                args[idx].OAZList = 0;
-                args[idx].OBZList = 0;
-                args[idx].OCZList = 0;
+            //    // オブジェクトZ軸(重なり)
+            //    args[idx].OZList = 0;
+            //    args[idx].OAZList = 0;
+            //    args[idx].OBZList = 0;
+            //    args[idx].OCZList = 0;
 
-                // ロゴ表示
-                var logo = args[idx].l && ('0000' + (parseInt(args[idx].l, 16).toString(10))).slice(-4);
+            //    // ロゴ表示
+            //    var logo = args[idx].l && ('0000' + (parseInt(args[idx].l, 16).toString(10))).slice(-4);
 
-                args[idx].LogoList = {};
-                args[idx].LogoAnimeList = {};
+            //    args[idx].LogoList = {};
+            //    args[idx].LogoAnimeList = {};
+            //    args[idx].LogoPath = pcs[idx].logpath;
 
-                if (!!(logo)) {
-                    logo = (logo.match(/.{2}/g));
-                    args[idx].LogoList = (logo).toString().split(',');
-                    args[idx].LogoAnimeList = (args[idx].LogoList[1] && parseInt(args[idx].LogoList[1]));
-                }
+            //    if (!!(logo)) {
+            //        logo = (logo.match(/.{2}/g));
+            //        args[idx].LogoList = (logo).toString().split(',');
+            //        args[idx].LogoAnimeList = (args[idx].LogoList[1] && parseInt(args[idx].LogoList[1]));
+            //    }
 
-                args[idx].PARList = args[idx].par;
-            }
+            //    args[idx].PARList = args[idx].par;
+            //}
 
             if (!(arg.DebugMode)) {
                 document.getElementById('debug1').style.display = 'none';
@@ -581,6 +598,8 @@ var viewmode = 'marker';
                 dataObj[idx].isGif = !!(dataObj[idx].path || '').match(/\.gif$/i);
                 dataObj[idx].isMp4 = false;
                 dataObj[idx].isMp4 = !!(dataObj[idx].path || '').match(/\.mp4$/i);
+                dataObj[idx].isAoutplay = false;
+                dataObj[idx].isAoutplay = !!(self.args[idx].aoutplay);
                 dataObj[idx].isGltf = !!(dataObj[idx].path || '').match(/\.gltf$/i);
                 dataObj[idx].isPV = !!(self.arg.PVList);
                 dataObj[idx].isNFT = !!(self.arg.ARList);
@@ -598,6 +617,9 @@ var viewmode = 'marker';
                 dataObj[idx].isCShadow = self.args[idx].cshodowList && !!Number(self.args[idx].cshodowList);
                 
                 dataObj[idx].Shader = !!(self.args[idx].MaterialShader) ? (self.args[idx].MaterialShader).toString() : "standard";
+
+                dataObj[idx].isCamera = self.args[idx].camera && !!Number(self.args[idx].camera);
+                dataObj[idx].isScrshot = self.args[idx].scrshot && !!Number(self.args[idx].scrshot);
 
                 dataObj[idx].isParti = (!!(self.args[idx].PARList) ? self.args[idx].PARList : self.arg.PARTI);
                 dataObj[idx].isFirework = self.args[idx].FireWorkList;
@@ -813,8 +835,11 @@ var viewmode = 'marker';
                     }
 
                     if (dataObj[idx].isLogo) {
-
-                        dataObj[idx].logopath = rootPath + 'article/gltf/' + n_object + '/' + 'logo-' + self.args[idx].LogoList[0] + '.gltf';
+                        if(!(self.args[idx].LogoPath)){
+                            dataObj[idx].logopath = rootPath + 'article/gltf/' + n_object + '/' + 'logo-' + self.args[idx].LogoList[0] + '.gltf';
+                        } else {
+                            dataObj[idx].logopath = rootPath + 'article/gltf/' + self.args[idx].LogoPath.toString() + '/' + 'logo-' + self.args[idx].LogoList[0] + '.gltf';
+                        }
 
                         var model = document.createElement('a-asset-item');
                         model.setAttribute('crossorigin', 'anonymous');
@@ -874,13 +899,30 @@ var viewmode = 'marker';
                         }
 
                         if (!!(self.args[idx].Particle[k].idnm)) {
-                            var parti = document.createElement('a-entity');
-                            parti.setAttribute('id', self.args[idx].Particle[k].idnm);
-                            parti.setAttribute('position', self.args[idx].Particle[k].pos);
-                            parti.setAttribute('particle-system', self.args[idx].Particle[k].partisys);
-                            parti.setAttribute('style', 'display:none');
 
-                            el.appendChild(parti);
+                            var parti = document.createElement('a-entity');
+
+                            if (self.args[idx].Particle[k].kind == 0) {
+
+                                parti.setAttribute('id', self.args[idx].Particle[k].idnm);
+                                parti.setAttribute('position', self.args[idx].Particle[k].pos);
+                                parti.setAttribute(self.args[idx].Particle[k].attribute, self.args[idx].Particle[k].partisys);
+                                parti.setAttribute('style', 'display:none');
+                                el.appendChild(parti);
+
+                            } else if (self.args[idx].Particle[k].kind == 1) {
+
+                                parti.setAttribute('id', self.args[idx].Particle[k].idnm);
+                                parti.setAttribute(self.args[idx].Particle[k].attribute, '');
+                                parti.setAttribute('style', 'display:none');
+
+                                el.appendChild(parti);
+
+                                parti.setAttribute(self.args[idx].Particle[k].attribute.toString(), 'pos', self.args[idx].Particle[k].pos);
+                                parti.setAttribute(self.args[idx].Particle[k].attribute.toString(), 'partisys', self.args[idx].Particle[k].partisys);
+                                parti.setAttribute(self.args[idx].Particle[k].attribute.toString(), 'starttime', Number(self.args[idx].Particle[k].starttime));
+                                parti.setAttribute(self.args[idx].Particle[k].attribute.toString(), 'duration', Number(self.args[idx].Particle[k].duration));
+                            }
                         }
                     }
                 }
@@ -2003,9 +2045,15 @@ var viewmode = 'marker';
 
                 if (!!(val[idx].isParti)) {
                     for (var k = 0; k < self.args[idx].Particle.length; k++) {
-                        var parti = document.getElementById("arParticle" + ((idx + 1) * 100 + (k + 1)));
-                        AFRAME.utils.entity.setComponentProperty(parti, "particle-system", { enabled: false });
-                    }
+                        var parti = document.getElementById(self.args[idx].Particle[k].idnm);
+                        if (self.args[idx].Particle[k].kind == 0) {
+                            // self.args[idx].Particle[k].idnm
+                            //var parti = document.getElementById("arParticle" + ((idx + 1) * 100 + (k + 1)));
+                            AFRAME.utils.entity.setComponentProperty(parti, "particle-system", { enabled: false });
+                        } else if (self.args[idx].Particle[k].kind == 1) {
+                            AFRAME.utils.entity.setComponentProperty(parti, "four-season", { enabled: false });
+                        }
+                    } 
                 }
 
                 if (self.arData[idx].isPV) {
@@ -2035,9 +2083,15 @@ var viewmode = 'marker';
                     } else {
                         if (!!(val[idx].isParti)) {
                             for (var k = 0; k < self.args[idx].Particle.length; k++) {
-                                var parti = document.getElementById("arParticle" + ((idx + 1) * 100 + (k + 1)));
-                                parti.setAttribute('position', '0 ' + (2.25 + wrapPos.y) + ' -15');
-                                AFRAME.utils.entity.setComponentProperty(parti, "particle-system", { enabled: true });
+                                var parti = document.getElementById(self.args[idx].Particle[k].idnm);
+                                if (self.args[idx].Particle[k].kind == 0) {
+                                    //var parti = document.getElementById("arParticle" + ((idx + 1) * 100 + (k + 1)));
+                                    parti.setAttribute('position', '0 ' + (2.25 + wrapPos.y) + ' -15');
+                                    AFRAME.utils.entity.setComponentProperty(parti, "particle-system", { enabled: true });
+                                } else if (self.args[idx].Particle[k].kind == 1) {
+                                    parti.setAttribute('four-season', 'pos', '0 ' + (2.25 + wrapPos.y) + ' -15');
+                                    AFRAME.utils.entity.setComponentProperty(parti, "four-season", { enabled: true });
+                                }
                             }
                         }
                     }
@@ -2048,9 +2102,15 @@ var viewmode = 'marker';
 
                     if (!!(val[idx].isParti)) {
                         for (var k = 0; k < self.args[idx].Particle.length; k++) {
-                            var parti = document.getElementById("arParticle" + ((idx + 1) * 100 + (k + 1)));
-                            parti.setAttribute('position', '0 2.25 -15');
-                            AFRAME.utils.entity.setComponentProperty(parti, "particle-system", { enabled: false });
+                            var parti = document.getElementById(self.args[idx].Particle[k].idnm);
+                            if (self.args[idx].Particle[k].kind == 0) {
+                                //var parti = document.getElementById("arParticle" + ((idx + 1) * 100 + (k + 1)));
+                                parti.setAttribute('position', '0 2.25 -15');
+                                AFRAME.utils.entity.setComponentProperty(parti, "particle-system", { enabled: false });
+                            } else if (self.args[idx].Particle[k].kind == 1) {
+                                parti.setAttribute('four-season', 'pos', '0 ' + (2.25 + wrapPos.y) + ' -15');
+                                AFRAME.utils.entity.setComponentProperty(parti, "four-season", { enabled: false });
+                            }
                         }
                     }
 
@@ -2140,8 +2200,13 @@ var viewmode = 'marker';
 
                         if (webAr.ar.arData[i].isParti) {
                             for (var k = 0; k < webAr.ar.args[i].Particle.length; k++) {
-                                var parti = document.getElementById("arParticle" + ((i + 1) * 100 + (k + 1)));
-                                AFRAME.utils.entity.setComponentProperty(parti, "particle-system", { enabled: true });
+                                var parti = document.getElementById(webAr.ar.args[i].Particle[k].idnm);
+                                if (webAr.ar.args[i].Particle[k].kind == 0) {
+                                    //var parti = document.getElementById("arParticle" + ((i + 1) * 100 + (k + 1)));
+                                    AFRAME.utils.entity.setComponentProperty(parti, "particle-system", { enabled: true });
+                                } else if (webAr.ar.args[i].Particle[k].kind == 1) {
+                                    AFRAME.utils.entity.setComponentProperty(parti, "four-season", { enabled: true });
+                                }
                             }
                         }
 
@@ -2161,17 +2226,21 @@ var viewmode = 'marker';
                                     if (webAr.ar.arData[0].isRandom == 8 || webAr.ar.arData[0].isRandom == 9) {
                                         objnm = video.getAttribute('object-name');
                                     }
-                                    (document.getElementById("swPlay")).setAttribute('src', webAr.ar.getPlayButton(objnm));
-                                    document.getElementById("swPlay").style.display = 'inline';
-                                    webAr.ar.videoState[i] = 1;
-                                    video.pause();
+                                    if (webAr.ar.arData[i].isAoutplay) {
+                                        webAr.ar.videoState[i] = 3;
+                                        video.play();
+                                    } else {
+                                        (document.getElementById("swPlay")).setAttribute('src', webAr.ar.getPlayButton(objnm));
+                                        document.getElementById("swPlay").style.display = 'inline';
+                                        webAr.ar.videoState[i] = 1;
+                                        video.pause();
+                                    }
                                 } else {
                                     webAr.ar.videoState[i] = 3;
                                     video.play();
                                 }
                             }
                         } else {
-
                             webAr.ar.arData[i].viewIdx = 1;
                             webAr.markerIdx = '';
                             for (var j = 0; j < webAr.ar.arg.Multi; j++) {
@@ -2197,8 +2266,13 @@ var viewmode = 'marker';
 
                         if (webAr.ar.arData[i].isParti) {
                             for (var k = 0; k < webAr.ar.args[i].Particle.length; k++) {
-                                var parti = document.getElementById("arParticle" + ((i + 1) * 100 + (k + 1)));
-                                AFRAME.utils.entity.setComponentProperty(parti, "particle-system", { enabled: false });
+                                var parti = document.getElementById(webAr.ar.args[i].Particle[k].idnm);
+                                if (webAr.ar.args[i].Particle[k].kind == 0) {
+                                    //var parti = document.getElementById("arParticle" + ((i + 1) * 100 + (k + 1)));
+                                    AFRAME.utils.entity.setComponentProperty(parti, "particle-system", { enabled: false });
+                                } else if (webAr.ar.args[i].Particle[k].kind == 1) {
+                                    AFRAME.utils.entity.setComponentProperty(parti, "four-season", { enabled: false });
+                                }
                             }
                         }
 
@@ -2638,6 +2712,14 @@ var viewmode = 'marker';
                     if (webAr.ar.arData[0].isPV && !!(webAr.ar.arData[0].isFirework)) {
                         webAr.ar.startFireworksEvent(0);
                     }
+
+                    if (webAr.ar.arData[0].isMp4 && webAr.ar.arData[0].isAoutplay) {
+                        var video = document.querySelector('#source' + (((Number(0) + 1) * 100) + webAr.ar.arData[0].srcno.obj).toString());
+                        if (video != null) {
+                            webAr.ar.videoState[0] = 3;
+                            video.play();
+                        }
+                    }
                 }
             });
 
@@ -2701,10 +2783,15 @@ var viewmode = 'marker';
                     if (webAr.ar.arData[0].isRandom == 8 || webAr.ar.arData[0].isRandom == 9) {
                         objnm = video.getAttribute('object-name');
                     }
-                    (document.getElementById("swPlay")).setAttribute('src', webAr.ar.getPlayButton(objnm));
-                    document.getElementById('swPlay').style.display = 'inline';
-                    document.getElementById("info1").style.display = "none";
-                    webAr.ar.videoState[oidx] = 1;
+                    if (webAr.ar.arData[oidx].isAoutplay) {
+                        video.play();
+                        webAr.ar.videoState[oidx] = 3;
+                    } else {
+                        (document.getElementById("swPlay")).setAttribute('src', webAr.ar.getPlayButton(objnm));
+                        document.getElementById('swPlay').style.display = 'inline';
+                        document.getElementById("info1").style.display = "none";
+                        webAr.ar.videoState[oidx] = 1;
+                    }
                 } else {
                     video.play();
                     webAr.ar.videoState[oidx] = 3;
@@ -2734,8 +2821,13 @@ var viewmode = 'marker';
 
                     if (webAr.ar.arData[i].isParti) {
                         for (var k = 0; k < webAr.ar.args[i].Particle.length; k++) {
-                            var parti = document.getElementById("arParticle" + ((i + 1) * 100 + (k + 1)));
-                            AFRAME.utils.entity.setComponentProperty(parti, "particle-system", { enabled: false });
+                            var parti = document.getElementById(self.args[idx].Particle[k].idnm);
+                            if (self.args[idx].Particle[k].kind == 0) {
+                                //var parti = document.getElementById("arParticle" + ((i + 1) * 100 + (k + 1)));
+                                AFRAME.utils.entity.setComponentProperty(parti, "particle-system", { enabled: false });
+                            } else if (self.args[idx].Particle[k].kind == 1) {
+                                AFRAME.utils.entity.setComponentProperty(parti, "four-season", { enabled: false });
+                            }
                         }
                     }
 
@@ -2764,10 +2856,15 @@ var viewmode = 'marker';
                             if (webAr.ar.arData[0].isRandom == 8 || webAr.ar.arData[0].isRandom == 9) {
                                 objnm = video.getAttribute('object-name');
                             }
-                            (document.getElementById("swPlay")).setAttribute('src', webAr.ar.getPlayButton(objnm));
-                            document.getElementById('swPlay').style.display = 'inline';
-                            document.getElementById("info1").style.display = "none";
-                            webAr.ar.videoState[j] = 1;
+                            if (webAr.ar.arData[j].isAoutplay) {
+                                video.play();
+                                webAr.ar.videoState[j] = 3;
+                            } else {
+                                (document.getElementById("swPlay")).setAttribute('src', webAr.ar.getPlayButton(objnm));
+                                document.getElementById('swPlay').style.display = 'inline';
+                                document.getElementById("info1").style.display = "none";
+                                webAr.ar.videoState[j] = 1;
+                            }
                         } else {
                             video.play();
                             webAr.ar.videoState[j] = 3;
@@ -2776,8 +2873,13 @@ var viewmode = 'marker';
 
                     if (webAr.ar.arData[j].isParti) {
                         for (var k = 0; k < webAr.ar.args[j].Particle.length; k++) {
-                            var parti = document.getElementById("arParticle" + ((j + 1) * 100 + (k + 1)));
-                            AFRAME.utils.entity.setComponentProperty(parti, "particle-system", { enabled: true });
+                            var parti = document.getElementById(webAr.ar.args[j].Particle[k].idnm);
+                            if (webAr.ar.args[j].Particle[k].kind == 0) {
+                                //var parti = document.getElementById("arParticle" + ((j + 1) * 100 + (k + 1)));
+                                AFRAME.utils.entity.setComponentProperty(parti, "particle-system", { enabled: true });
+                            } else if (webAr.ar.args[j].Particle[k].kind == 1) {
+                                AFRAME.utils.entity.setComponentProperty(parti, "four-season", { enabled: true });
+                            }
                         }
                     }
 
@@ -2822,8 +2924,14 @@ var viewmode = 'marker';
                                     if (webAr.ar.arData[0].isRandom == 8 || webAr.ar.arData[0].isRandom == 9) {
                                         objnm = video.getAttribute('object-name');
                                     }
-                                    (document.getElementById("swPlay")).setAttribute('src', webAr.ar.getPlayButton(objnm));
-                                    document.getElementById("swPlay").style.display = 'inline';
+
+                                    if (webAr.ar.arData[j].isAoutplay) {
+                                        video.play();
+                                        webAr.ar.videoState[j] = 3;
+                                    } else {
+                                        (document.getElementById("swPlay")).setAttribute('src', webAr.ar.getPlayButton(objnm));
+                                        document.getElementById("swPlay").style.display = 'inline';
+                                    }
                                 }
                             }
                             var slide = document.getElementById('slideshow').style.display;
@@ -2994,6 +3102,18 @@ var viewmode = 'marker';
             } 
         },
 
+        //setGyroReset: function () {
+
+        //    let btn = document.getElementById("btn");
+        //    let cameraWrapper = document.getElementById("camera-wrapper");
+        //    let camera = document.getElementById("camera");
+
+        //    btn.addEventListener("click", () => {
+        //        let y = camera.getAttribute("rotation").y;
+        //        cameraWrapper.setAttribute("rotation", { y: -1 * y });
+        //    });
+        //},
+
         setDiplayBtn: function (mode) {
 
             var self = this;
@@ -3009,10 +3129,26 @@ var viewmode = 'marker';
                 document.getElementById("swSound").style.display = "none";
 
                 document.getElementById("info1").style.display = "none";
-                document.getElementById("swScrshot").style.display = "inline";
-                document.getElementById("swCamera").style.display = "inline";
+
+                if (val[0].isScrshot == 1) {
+                    document.getElementById("swScrshot").style.display = "inline";
+                } else {
+                    document.getElementById("swScrshot").style.display = "none";
+                }
+
+                if (val[0].isCamera == 1) {
+                    document.getElementById("swCamera").style.display = "inline";
+                } else {
+                    document.getElementById("swCamera").style.display = "none";
+                }
+
             } else {
-                document.getElementById("info1").style.display = "inline";
+                if (!(val[0].isAoutplay)) {
+                    document.getElementById("info1").style.display = "inline";
+                } else {
+                    document.getElementById("info1").style.display = "none";
+                }
+
                 document.getElementById("swScrshot").style.display = "none";
                 document.getElementById("swCamera").style.display = "none";
 
@@ -3042,10 +3178,13 @@ var viewmode = 'marker';
                         if (webAr.ar.arData[0].isRandom == 8 || webAr.ar.arData[0].isRandom == 9) {
                             objnm = video.getAttribute('object-name');
                         }
-                        (document.getElementById("swPlay")).setAttribute('src', webAr.ar.getPlayButton(objnm));
-                        document.getElementById("swPlay").style.display = 'inline';
-                        video.pause();
-                        webAr.ar.videoState[0] = 1;
+
+                        if (!(webAr.ar.arData[0].isAoutplay)) {
+                            (document.getElementById("swPlay")).setAttribute('src', webAr.ar.getPlayButton(objnm));
+                            document.getElementById("swPlay").style.display = 'inline';
+                            video.pause();
+                            webAr.ar.videoState[0] = 1;
+                        }
                     }
                 }
                 document.getElementById("arloader").style.display = 'none';
@@ -3096,24 +3235,37 @@ var viewmode = 'marker';
 
                 var data = new Array();
 
+                var cKind = xmldata.getElementsByTagName("kind");
+                var cAttribute = xmldata.getElementsByTagName("attribute");
                 var cId = xmldata.getElementsByTagName("idnm");
                 var cPos = xmldata.getElementsByTagName("pos");
                 var cParti = xmldata.getElementsByTagName("partisys");
-                var cFireWorks = xmldata.getElementsByTagName("fireworks");
+                //var cFireWorks = xmldata.getElementsByTagName("fireworks");
+                var cOpacity = xmldata.getElementsByTagName("opacity");
+                var cEnabled = xmldata.getElementsByTagName("enabled");
                 var cAssets = xmldata.getElementsByTagName("assets");
                 var cAssetsid = xmldata.getElementsByTagName("assetsid");
                 var cAssetssrc = xmldata.getElementsByTagName("assetssrc");
+                var cStarttime = xmldata.getElementsByTagName("starttime");
+                var cDuration = xmldata.getElementsByTagName("duration");
 
                 var len = cId.length;
                 for (var i = 0; i < len; i++) {
                     data[i] = {
+                        kind: (cKind[i] != null) ? Number(cKind[i].textContent) : '0',
+                        attribute: (cAttribute[i] != null) && cAttribute[i].textContent,
                         idnm: (cId[i] != null) && cId[i].textContent,
                         pos: (cPos[i] != null) && cPos[i].textContent,
                         partisys: (cParti[i] != null) && cParti[i].textContent,
-                        fireworks: (cFireWorks[i] != null) && cFireWorks[i].textContent,
+                        //fireworks: (cFireWorks[i] != null) && cFireWorks[i].textContent,
+                        opacity: (cOpacity[i] != null) ? Number(cOpacity[i].textContent) : 1,
+                        enabled: ((cEnabled[i] != null) && cEnabled[i].textContent) ? Boolean(cEnabled[i].textContent) : false,
                         assets: (cAssets[i] != null) && cAssets[i].textContent,
                         assetsid: (cAssetsid[i] != null) && cAssetsid[i].textContent,
-                        cAssetssrc: (cAssetssrc[i] != null) && cAssetssrc[i].textContent
+                        assetssrc: (cAssetssrc[i] != null) && cAssetssrc[i].textContent,
+                        starttime: (cStarttime[i] != null) ? Number(cStarttime[i].textContent) : 0,
+                        duration: (cDuration[i] != null) ? Number(cDuration[i].textContent) : 0
+
                     };
                 };
 
@@ -3269,6 +3421,7 @@ var viewmode = 'marker';
                 var cM2 = tabelnm.getElementsByTagName("m2");
                 var cMo = tabelnm.getElementsByTagName("mo");
                 var cT = tabelnm.getElementsByTagName("t");
+                var cAoutplay = tabelnm.getElementsByTagName("aoutplay");
                 var cXs = tabelnm.getElementsByTagName("xs");
                 var cXsa = tabelnm.getElementsByTagName("xsa");
                 var cXsb = tabelnm.getElementsByTagName("xsb");
@@ -3284,16 +3437,24 @@ var viewmode = 'marker';
                 var cO1 = tabelnm.getElementsByTagName("o1");
                 var cO2 = tabelnm.getElementsByTagName("o2");
                 var cO3 = tabelnm.getElementsByTagName("o3");
+
                 var cOa = tabelnm.getElementsByTagName("oa");
                 var cOb = tabelnm.getElementsByTagName("ob");
                 var cOc = tabelnm.getElementsByTagName("oc");
+
                 var cWrapZ = tabelnm.getElementsByTagName("wrapz");
                 var cOZ = tabelnm.getElementsByTagName("oz");
                 var cOaZ = tabelnm.getElementsByTagName("oaz");
                 var cObZ = tabelnm.getElementsByTagName("obz");
                 var cOcZ = tabelnm.getElementsByTagName("ocz");
+
                 var cBg = tabelnm.getElementsByTagName("bg");
+                var cLPath = tabelnm.getElementsByTagName("logpath");
                 var cL = tabelnm.getElementsByTagName("l");
+
+                var cCamera = tabelnm.getElementsByTagName("camera");
+                var cScrshot = tabelnm.getElementsByTagName("scrshot");
+
                 var cPar = tabelnm.getElementsByTagName("par");
                 var cFirework = tabelnm.getElementsByTagName("firework");
 
@@ -3307,6 +3468,7 @@ var viewmode = 'marker';
                         m2: (cM2[i] != null) && cM2[i].textContent,
                         mo: (cMo[i] != null) && cMo[i].textContent,
                         t: (cT[i] != null) && cT[i].textContent,
+                        aoutplay: ((cAoutplay[i] != null) && cAoutplay[i].textContent) ? Number(cAoutplay[i].textContent) : 0,
                         xs: (cXs[i] != null) && cXs[i].textContent,
                         xsa: (cXsa[i] != null) && cXsa[i].textContent,
                         xsb: (cXsb[i] != null) && cXsb[i].textContent,
@@ -3322,16 +3484,24 @@ var viewmode = 'marker';
                         o1: (cO1[i] != null) && cO1[i].textContent,
                         o2: (cO2[i] != null) && cO2[i].textContent,
                         o3: (cO3[i] != null) && cO3[i].textContent,
+
                         oa: (cOa[i] != null) && cOa[i].textContent,
                         ob: (cOb[i] != null) && cOb[i].textContent,
                         oc: (cOc[i] != null) && cOc[i].textContent,
+
                         wrapz: (cWrapZ[i] != null) && cWrapZ[i].textContent,
                         oz: (cOZ[i] != null) && cOZ[i].textContent,
                         oaz: (cOaZ[i] != null) && cOaZ[i].textContent,
                         obz: (cObZ[i] != null) && cObZ[i].textContent,
                         ocz: (cOcZ[i] != null) && cOcZ[i].textContent,
+
                         bg: (cBg[i] != null) && cBg[i].textContent,
+                        logpath: (cLPath[i] != null) && cLPath[i].textContent,
                         l: (cL[i] != null) && cL[i].textContent,
+
+                        camera: (cCamera[i] != null) && cCamera[i].textContent,
+                        scrshot: (cScrshot[i] != null) && cScrshot[i].textContent,
+
                         par: (cPar[i] != null) && cPar[i].textContent,
                         firework: (cFirework[i] != null) && cFirework[i].textContent
                     };
