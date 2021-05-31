@@ -128,8 +128,8 @@
     <xsc></xsc>
     <an></an>
     <wh></wh>
-    <wha>1.2</wha>
-    <whb>1.2</whb>
+    <wha>1.4</wha>
+    <whb>1.4</whb>
     <whc></whc>
     <wrapzoom>0.6</wrapzoom>
     <materialshader>chromakey</materialshader>
@@ -143,7 +143,7 @@
     <wrapz>0 0 0</wrapz>
     <oz>0 0 0</oz>
     <oaz>0 0.4 -0.1</oaz>
-    <obz>0 0.4 0.01</obz>
+    <obz>0 0.2 0.01</obz>
     <ocz></ocz>
     <bg></bg>
     <logpath>share</logpath>
