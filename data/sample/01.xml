@@ -142,8 +142,8 @@
     <oc></oc>
     <wrapz>0 0 0</wrapz>
     <oz>0 0 0</oz>
-    <oaz>0 0.65 -0.01</oaz>
-    <obz>0 -0.16 0.01</obz>
+    <oaz>0 0.65 -0.1</oaz>
+    <obz>0 0.65 0.01</obz>
     <ocz></ocz>
     <bg></bg>
     <logpath>share</logpath>
