@@ -108,7 +108,7 @@
     <pv></pv>
     <len></len>
     <wzoom>0.6</wzoom>
-    <xyz></xyz>
+    <xyz>0 0 50</xyz>
     <parti></parti>
     <fireworks></fireworks>
   </basedata>
@@ -128,8 +128,8 @@
     <xsc></xsc>
     <an></an>
     <wh></wh>
-    <wha></wha>
-    <whb></whb>
+    <wha>1.61</wha>
+    <whb>1.61</whb>
     <whc></whc>
     <wrapzoom>0.6</wrapzoom>
     <materialshader>chromakey</materialshader>
@@ -137,13 +137,13 @@
     <o1>sample</o1>
     <o2>01</o2>
     <o3></o3>
-    <oa></oa>
-    <ob></ob>
+    <oa>share/06.png</oa>
+    <ob>share/07.png</ob>
     <oc></oc>
-    <wrapz></wrapz>
-    <oz></oz>
-    <oaz></oaz>
-    <obz></obz>
+    <wrapz>0 0 0</wrapz>
+    <oz>0 0 0</oz>
+    <oaz>0 0.65 -0.01</oaz>
+    <obz>0 -0.16 0.01</obz>
     <ocz></ocz>
     <bg></bg>
     <logpath>share</logpath>
